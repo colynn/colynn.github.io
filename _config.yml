@@ -20,6 +20,7 @@ description: Be focused and practical
 
 # List of links in the navigation bar
 navbar-links:
+  Blog: ""
   About Me: "aboutme"
   #Resources:
   #  - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
