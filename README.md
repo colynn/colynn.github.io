@@ -1,4 +1,4 @@
-# colynnn.github.io
+# colynn.github.io
 > *Copyright 2020 Colynn Liu. Licensed under the MIT license.
 
 Colynn Liu's website [https://colynn.github.io](https://colynn.github.io)
