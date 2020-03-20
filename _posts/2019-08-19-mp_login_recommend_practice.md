@@ -50,4 +50,36 @@ comments: true
     </script>
     ```
 
-[返回首页](/index.html)
+3. 小程序当前窗口高度获取（单位为rpx）
+
+    * 获取高度
+
+    ```
+    try {
+      const res = wx.getSystemInfoSync()
+      console.log(res.model)
+      console.log(res.pixelRatio)
+      console.log(res.screenWidth)
+      console.log(res.screenHeight)
+      console.log(res.language)
+      console.log(res.version)
+      console.log(res.platform)
+
+      var clientHeight=res.screenHeight,
+          clientWidth=res.screenWidth,
+          rpxR=750/clientWidth;
+      var calc=clientHeight*rpxR;
+      console.log('SystemScreenHeight: ' + calc)
+      wepy.setStorageSync('SystemScreenHeight', calc)
+    } catch (e) {
+      console.log("获取系统信息失败，使用默认高度")
+      wepy.setStorageSync('SystemScreenHeight', 1026)
+      // Do something when catch error
+    }
+    ```
+
+    * 使用高度
+
+    ```
+    var winHeight = wepy.getStorageSync('SystemScreenHeight');
+    ```
