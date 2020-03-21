@@ -4,7 +4,7 @@
 title: Colynn's Blog
 
 # Short description of your site
-description: Be focused and practical
+description: Be focused and Practical
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -20,7 +20,7 @@ description: Be focused and practical
 
 # List of links in the navigation bar
 navbar-links:
-  Blog: ""
+  Blog: "index"
   About Me: "aboutme"
   #Resources:
   #  - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
