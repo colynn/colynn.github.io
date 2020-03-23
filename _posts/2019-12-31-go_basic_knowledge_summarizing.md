@@ -131,8 +131,15 @@ _注_:
 	* %#v a Go-syntax representation of the value 
 	* %T a Go-syntax representation of the type of the value
 
+### >> << 操作符
 
+In decimal, 8 >> 1 is 4, and 8 << 1 is 16. Shifting left by one is the same as multiplication by 2, and shifting right by one is the same as dividing by two, discarding any remainder.
 
+It makes a lot of sense when I think that I was seeing this in code dealing with powers of 2 (1 << power = 2^power) 
+
+等价于这样： (x << n == x*2^n ) (x >> n == x*2^(-n)) 
+
+ 
 ### For循环
 Go 只有一种循环结构：for 循环。
 
@@ -793,4 +800,7 @@ type Person struct {
 * 如果没有定义 omitempty，则始终会返回addr这个字段。
 
 
-	
+
+
+### Refer to
+1. [Go << and >> operators](https://stackoverflow.com/questions/5801008/go-and-operators)
