@@ -137,6 +137,11 @@ staticman:
     siteKey  : # Use your own site key, you need to apply for one on Google
     secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
 
+# To use Gittalk comments
+gittalk:
+  clientID: 7196948b9a586a342072
+  clientSecret: 1acf6a13bc1ce7b8d8e3554789781ba2aaa4575c
+
 # --- Misc --- #
 
 # Facebook App ID
