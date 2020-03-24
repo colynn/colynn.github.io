@@ -2,6 +2,7 @@
 layout: page
 title: About me
 subtitle: 喜欢音乐/热爱编程/运维人
+comments: true
 ---
 
 ### remind me
