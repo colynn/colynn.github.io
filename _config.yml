@@ -121,9 +121,6 @@ url-pretty: "colynn.github.io"  # eg. "deanattali.com/beautiful-jekyll"
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
 # disqus: ""
 
-# If you want to use JustComments fill with the API Key
-#just-comments: "ABCD-EFGH-IJKL"
-
 # To use Facebook Comments, fill in a Facebook App ID
 # fb_comment_id: ""
 
@@ -142,6 +139,11 @@ staticman:
 gittalk:
   clientID: 7196948b9a586a342072
   clientSecret: 1acf6a13bc1ce7b8d8e3554789781ba2aaa4575c
+  repository: blog-comments
+  owner: colynn
+  admin:
+    - colynn
+    - colynn01
 
 # --- Misc --- #
 
