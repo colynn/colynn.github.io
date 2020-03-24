@@ -1,0 +1,19 @@
+{% if site.gittalk.clientID and site.gittalk.clientSecret %}
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script >
+  const gitalk = new Gitalk({
+    clientID: '7196948b9a586a342072',
+    clientSecret: '1acf6a13bc1ce7b8d8e3554789781ba2aaa4575c',
+    repo: 'blog-comments',
+    owner: 'colynn',
+    admin: ['colynn'],
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    perPage: 100
+})
+
+gitalk.render('gitalk-container')
+</script>
+
+{% endif %}
