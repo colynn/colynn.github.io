@@ -1,7 +1,7 @@
 # --- General options --- #
 
 # Name of website
-title: Colynn's Blog
+title: 刘园的博客 - Colynn
 
 # Short description of your site
 description: Be focused and Practical
@@ -20,9 +20,9 @@ description: Be focused and Practical
 
 # List of links in the navigation bar
 navbar-links:
-  Blog: "index"
-  Tags: "tags"
-  About Me: "aboutme"
+  博客: "index"
+  标签: "tags"
+  关于我: "aboutme"
   #Resources:
   #  - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
   #  - Learn markdown: "http://www.markdowntutorial.com/"
