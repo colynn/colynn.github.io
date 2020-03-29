@@ -23,8 +23,8 @@ comments: true
 gittalk:
   # Note: A GitHub Application is needed for authorization, if you don't have one, going to https://github.com/settings/applications/new register a new one.
   # You must specify the website domain url in the Authorization callback URL field.
-  clientID: 7196948b9a586a342072 # GitHub Application Client ID
-  clientSecret: 1acf6a13bc1ce7b8d8e3554789781ba2aaa4575c  # GitHub Application Client Secret,
+  clientID: 7196948b9a # GitHub Application Client ID
+  clientSecret: 1acf6a154789781ba2aaa4575c  # GitHub Application Client Secret,
   repository: blog-comments  # Storage gittalk's repository
   owner: colynn  # GitHub repo owner, 一般情况就是你的github帐号
   admin: colynn  # GitHub repo owner and collaborators, only these guys can initialize github issues eg. 'colynn,daattali' 如果你不需要让更多人有权限初始化gittalk评论时，这里也是只填写自己的github帐号就好。
@@ -60,7 +60,7 @@ gitalk.render('gitalk-container')
 ### 3. 引入至相应的页面`_layouts/page.html、_layouts/post.html`
 
 ```
-{% include gittalk-comment.html %}
+include gittalk-comment.html
 ```
 
 ### 4. 保存变更提交，重新部署
