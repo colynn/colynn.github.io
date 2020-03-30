@@ -2,7 +2,7 @@
 layout: post
 title: 如何创建自己的github站点
 subtitle: 站点模板选择/自动初始化gittalk评论组件
-tags: [blog, Gittalk]
+tags: [blog, Gittalk, utterance]
 comments: true
 ---
 
