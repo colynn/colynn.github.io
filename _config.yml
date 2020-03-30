@@ -147,7 +147,7 @@ gittalk:
   admin: colynn  # GitHub repo owner and collaborators, only these guys can initialize github issues eg. 'colynn,daattali'
 
 
-# To use Utteranc.es comments,  you can going to https://utteranc.es/ get more parameters interpretation.
+# To use Utterance comments,  you can going to https://utteranc.es/ get more parameters interpretation.
 utterance:
   # Note: Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
   # Make sure the [utterances app](https://github.com/apps/utterances) is installed on the repo, otherwise users will not be able to post comments.
@@ -155,6 +155,7 @@ utterance:
   repo: colynn/blog-comments # Choose the repository utterances will connect to. eg: owner/repo
   issue-term: title   # Choose the mapping between blog posts and GitHub issues. 
   theme: github-light # Choose an Utterances theme that matches your blog. 'github-light' is default
+
   ## Optional
   label:  blog-comments # Choose the label that will be assigned to issues created by Utterances.
 
