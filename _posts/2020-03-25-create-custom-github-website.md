@@ -33,35 +33,7 @@ gittalk:
 
 ### 2. 定义gittalk子页面至`_includes/gittalk-comment.html`
 
-```
-{% if site.gittalk.clientID and site.gittalk.clientSecret %}
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script >
-  const gitalk = new Gitalk({
-    clientID: '{{ site.gittalk.clientID }}',
-    clientSecret: "{{ site.gittalk.clientSecret }}",
-    repo: "{{ site.gittalk.repository }}",
-    owner: "{{ site.gittalk.owner }}",
-    admin: ["{{ site.gittalk.admin | split: ','  | join: '","'}}"],
-    id: "{{ page.url }}",    // Ensure uniqueness and length less than 50 
-    distractionFreeMode: false,  // Facebook-like distraction free mode
-    perPage: 100
-});
-
-gitalk.render('gitalk-container')
-</script>
-
-{% endif %}
-
-```
-
 ### 3. 引入至相应的页面`_layouts/page.html、_layouts/post.html`
-
-```
-include gittalk-comment.html
-```
 
 ### 4. 保存变更提交，重新部署
 在你已经引入gittalk的页面，首页访问时会显示如下页面：
@@ -74,6 +46,10 @@ include gittalk-comment.html
 
 其实也可以使用另外一种组件-[utterances](https://github.com/utterance/utterances), 目前utterances不支持引用回复，其他的
 
+__Note__: 引入Gitalk/Utterances的具体编码从[gist gitalk-comment support](https://gist.github.com/colynn/1cfa50c2b87eda4818a32b351d875d81)获取.
+
+
+## 评论组件对比
 
 功能特性 | Gitalk |  Utterances  
 -|-|-
