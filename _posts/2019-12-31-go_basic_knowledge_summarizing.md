@@ -127,9 +127,37 @@ _注_:
 * int, uint 和 uintptr 在 32 位系统上通常为 32 位宽，在 64 位系统上则为 64 位宽。 当你需要一个整数值时应使用 int 类型，除非你有特殊的理由使用固定大小或无符号的整数类型。
 *  reflect.TypeOf(x) 打印x的类型
 * 常用的格式化字符串：
-	* %v the value in a default format, when printing structs, the plus flag (%+v) adds field names 
-	* %#v a Go-syntax representation of the value 
-	* %T a Go-syntax representation of the type of the value
+
+```
+%v the value in a default format, when printing structs, the plus flag (%+v) adds field names 
+
+%#v a Go-syntax representation of the value 
+
+%T a Go-syntax representation of the type of the value
+
+%%	a literal percent sign; consumes no value
+
+```
+
+* Boolean:
+
+```
+%t	the word true or false
+```
+
+* Integer:
+
+```
+%b	base 2
+%c	the character represented by the corresponding Unicode code point
+%d	base 10
+%o	base 8
+%O	base 8 with 0o prefix
+%q	a single-quoted character literal safely escaped with Go syntax.
+%x	base 16, with lower-case letters for a-f
+%X	base 16, with upper-case letters for A-F
+%U	Unicode format: U+1234; same as "U+%04X"
+```
 
 ### >> << 操作符
 
