@@ -43,6 +43,8 @@ $ brew update && brew install kubectl
 curl -Lo minikube http://kubernetes.oss-cn-hangzhou.aliyuncs.com/minikube/releases/v0.30.0/minikube-darwin-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
 ```
 
+> 可以从这里获得更多的版本选择 [kuernetes minikube releases](https://github.com/kubernetes/minikube/releases)
+
 3. docker/virtualbox 是通过直接在相应官网下载镜像的方式来安装的.
 另外推荐你也可以尝试如下命令，直接通过brew安装。
 ```
