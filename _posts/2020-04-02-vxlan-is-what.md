@@ -47,6 +47,8 @@ Flannel是为一个为容器创建overlay网络的开源工具，经常和kubern
 * 通过`etcd`来共享 IP/MAC 信息。
 
 
+## 跨主机容器通信
+
 基于一个例子更好地理解VXLAN是怎样工作的。
 
 [![how it work]({{ site.url }}/img/vxlan/flannel.png)]({{ site.url }}/img/vxlan/flannel.png)
@@ -74,7 +76,9 @@ _注_: Flannel不控制容器如何与主机通信，而仅控制主机之间的
 
 因Node1/Node2均在同一网段，可以直接找到Node2接点（如果Node1与Node2不在同一网段，则会外部VXLAN网络头在不同的网络之间路由，当然这个时候源及目标MAC也就不是Node1与Node2, 因为通过不同的网络进行路由时，源及目标MAC会发生变化）。 数据包到达Node2，该过程就被逆转。 VXLAN帧将进入`flanneld`并被解封装，然后原始帧将通过veth1从网桥移动到container-3。
 
-关于VXLAN的最后一点是，帧的封装/去封装会增加网络堆栈的开销。 硬件加速可以减少开销但无法消除。 使用诸如[`Calico`](https://projectcalico.org)之类的解决方案可以避免这种开销。
+## 结论
+
+关于VXLAN的最后一点是，帧的封装/去封装会增加网络堆栈的开销。 硬件加速可以减少开销但无法消除。使用诸如[`Calico`](https://projectcalico.org)之类的解决方案可以避免这种开销。
 
 ## 参考
 1. [RFC7348- Virtual eXtensible Local Area Network (VXLAN)](https://tools.ietf.org/html/rfc7348#section-3.3)
