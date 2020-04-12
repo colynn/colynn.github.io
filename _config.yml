@@ -140,8 +140,8 @@ staticman:
 gittalk:
   # Note: A GitHub Application is needed for authorization, if you don't have one, going to https://github.com/settings/applications/new register a new one.
   # You must specify the website domain url in the Authorization callback URL field.
-  clientID:  # GitHub Application Client ID
-  clientSecret:   # GitHub Application Client Secret,
+  clientID:  7196948b9a586a342072 # GitHub Application Client ID
+  clientSecret: 1acf6a13bc1ce7b8d8e3554789781ba2aaa4575c  # GitHub Application Client Secret,
   repository: blog-comments  # Storage gittalk's repository
   owner: colynn  # GitHub repo owner,
   admin: colynn  # GitHub repo owner and collaborators, only these guys can initialize github issues eg. 'colynn,daattali'
