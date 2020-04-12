@@ -78,7 +78,8 @@ _注_: Flannel不控制容器如何与主机通信，而仅控制主机之间的
 
 ## 结论
 
-关于VXLAN的最后一点是，帧的封装/去封装会增加网络堆栈的开销。 硬件加速可以减少开销但无法消除。使用诸如[`Calico`](https://projectcalico.org)之类的解决方案可以避免这种开销。
+Flannel对于大多数用户来说是个不错的选择。从管理的角度来看，它提供了一个简单的网络模型，当你只需要基本的东西时，它提供了一个简单的网络模型，可以建立一个适合大多数用例的环境。总的来说，在你需要它所不能提供的东西之前(比如性能、网络策略等)，从Flannel开始使用是一个安全的选择。
+因为帧的封装/去封装会增加网络堆栈的开销，硬件加速可以减少开销但无法消除。使用诸如[`Calico`](https://projectcalico.org)之类的解决方案可以避免这种开销。
 
 ## 参考
 1. [RFC7348- Virtual eXtensible Local Area Network (VXLAN)](https://tools.ietf.org/html/rfc7348#section-3.3)
