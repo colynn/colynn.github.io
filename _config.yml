@@ -137,7 +137,7 @@ staticman:
 
 # To use Gittalk comments  https://github.com/gitalk/gitalk#Usage
 # jekyll synatx: https://jekyllrb.com/docs/liquid/
-gittalk:
+gitalk:
   # Note: A GitHub Application is needed for authorization, if you don't have one, going to https://github.com/settings/applications/new register a new one.
   # You must specify the website domain url in the Authorization callback URL field.
   clientID:  7196948b9a586a342072 # GitHub Application Client ID
