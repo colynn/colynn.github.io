@@ -76,10 +76,8 @@ _注_: Flannel不控制容器如何与主机通信，而仅控制主机之间的
 
 因Node1/Node2均在同一网段，可以直接找到Node2接点（如果Node1与Node2不在同一网段，则会外部VXLAN网络头在不同的网络之间路由，当然这个时候源及目标MAC也就不是Node1与Node2, 因为通过不同的网络进行路由时，源及目标MAC会发生变化）。 数据包到达Node2，该过程就被逆转。 VXLAN帧将进入`flanneld`并被解封装，然后原始帧将通过veth1从网桥移动到container-3。
 
-## 结论
-
-Flannel对于大多数用户来说是个不错的选择。从管理的角度来看，它提供了一个简单的网络模型，当你只需要基本的东西时，它提供了一个简单的网络模型，可以建立一个适合大多数用例的环境。总的来说，在你需要它所不能提供的东西之前(比如性能、网络策略等)，从Flannel开始使用是一个安全的选择。
-因为帧的封装/去封装会增加网络堆栈的开销，硬件加速可以减少开销但无法消除。使用诸如[`Calico`](https://projectcalico.org)之类的解决方案可以避免这种开销。
+## 写在最后
+关于 VXLAN 的最后一点，因为帧的封装/去封装会增加网络堆栈的开销，硬件加速可以减少开销但无法消除。使用诸如[`Calico`](https://projectcalico.org)之类的解决方案可以避免这种开销。
 
 ## 参考
 1. [RFC7348- Virtual eXtensible Local Area Network (VXLAN)](https://tools.ietf.org/html/rfc7348#section-3.3)
