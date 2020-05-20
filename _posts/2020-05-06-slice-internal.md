@@ -29,6 +29,59 @@ _注_: 长度`length`是切片引用的元素数, 容量`capacity`是底层数�
 
 Slice 不会拷贝slice的数据，它会创建一个指向原始数组的新slice. 也正是因为这样, 使slice的如操作arry的索引一样高效。因此， 修改重新切片的元素(而不是切片本身)会修改原始切片的元素。
 
+### 示例
+
+```
+func SubtractOneFromLength(slice []byte) []byte {
+	slice = slice[0 : len(slice)-1]
+	return slice
+}
+
+var buffer [256]byte
+
+func main() {
+	slice := buffer[10:20]
+	for i := 0; i < len(slice); i++ {
+		slice[i] = byte(i)
+	}
+	fmt.Println("Before: len(slice) =", len(slice))
+	newSlice := SubtractOneFromLength(slice)
+
+	fmt.Println("After:  len(slice) =", len(slice))
+	fmt.Println("After:  len(newSlice) =", len(newSlice))
+}
+
+```
+
+
+通过上面的函数，我们可以修改 slice 的内容，但是它的头部信息不能被修改。slice的长度不会被修改通过调用函数，因为函数传输的一个原有 slice 的拷贝， 而不是原有的slice。
+
+因为如果我们想修改 slice 的头部信息，我们必须返回 slice本身作为一个结果参数。如上面的函数一样，函数返回一个新的长度，然后赋值给`newSlice`.
+
+或者是处理函数时我们使用指针，如下面的函数：
+
+```
+func SubtractOneFromLength(slice *[]byte) *[]byte {
+	slicepr := *slice
+	*slice = slicepr[0 : len(*slice)-1]
+	return slice
+}
+
+var buffer [256]byte
+
+func main() {
+	slice := buffer[10:20]
+	for i := 0; i < len(slice); i++ {
+		slice[i] = byte(i)
+	}
+	fmt.Println("Before: len(slice) =", len(slice))
+	newSlice := SubtractOneFromLength(&slice)
+
+	fmt.Println("After:  len(slice) =", len(slice))
+	fmt.Println("After:  len(newSlice) =", len(*newSlice))
+}
+```
+
 ## Growing slices (the copy and append functions)
 为了增加slice的容量，必须创建一个更大的新的slice, 然后将原始的slice 内容拷贝进去。
 > 这种技术就是其他语言的动态数组实现如何在幕后工作的。
@@ -50,13 +103,21 @@ The copy function supports copying between slices of different lengths (it will 
 func append(s []T, x ...T) []T
 ```
 
-`append`函数添加`x`元素至 slice 的末尾，如果需要更大的容量，则增加切片。
+`append` 函数添加 `x` 元素至 slice 的末尾，如果需要更大的容量，则增加切片。
 
 
-### the difference
+### Append 时间复杂度
 
+> 概述：`append()`的摊销成本为O(1), 但最坏情况的成本为O(N).
+
+
+## 结论
+1. `append()`可以是昂贵的，尽管其摊销成本在理论上为O(1)。
+2. 当`slice`的大小较小时，分配内存可能是使用`slice`时最耗时的部分；当大小增加时，在内存中移动数据将占用更多的CPU时间。
+3. 如果我们知道`slice`的长度，我们应该使用 `make()`创建`slice`而不使用动态的追加`slice`。
 
 ## 参考 
 
 1. [Go Slices: usage and internals](https://blog.golang.org/slices-intro)
 2. [Array, slices(and strings): The mechanics of 'append'](https://blog.golang.org/slices)
+3. [Golang: The time complexity of append()](https://medium.com/vendasta/golang-the-time-complexity-of-append-2177dcfb6bad)
