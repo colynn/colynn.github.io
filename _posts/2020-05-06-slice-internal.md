@@ -110,6 +110,59 @@ func append(s []T, x ...T) []T
 
 > 概述：`append()`的摊销成本为O(1), 但最坏情况的成本为O(N).
 
+示例代码：
+
+```
+// main.go
+package main
+var size = 1 << 20
+func Append() {
+   var s []int
+   for i := 0; i < size; i++ {
+      s = append(s, i)
+   }
+   _ = s
+}
+func Make() {
+   s := make([]int, size)
+   for i := 0; i < size; i++ {
+      s[i] = i
+   }
+   _ = s
+}
+
+```
+
+```
+// main_test.go
+package main
+import "testing"
+func BenchmarkAppend(b *testing.B) {
+   for n := 0; n < b.N; n++ {
+      Append()
+   }
+}
+func BenchmarkMake(b *testing.B) {
+   for n := 0; n < b.N; n++ {
+      Make()
+   }
+}
+```
+
+运行结果 `go test -bench=.`
+
+```
+goos: darwin
+goarch: amd64
+pkg: newops/tmp/slice-append
+BenchmarkAppend-8            302           3925864 ns/op
+BenchmarkMake-8             1353            886194 ns/op
+PASS
+ok      newops/tmp/slice-append 2.704s
+```
+
+从结果可以看出，如果我们创建带容量的`slice`, 可以节约将近88%的 CPU使用时间。
+
 
 ## 结论
 1. `append()`可以是昂贵的，尽管其摊销成本在理论上为O(1)。
