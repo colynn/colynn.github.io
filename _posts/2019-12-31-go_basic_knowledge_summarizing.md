@@ -540,7 +540,7 @@ t, ok := i.(T)
 ```
 
 * i 代码要判断的变量， 必须为interface类型才可以进行类型断言；
-* T 代表要被判断的类型，eg: string, int64
+* T 代表要被判断的类型，eg: string, int64, struct 
 * t 代表返回的值，
 * ok 代码是否为该类型
 
