@@ -6,30 +6,6 @@ tags: [js]
 comments: true
 ---
 
-## 常用指令
-
-```
-JSON.parse(jsonstr); //可以将json字符串转换成json对象 
-
-JSON.stringify(jsonobj); //可以将json对象转换成json对符串 
-```
-
-
-```
-// js 检查字典对象的长度
-const dict = {1: 'aa',  2: 'bb', 3: 'cc'}
-Object.keys(dict).length
-```
-
-```
-// concat() 方法用于连接两个或多个数组。
-// 该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
-
-arrayObject.concat(arrayX,arrayX,......,arrayX)
-
-```
-
-
 ## 数据类型
 
 ```
@@ -226,6 +202,65 @@ variablename = (condition) ? value1:value2
 
 ```
 var voteable = (age < 18) ? "太年轻":"足够成熟";
+```
+
+
+## 常用指令
+
+```
+JSON.parse(jsonstr); //可以将json字符串转换成json对象 
+
+JSON.stringify(jsonobj); //可以将json对象转换成json对符串 
+```
+
+
+```
+// js 检查字典对象的长度
+const dict = {1: 'aa',  2: 'bb', 3: 'cc'}
+Object.keys(dict).length
+```
+
+```
+// concat() 方法用于连接两个或多个数组。
+// 该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
+
+arrayObject.concat(arrayX,arrayX,......,arrayX)
+
+```
+
+```
+// 字符串转化为 int
+const str1 = '1'
+parseInt(str1)
+
+// 
+```
+
+```
+// typeof operator returns a string indicating the type of the unevaluated operand.
+
+if ( typeof {} === 'object') {
+    console.log('correct, {} this is object')
+}
+```
+
+
+```
+/**
+    * Performs the specified action for each element in an array.
+    * @param callbackfn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
+    * @param thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+    */
+forEach(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void;
+
+this.tableData.forEach((_, index) => {
+    if (this.tableData[index].Status === 'Running') {
+        this.tableData[index].Status = '在线'
+    } else if (this.tableData[index].Status === 'Stopped') {
+        this.tableData[index].Status = '关闭'
+    }
+)
+
 ```
 
 
