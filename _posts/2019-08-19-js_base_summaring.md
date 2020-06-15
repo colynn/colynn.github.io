@@ -263,6 +263,24 @@ this.tableData.forEach((_, index) => {
 
 ```
 
+```
+// 时间比较
+console.log(new Date('2017-09-28T22:59:02.448804522Z').valueOf())
+
+const currentTime = new Date('2017-09-28T22:59:02.448804522Z').valueOf()
+    
+const expiryTime = new Date('2017-09-29T22:59:02.448804522Z').valueOf()
+
+if (currentTime < expiryTime) {
+    console.log('not expired')
+}
+
+// 方式二
+new Date('2017-09-28T22:59:02.448804522Z') > new Date()
+// true
+new Date('2017-09-28T22:59:02.448804522Z') < new Date()
+
+```
 
 ## 参考
 * [Javascript教程 A re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
