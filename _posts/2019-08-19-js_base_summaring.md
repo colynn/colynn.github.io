@@ -282,5 +282,13 @@ new Date('2017-09-28T22:59:02.448804522Z') < new Date()
 
 ```
 
+```
+// 遍历字典
+let dict1 = {'user': ['liuyuan','colynn'], 'email': ['colynn@example.com', 'abc.liu@test.com']}
+
+Object.keys(dict1).forEach((item)=>{console.log(item)})
+
+```
+
 ## 参考
 * [Javascript教程 A re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
