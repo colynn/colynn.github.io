@@ -105,3 +105,38 @@ this.$router.go(n)
 
 * `this.$router.go(n)`
 向前或者向后跳转n个页面，n可为正整数或负整数
+
+## Vue 路由
+
+
+## Vue State Management
+
+
+## 附录
+
+### Scoped CSS
+
+1. 含义
+When a <style> tag has the scoped attribute, its CSS will apply to elements of the current component only.
+
+
+With scoped, the parent component's styles will not leak into child components. However, a child component's root node will be affected by both the parent's scoped CSS and the child's scoped CSS. This is by design so that the parent can style the child root element for layout purposes.
+
+2. 如何使用
+
+You can include both scoped and non-scoped styles in the same component:
+
+```
+<style>
+/* global styles */
+</style>
+
+<style scoped>
+/* local styles */
+</style>
+
+```
+
+* Deep Selectors
+
+Some pre-processors, such as Sass, may not be able to parse >>> properly. In those cases you can use the /deep/ or ::v-deep combinator instead - both are aliases for >>> and work exactly the same
