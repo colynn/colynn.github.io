@@ -12,7 +12,7 @@ comments: true
 
 # Vue 路由
 
-## Vue 路由跳转方式
+## 1. Vue 路由跳转方式
 
 ### 1. router-link
 
