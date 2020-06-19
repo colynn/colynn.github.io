@@ -117,14 +117,12 @@ this.$router.go(n)
 ### Scoped CSS
 
 1. 含义
-When a <style> tag has the scoped attribute, its CSS will apply to elements of the current component only.
 
-
-With scoped, the parent component's styles will not leak into child components. However, a child component's root node will be affected by both the parent's scoped CSS and the child's scoped CSS. This is by design so that the parent can style the child root element for layout purposes.
+当 <style>标签有 `scoped`属性时，css 样式仅会应用在当前组件内。 父组件的样式不会影响子组件，然而子组件的根节点均会被父节点及子节点的`scoped`样式影响。这样是为了统一布局，父组件可以定义子组件的根元素。
 
 2. 如何使用
 
-You can include both scoped and non-scoped styles in the same component:
+你可以在一个组件内使用`scoped`和`non-scoped`样式：
 
 ```
 <style>
@@ -137,6 +135,30 @@ You can include both scoped and non-scoped styles in the same component:
 
 ```
 
-* Deep Selectors
+3. Deep Selectors
 
-Some pre-processors, such as Sass, may not be able to parse >>> properly. In those cases you can use the /deep/ or ::v-deep combinator instead - both are aliases for >>> and work exactly the same
+如果你想在一个包含`scoped`样式的selector 可以深度选择， 比如，影响子组件，你可以使用`>>>`选择符： 
+
+```
+<style scoped>
+.a >>> .b { /* ... */ }
+</style>
+```
+
+The above will be compiled into:
+
+```
+.a[data-v-f3f3eg9] .b { /* ... */ }
+```
+
+一些预解释器（像 Sass）, 也许不能正确地解析 `>>>`.在这种情况下，你可以使用 `/deep/` 或是`::v-deep` 选择符来替代。 
+
+4. Dynamically Generated Content
+
+DOM content created with v-html are not affected by scoped styles, but you can still style them using deep selectors.
+通过`v-html`创建的 DOM内容，不被`scoped`样式影响， 但是你可以使用`deep selector`改变样式。
+
+
+## 参考
+
+1. [Scoped CSS](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors)
