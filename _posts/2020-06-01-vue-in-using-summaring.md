@@ -6,10 +6,11 @@ tags: [vue, js]
 comments: true
 ---
 
-## Vue 生命周期
+# Vue 生命周期
 
 [![vue-lifecycle]({{ site.url }}/img/vue/lifecycle.png)]({{ site.url }}/img/vue/lifecycle.png)
 
+# Vue 路由
 
 ## Vue 路由跳转方式
 
@@ -106,15 +107,13 @@ this.$router.go(n)
 * `this.$router.go(n)`
 向前或者向后跳转n个页面，n可为正整数或负整数
 
-## Vue 路由
+
+# Vue State Management
 
 
-## Vue State Management
+# 附录
 
-
-## 附录
-
-### Scoped CSS
+## 1.Scoped CSS
 
 1. 含义
 
