@@ -157,7 +157,6 @@ The above will be compiled into:
 DOM content created with v-html are not affected by scoped styles, but you can still style them using deep selectors.
 通过`v-html`创建的 DOM内容，不被`scoped`样式影响， 但是你可以使用`deep selector`改变样式。
 
-
 ## 参考
 
 1. [Scoped CSS](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors)
