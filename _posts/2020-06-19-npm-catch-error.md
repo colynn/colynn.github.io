@@ -31,15 +31,15 @@ npm err! cb() never called!
 
 如果是缺少 git 命令， 请参照如下 `dockerfile` 为你的node镜像添加git 命令
 
-```
-## dockerfile
-FROM node:12.2.0-alpine
+    ```
+    ## dockerfile
+    FROM node:12.2.0-alpine
 
-# add git binary
-RUN apk update && apk upgrade && \
-    apk add --no-cache bash git openssh
+    # add git binary
+    RUN apk update && apk upgrade && \
+        apk add --no-cache bash git openssh
 
-```
+    ```
 
 2. 错误2-解决方案：
 如果是依赖本地包的问题，请将移动至docker可以识别的目录；
