@@ -13,21 +13,18 @@ comments: true
 
 也许你会遇到类似如下的错误：
 1. 错误1：
-
-```
-npm err! cb() never called!
-```
-
+    ```
+    npm err! cb() never called!
+    ```
 2. 错误2：
 
-```
-npm ERR! code ENOGIT
-npm ERR! No git binary found in $PATH
-npm ERR! 
-npm ERR! Failed using git.
-npm ERR! Please check if you have git installed and in your PATH.
-```
-
+    ```
+    npm ERR! code ENOGIT
+    npm ERR! No git binary found in $PATH
+    npm ERR! 
+    npm ERR! Failed using git.
+    npm ERR! Please check if you have git installed and in your PATH.
+    ```
 
 ### 解决方案
 1. 错误1-解决方案：
