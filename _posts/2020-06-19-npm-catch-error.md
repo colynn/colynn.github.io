@@ -13,6 +13,13 @@ comments: true
 
 也许你会遇到类似如下的错误：
 1. 错误1：
+
+```
+npm err! cb() never called!
+```
+
+2. 错误2：
+
 ```
 npm ERR! code ENOGIT
 npm ERR! No git binary found in $PATH
@@ -21,13 +28,12 @@ npm ERR! Failed using git.
 npm ERR! Please check if you have git installed and in your PATH.
 ```
 
-2. 错误2：
-```
-npm err! cb() never called!
-```
 
 ### 解决方案
 1. 错误1-解决方案：
+如果是依赖本地包的问题，请将移动至docker可以识别的目录；
+
+2. 错误2-解决方案：
 
 如果是缺少 git 命令， 请参照如下 `dockerfile` 为你的node镜像添加`git`命令
 ```
@@ -38,10 +44,6 @@ FROM node:12.2.0-alpine
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh
 ```
-
-2. 错误2-解决方案：
-如果是依赖本地包的问题，请将移动至docker可以识别的目录；
-
 
 ## 附录
 1. nginx config 
