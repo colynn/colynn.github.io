@@ -17,7 +17,6 @@ comments: true
     npm err! cb() never called!
     ```
 2. 错误2：
-
     ```
     npm ERR! code ENOGIT
     npm ERR! No git binary found in $PATH
