@@ -52,6 +52,12 @@ RUN apk update && apk upgrade && \
 
 2. nginx install
 
+*  `--package-lock` By default, package-lock.json is updated whenever you run npm install. However, this can be disabled globally by setting `package-lock=false` in `~/.npmrc`.
+
+When the global `package-lock=false` setting is active, you can still force a project’s package-lock.json file to be updated by running: `npm instal --package-lock`
+
+This command is the only surefire way of forcing a package-lock.json update.
+
 
 * The `--no-optional` argument will prevent optional dependencies from being installed.
 
