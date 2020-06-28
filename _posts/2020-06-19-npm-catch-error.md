@@ -69,9 +69,18 @@ This command is the only surefire way of forcing a package-lock.json update.
 
 * The `--nodedir=/path/to/node/source` argument will allow npm to find the node source code so that npm can compile native modules.
 
-* The `--registry=https://registry.npm.taobao.org`  基于指定仓库安装相关包
+* The `--registry=https://xx.taobao.org` 
+基于指定仓库安装相关包
+
+* Using locked packages
+    * 注意使用`package-lock`与不使用`package-lock`并没有什么不同， 因为任何更新`node_modules` and/or `package.json`依赖关系的命令都将自动同步现有的`package-lock.json`。 命令包括（`npm install/ npm rm/ npm update`等等）
+    * 你可以使用`--no-save`来完全阻止这个更新, 或者使用`--no-shrinkwrap`更新`package.json`，同时保持`package-lock.json`或`npm-shinshwrap.json`完好无损。
+
+    * 另外也强烈推荐将 lock 文件加入版本控制, 这样均可以获取统一的依赖树（不论是团队成员、还是CI工具等）
+* `--package-lock-only`  npm will automatically resolve any conflicts for you and write a merged package lock that includes all the dependencies from both branches in a reasonable tree.
 
 ## 参考 
 
 1. [npm config](https://docs.npmjs.com/misc/config#npmrc-files)
 2. [npm install](https://docs.npmjs.com/cli/install)
+3. [pakcage locks](https://docs.npmjs.com/configuring-npm/package-locks)
