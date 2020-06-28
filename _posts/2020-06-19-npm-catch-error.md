@@ -56,7 +56,9 @@ RUN apk update && apk upgrade && \
 
 *  `--package-lock` By default, package-lock.json is updated whenever you run npm install. However, this can be disabled globally by setting `package-lock=false` in `~/.npmrc`.
 
-When the global `package-lock=false` setting is active, you can still force a project’s package-lock.json file to be updated by running: `npm instal --package-lock`
+When the global `package-lock=false` setting is active, you can still force a project’s package-lock.json file to be updated by running: 
+
+```npm instal --package-lock```
 
 This command is the only surefire way of forcing a package-lock.json update.
 
@@ -67,6 +69,7 @@ This command is the only surefire way of forcing a package-lock.json update.
 
 * The `--nodedir=/path/to/node/source` argument will allow npm to find the node source code so that npm can compile native modules.
 
+* The `--registry=https://registry.npm.taobao.org`  基于指定仓库安装相关包
 
 ## 参考 
 
