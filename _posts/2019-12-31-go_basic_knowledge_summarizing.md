@@ -759,6 +759,12 @@ __注__:
 	fmt.Printf("string: %s", d)
 	```
 
+	* int 转换为二进制、十六进制
+	```
+	binary := strconv.FormatInt(int64(i), 2)
+	hexadecimal := strconv.FormatInt(int64(i), 16)
+	```
+
 	* 字符串拼接
 
 	```
