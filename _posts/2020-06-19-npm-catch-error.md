@@ -58,7 +58,7 @@ RUN apk update && apk upgrade && \
 
 When the global `package-lock=false` setting is active, you can still force a project’s package-lock.json file to be updated by running: 
 
-```npm instal --package-lock```
+```npm install --package-lock```
 
 This command is the only surefire way of forcing a package-lock.json update.
 
