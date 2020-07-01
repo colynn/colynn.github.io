@@ -160,7 +160,7 @@ Vue.directive('permissionaction', {
 ### 注意点
 1. `vue-router` 提供了`addRouters`来进行添加路由，但是却没有移除路由的相关选项，当切换用户或是变更角色时，可以另外创建一个 router实例来替换之前的实例。 [详见这里-Feature request: replace routes dynamically](https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465)
 
-2. Vue mathcing priority: the earlier a route is defined, the higher priority it gets, 所以如果你想匹配其他的页面至 /404, 请你一定将 `{ path: '*', redirect: '/404', hidden: true }` 定义至路由的__最后__。
+2. Vue mathcing priority: the earlier a route is defined, the higher priority it gets, 所以如果你想匹配其他的页面至 /404, 请你一定将 `{ path: '*', redirect: '/404', hidden: true }` 定义至路由的 __最后__。
 
 
 # Vue State Management
@@ -172,7 +172,7 @@ Vue.directive('permissionaction', {
 
 1. 含义
 
-当 <style>标签有 `scoped`属性时，css 样式仅会应用在当前组件内。 父组件的样式不会影响子组件，然而子组件的根节点均会被父节点及子节点的`scoped`样式影响。这样是为了统一布局，父组件可以定义子组件的根元素。
+当 `<style>`标签有 `scoped`属性时，css 样式仅会应用在当前组件内。 父组件的样式不会影响子组件，然而子组件的根节点均会被父节点及子节点的`scoped`样式影响。这样是为了统一布局，父组件可以定义子组件的根元素。
 
 2. 如何使用
 
