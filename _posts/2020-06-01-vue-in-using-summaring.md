@@ -108,6 +108,61 @@ this.$router.go(n)
 向前或者向后跳转n个页面，n可为正整数或负整数
 
 
+## 2. 动态路由的思考
+
+### 前言
+先说下为什么需要动态路由？比如我们想让不同的角色看到不同的菜单及页面，你均通过 `v-show`或是`if`语句，你觉得还够用吗？这个时候动态路由就显得特别重要。
+
+
+### 如何解决
+实现用户角色菜单及页面的控制，需要解决两个问题：
+问题1. 根据用户拥有的权限id的集合决定用户能访问哪些前端路由；
+问题2. 根据用户拥有的权限id的集合决定用户能看到哪些按钮或者模块。
+
+对于问题1，我们在用户登录后首先获取相应的路由信息，然后通过`vue-router`的`addRouters` 添加至前端路由中即可，但是有个问题，由于用户的信息是存放在 vuex 中，刷新页面时就会导致404。
+    * 当然你可以把权限存放至浏览器的 `sessionStorage` 中，每次刷新并不会清空用户权限，但是这样做的话，用户手动改一下 `sessionStorage`就能看到其他页面，不是很完美的方案，而且需要二次存储（vuex/ sessionStorage）;
+    * vue 提供了一个`Navigation Guards`的功能，这样页面加载时我们可以先初始化一个空路由（或是默认均开放给用户的路由），紧接校验用户信息，没有的话就再次请求权限，然后通过`addRouters` 添加路由， 目前来看应该是相对完美的方案。
+
+对于问题2，可以添加[自定义的vue命令来控制](https://vuejs.org/v2/guide/custom-directive.html)
+
+```
+// custom-directive
+Vue.directive('permissionaction', {
+    inserted: function(el, binding) {
+        const { value } = binding
+        const all_permission = '*:*:*'
+        const permissions = store.getters && store.getters.permisaction
+
+        if (value && value instanceof Array && value.length > 0) {
+            const permissionFlag = value
+
+            const hasPermissions = permissions.some(permission => {
+                return all_permission === permission || permissionFlag.includes(permission)
+            })
+
+            if (!hasPermissions) {
+                el.parentNode && el.parentNode.removeChild(el)
+            }
+            } else {
+                throw new Error(`请设置操作权限标签值`)
+            }
+        }
+    }
+})
+
+```
+
+```
+// component use
+<button v-permissionaction=["permission_id"]>删除</button>
+```
+
+### 注意点
+1. `vue-router` 提供了`addRouters`来进行添加路由，但是却没有移除路由的相关选项，当切换用户或是变更角色时，可以另外创建一个 router实例来替换之前的实例。 [详见这里-Feature request: replace routes dynamically](https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465)
+
+2. Vue mathcing priority: the earlier a route is defined, the higher priority it gets, 所以如果你想匹配其他的页面至 /404, 请你一定将 `{ path: '*', redirect: '/404', hidden: true }` 定义至路由的__最后__。
+
+
 # Vue State Management
 
 

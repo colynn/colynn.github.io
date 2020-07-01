@@ -17,6 +17,18 @@ var x = true;     // 布尔值
 var y = false;    //布尔值
 ```
 
+### 数组 some
+
+The `some()` method checks if any of the elements in an array pass a test (provided as a function).
+
+The `some()` method executes the function once for each element present in the array:
+
+If it finds an array element where the function returns a true value, some() returns `true` (and does not check the remaining values)
+Otherwise it returns `false`
+__Note:__ some() does not execute the function for array elements without values.
+
+__Note:__ some() does not change the original array.
+
 ### 数组添加元素
 1. push() 结尾添加
 
@@ -288,6 +300,12 @@ let dict1 = {'user': ['liuyuan','colynn'], 'email': ['colynn@example.com', 'abc.
 
 Object.keys(dict1).forEach((item)=>{console.log(item)})
 
+```
+
+```
+// Check if a string includes "world":
+var str = "Hello world, welcome to the universe.";
+var n = str.includes("world");
 ```
 
 ## 参考
