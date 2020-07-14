@@ -533,7 +533,7 @@ func (e *email) Send() string {
 
 * If you forget a method or if the interface changes, you’ll get a compile-time error drawing your attention to it immediately:
 cannot use (*email)(nil) (type *email) as type Notify in assignment:
-*email does not implement MyInterface (missing SomeMethod method)
+*email does not implement Notify (missing SomeMethod method)
 
 * `(*email)(nil)` Essentially you are casting `nil` to a type of pointer to `MyType`. It’s a zero-memory way to represent a pointer to your struct in Go.
 
