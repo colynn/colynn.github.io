@@ -690,6 +690,117 @@ __注__:
 ## Goroutines和Channels
 1. 如果我们使用了无缓存的channel, 那么两个慢的goroutines将会因为没有人接收而永远卡住。这种情况，称为goroutines泄漏，这将是一个BUG.和垃圾变量不同，泄漏的goroutines并不会被自动回收，因此确保每个不再需要的goroutine能正常退出是重要的。
 
+## Labels in Go
+
+### `goto`
+
+```
+func main() {
+    fmt.Println(1)
+    goto End
+    fmt.Println(2)
+End:
+    fmt.Println(3)
+}
+```
+
+```
+> ./bin/sandbox
+1
+3
+```
+ 
+Labels are not block scoped (more about blocks and scoping in “Blocks in Go” and “Scopes in Go”) so it’s impossible to redeclare label inside nested block:
+
+```
+    goto X
+X:
+    {
+    X:
+    }
+```
+
+as Go compiler will complain about already declared label.
+
+> goto cannot move into other block
+
+Identifiers of the labels live in a separate space so they don’t conflict with i.e. variables identifiers. The code below works just fine even that x is used for two things:
+
+```
+    x := 1
+    goto x
+x:
+    fmt.Println(x)
+```
+
+### `break`
+
+`break` statement is traditionally used to terminate innermost `for` or `switch` statement. In Go it’s also possible to end this way novel `select` statement.
+
+People having experience with languages like `C` and derivates know that each case clause needs to have break as a last statement. Otherwise execution in transferred to the next case clause which is not what programmer wants most of the time. 
+
+Go however works conversely — there is a `fallthrough` statement to explicitly move to the next clause:
+
+```
+switch 1 {
+case 1:
+    fmt.Println(1)
+case 2:
+    fmt.Println(2)
+}
+> ./bin/sandbox
+1
+switch 1 {
+case 1:
+    fmt.Println(1)
+    fallthrough
+case 2:
+    fmt.Println(2)
+}
+> ./bin/sandbox
+1
+2
+```
+
+没带标签的`break`语句仅能终止最内层的`for`，`switch`或是 `select`， 添加了标签,`break`则提供了更多地可能性。
+
+Label for `break` statement must be the one associated with enclosing `for`, `switch` or `select` statement.
+
+```
+SwitchStatement:
+    switch 1 {
+    case 1:
+        fmt.Println(1)
+        for i := 0; i < 10; i++ {
+            break SwitchStatement
+        }
+        fmt.Println(2)
+    }
+    fmt.Println(3)
+> ./bin/sandbox
+1
+3
+```
+> *  `break` statement cannot span over function boundaries
+> *  It’s possible to terminate `for`, `switch` or `select` no matter where break statement is located.
+
+### `continue` statement
+
+It works in a similar way to `break` statement but begins next iteration instead of stopping and can be used only for loops:
+
+```
+OuterLoop:
+    for i := 0; i < 3; i++ {
+        for j := 0; j < 3; j++ {
+            fmt.Printf(“i=%v, j=%v\n”, i, j)
+            continue OuterLoop
+        }
+    }
+> ./bin/sandbox
+i=0, j=0
+i=1, j=0
+i=2, j=0
+```
 
 ## 疑问
 
@@ -867,3 +978,4 @@ type Person struct {
 
 ### Refer to
 1. [Go << and >> operators](https://stackoverflow.com/questions/5801008/go-and-operators)
+2. [Labels in Go](https://medium.com/golangspec/labels-in-go-4ffd81932339)
