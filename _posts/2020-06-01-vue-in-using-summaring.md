@@ -164,7 +164,45 @@ Vue.directive('permissionaction', {
 
 
 # Vue State Management
+## 核心 Concepts
+### State
+Vuex uses a `single state tree` - that is, this single object contains all your application level state and serves as the "single source of truth". 
 
+> the `mapState` helper. When a component needs to make use of multiple store state properties or getters, declaring all these computed properties can get repetitive and verbose. To deal with this we can make use of the `mapState` helper which generates computed getter functions for us, saving us some keystrokes（简化我们的输入）.
+
+### Getters
+Sometimes we may need to compute derived state based on store state, Vuex allows us to define `getters` in the store. You can think of them as computed properties for stores. 
+
+Getters will receive the `state` as their 1st argument:
+
+```
+const store = new Vuex.Store({
+  state: {
+    todos: [
+      { id: 1, text: '...', done: true },
+      { id: 2, text: '...', done: false }
+    ]
+  },
+  getters: {
+    doneTodos: state => {
+      return state.todos.filter(todo => todo.done)
+    }
+  }
+})
+
+```
+
+> the `mapGetters` helper simply maps store getters to local computed properties.
+
+### Mutations
+
+The only way to actually change state in a Vuex store is by committing a mutation. Vuex mutations are very similar to events: each mutation has a string `type` and a `handler`. 
+
+> Mutations Must Be Synchronous
+
+### Actions
+
+### Modules
 
 # 附录
 
