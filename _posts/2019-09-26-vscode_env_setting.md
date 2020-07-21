@@ -5,15 +5,15 @@ tags: [python, go, tools]
 comments: true
 ---
 
-## 运行环境
+# 运行环境
 * Mac OS 10.13.6
 * VS code 1.31.1
 
-## 快捷键
+# 快捷键
 
-[![file exclude]({{ site.url }}/img/vscode_env/vscode_keyword.jpg)]({{ site.url }}/img/vscode_env/vscode_keyword.jpg)
+[![file exclude]({{ site.url }}/img/vscode_env/vscode_keyword.png)]({{ site.url }}/img/vscode_env/vscode_keyword.png)
 
-### 解读
+## 解读
 1. General 
     * Command + Shift + p, F1  显示命令面板
     * Command + p 快速打开
@@ -23,16 +23,18 @@ comments: true
     * Ctrl + ` 显示或隐藏集成终端；
     * Ctrl + Shift + ` 新建终端；
 
+3. navigation
+[![file exclude]({{ site.url }}/img/vscode_env/vscode_keyword-navigation.png)]({{ site.url }}/img/vscode_env/vscode_keyword-navigation.png) 
 
-## 常用设置
-### 1. 隐藏.pyc文件
+# 常用设置
+## 1. 隐藏.pyc文件
 * 调整Workspace Settings添加如下图，
 ![Image](images/files_exclude.png)
 [![file exclude]({{ site.url }}/img/vscode_env/files_exclude.png)]({{ site.url }}/img/vscode_env/files_exclude.png)
 
 __设置路径__：Code -> Preferences -> Settings -> Workspace Settings, Search Settings
 
-### 2. 配置markdown-pdf 插件
+## 2. 配置markdown-pdf 插件
 * 安装说明:
 
     Chromium download starts automatically when Markdown PDF is installed and Markdown file is first opened with Visutal Studio Code.
@@ -58,9 +60,9 @@ __设置路径__：Code -> Preferences -> Settings -> Workspace Settings, Search
     
     __设置路径__：Code -> Preferences -> Settings
 
-### 3. 配置golang 环境
+## 3. 配置golang 环境
 
-1. 安装Go相关插件
+### 1. [Deprecated]安装Go相关插件
 
     __注意__: 请先设置 ```GOPROXY```
 
@@ -92,40 +94,39 @@ __设置路径__：Code -> Preferences -> Settings -> Workspace Settings, Search
     go get -u -v github.com/alecthomas/gometalinter
     gometalinter --install
     ```
+    >  你可以直接配置使用 [`gopls`](https://github.com/golang/vscode-go#support-for-go-modules), 并且强烈推荐使用。
+
+### 2. 配置VS code 的 settings.json
+
+* 相关go的配置如下：
+
+```
+    "go.useLanguageServer": true, //using language server
+    "go.autocompleteUnimportedPackages": true,
+    "go.inferGopath": true,
+    "go.docsTool": "godoc",
+    "go.gocodePackageLookupMode": "go",
+    "go.gotoSymbol.includeImports": true,
+    "go.useCodeSnippetsOnFunctionSuggest": false, //使用代码片段提示
+    "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
+    "go.formatTool": "goimports",  // 代码格式化
+    "go.buildOnSave": "off", //保存代码时自动编译
+    "go.lintOnSave": "file", //保存代码时优化
+    "go.vetOnSave": "package", //保存代码时检查潜在错误
+    "go.coverOnSave": false //保存代码时执行测试
+
+```
+
+__NOTE__: If you are using Go modules, then we strongly recommend using the Go language server as it performs much better than the tools below.
+
+[Refer to: Go tools that the Go extension depends on](https://github.com/Microsoft/vscode-go/wiki/Go-tools-that-the-Go-extension-depends-on)
 
 
-2. 配置VS code 的 settings.json
-
-    * 相关go的配置如下：
-
-    ```
-        "go.useLanguageServer": true, //using language server
-        "go.autocompleteUnimportedPackages": true,
-        "go.inferGopath": true,
-        "go.docsTool": "godoc",
-        "go.gocodePackageLookupMode": "go",
-        "go.gotoSymbol.includeImports": true,
-        "go.useCodeSnippetsOnFunctionSuggest": false, //使用代码片段提示
-        "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
-        "go.formatTool": "goimports",  // 代码格式化
-        "go.buildOnSave": "off", //保存代码时自动编译
-        "go.lintOnSave": "file", //保存代码时优化
-        "go.vetOnSave": "package", //保存代码时检查潜在错误
-        "go.coverOnSave": false //保存代码时执行测试
-
-    ```
-
-    __NOTE__: If you are using Go modules, then we strongly recommend using the Go language server as it performs much better than the tools below.
-
-    [Refer to: Go tools that the Go extension depends on](https://github.com/Microsoft/vscode-go/wiki/Go-tools-that-the-Go-extension-depends-on)
+### 3. reload VS code, then enjoy it.
 
 
-3. reload VS code 配置就会， enjoy it.
-
-
-
-### 4. vscode golint 代码规范解读
-#### 警告1
+## 4. vscode golint 代码规范解读
+### 警告1
 * 描述：exported function xxx should have comment or be unexported
 * 环境：
 ```
@@ -146,7 +147,7 @@ type Request struct { ...
 func Encode(w io.Writer, req *Request) { ...
 ```
 
-#### 示例警告
+### 示例警告
 ```
 recorder.go:55:5: exported var RecordBind should have comment or be unexported
 recorder.go:158:1: exported function Record_ErrorRecord should have comment or be unexported
@@ -161,8 +162,8 @@ golint 会检测的方面：
 * x += 1 应该 x++
 
 
-### 5. Go tool to modify struct field tags faster
-#### how to use 
+## 5. Go tool to modify struct field tags faster
+### how to use 
 1. add tags
 
 在对应的文件下，打开命令面板（Command + Shift + p）执行 `Go: Add Tags` 即可添加json field;
@@ -172,3 +173,47 @@ golint 会检测的方面：
 在对应的文件下，打开命令面板（Command + Shift + p）执行 `Go: Remove Tags` 即可添加json field
 
 [github gomodifytags](https://github.com/fatih/gomodifytags)
+
+## 6. 配置python 环境
+
+### python项目的 `setting.json`的示例文件
+
+```
+{
+    "python.pythonPath": "venv/bin/python3",
+
+    // Formatting doesn't affect the functionality of the code itself. 
+    "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
+
+    // Linting, on the other hand, analyzes code for common syntactical, stylistic, and functional errors as well as unconventional programming practices that can lead to errors.
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+
+    // https://pycodestyle.pycqa.org/en/latest/intro.html#configuration
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pycodestyleArgs": ["--ignore=E501"],
+
+    "python.testing.pytestArgs": [
+        "venv"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "editor.formatOnSave": true
+}
+
+```
+
+### 推荐插件
+
+* [Python Docstring Generator](https://github.com/NilsJPWerner/autoDocstring)
+
+* [Python Extension Pack](https://github.com/DonJayamanne/python-extension-pack)
+
+* [AREPL for python](https://github.com/almenon/arepl-vscode.git)
+
+* [Python Test Explore](https://github.com/kondratyev-nv/vscode-python-test-adapter.git)
+
+
+> Refer to: https://code.visualstudio.com/docs/python/editing#_formatting
