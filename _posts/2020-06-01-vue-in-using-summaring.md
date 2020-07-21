@@ -202,7 +202,13 @@ The only way to actually change state in a Vuex store is by committing a mutatio
 
 ### Actions
 
+Actions are similar to mutations, the differences being that:
+
+*  Instead of mutating the state, actions commit mutations.
+*  Actions can contain arbitrary asynchronous operations.
+
 ### Modules
+
 
 # 附录
 
