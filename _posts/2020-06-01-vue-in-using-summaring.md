@@ -209,7 +209,16 @@ Actions are similar to mutations, the differences being that:
 
 ### Modules
 
+Due to using a single state tree, all state of our application is contained inside one big object. However, as our application grows in scale, the store can get really bloated.
 
+To help with that, Vuex allows us to divide our store into `modules`. Each module can contain its own state, mutations, actions, getters, and even nested modules
+
+* By default, actions, mutations and getters inside modules are still registered under the `global namespace` - this allows multiple modules to react to the same mutation/action type.
+
+* If you want your modules to be more self-contained or reusable, you can mark it as namespaced with `namespaced: true`. When the module is registered, all of its getters, actions and mutations will be automatically namespaced based on the path the module is registered at. 
+
+### 参考
+1. https://vuex.vuejs.org/guide/modules.html
 # 附录
 
 ## 1.Scoped CSS
