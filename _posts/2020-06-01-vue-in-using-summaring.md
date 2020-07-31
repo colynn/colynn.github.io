@@ -265,6 +265,39 @@ The above will be compiled into:
 DOM content created with v-html are not affected by scoped styles, but you can still style them using deep selectors.
 通过`v-html`创建的 DOM内容，不被`scoped`样式影响， 但是你可以使用`deep selector`改变样式。
 
+## 2. import syntax
+
+```
+import defaultExport from "module-name";
+import * as name from "module-name";
+import { export1 } from "module-name";
+import { export1 as alias1 } from "module-name";
+import { export1 , export2 } from "module-name";
+import { foo , bar } from "module-name/path/to/specific/un-exported/file";
+import { export1 , export2 as alias2 , [...] } from "module-name";
+import defaultExport, { export1 [ , [...] ] } from "module-name";
+import defaultExport, * as name from "module-name";
+import "module-name";
+var promise = import("module-name");
+```
+
+
+* __defaultExport__
+Name that will refer to the default export from the module.
+
+* __module-name__
+The module to import from. This is often a relative or absolute path name to the .js file containing the module. Certain bundlers may permit or require the use of the extension; check your environment. Only single quoted and double quoted Strings are allowed.
+
+* __name__
+Name of the module object that will be used as a kind of namespace when referring to the imports.
+
+* __exportN__
+Name of the exports to be imported.
+
+* __aliasN__
+Names that will refer to the named imports.
+
+
 ## 参考
 
 1. [Scoped CSS](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors)
