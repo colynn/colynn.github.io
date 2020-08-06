@@ -19,3 +19,4 @@ jobs:
         with:
           githubToken: ${{ secrets.COLYNN_GITHUB_IO }}
           branch: gh-pages
+          hugoVersion: extended_0.74.3
