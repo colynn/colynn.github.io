@@ -8,7 +8,7 @@
 <span class=post-time>on <time datetime=2019-11-15 itemprop=datePublished>November 15, 2019</time></span>
 <span class=post-time>- last modified <time datetime=2019-11-15 itemprop=datePublished>November 15, 2019</time></span></div><div class=post-tags><section><span class=tag><a href=https://colynn.github.io/tags/go/><i class="iconfont icon-tag"></i>go</a></span></section><section><i class="iconfont icon-folder"></i><span class=post-category><a href=https://colynn.github.io/categories/%E6%95%99%E7%A8%8B/>教程</a></span></section></div></header><div class=post-content><h2 id=时区问题>时区问题</h2><p>ORM 默认使用 time.Local 本地时区</p><p>作用于 ORM 自动创建的时间
 从数据库中取回的时间转换成 ORM 本地时间
-如果需要的话，你也可以进行更改</p><pre><code>// 设置为 UTC 时间
+如果需要的话，你也可以进行更改</p><pre><code class=language-conf data-lang=conf>// 设置为 UTC 时间
 orm.DefaultTimeLoc = time.UTC
 </code></pre><p>ORM 在进行 RegisterDataBase 的同时，会获取数据库使用的时区，然后在 time.Time 类型存取时做相应转换，以匹配时间系统，从而保证时间不会出错。</p><p>注意:</p><p>鉴于 Sqlite3 的设计，存取默认都为 UTC 时间
 使用 go-sql-driver 驱动时，请注意参数设置

@@ -1,4 +1,4 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=author content="Colynn.Liu"><link rel=prev href=https://colynn.github.io/2019-08-15-introducing_go_mod/><link rel=next href=https://colynn.github.io/2019-09-26-vscode_env_setting/><link rel=canonical href=https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/><link rel=apple-touch-icon sizes=180x180 href=/img/favicon.png><link rel=icon type=image/png sizes=32x32 href=/img/favicon.png><link rel=icon type=image/png sizes=16x16 href=/img/favicon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><title>Kubespary 部署 Kubernetes 1.5.3 版本 | Colynn.Liu</title><meta name=title content="Kubespary 部署 Kubernetes 1.5.3 版本 | Colynn.Liu"><link rel=stylesheet href=/font/iconfont.css><link rel=stylesheet href=/css/main.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/colynn.github.io\/"},"articleSection":"posts","name":"Kubespary 部署 Kubernetes 1.5.3 版本","headline":"Kubespary 部署 Kubernetes 1.5.3 版本","description":"前置条件 熟悉linux基本命令 了解k8s基本概念 K8s master推荐配置 节点数量 推荐配置（vCPU\/Memory\/磁盘） 1-5 nodes 1C\/4G\/4G 6-10 nodes 2C\/8G\/32G 11-100 nodes 4C\/16G\/80G 101-250 nodes","inLanguage":"zh-CN","author":"Colynn.Liu","creator":"Colynn.Liu","publisher":"Colynn.Liu","accountablePerson":"Colynn.Liu","copyrightHolder":"Colynn.Liu","copyrightYear":"2019","datePublished":"2019-09-15 00:00:00 \u002b0000 UTC","dateModified":"2019-09-15 00:00:00 \u002b0000 UTC","url":"https:\/\/colynn.github.io\/2019-09-15-kubespray-deploy-k8s\/","wordCount":"2186","keywords":["kubernetes","Colynn.Liu"]}</script></head><body><div class=wrapper><nav class=navbar><div class=container><div class="navbar-header header-logo"><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://colynn.github.io/>Colynn.Liu</a></div><div class="menu navbar-right"><a class=menu-item href=/posts/>文章</a>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=author content="Colynn.Liu"><link rel=prev href=https://colynn.github.io/2019-08-15-introducing_go_mod/><link rel=next href=https://colynn.github.io/2019-09-26-vscode_env_setting/><link rel=canonical href=https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/><link rel=apple-touch-icon sizes=180x180 href=/img/favicon.png><link rel=icon type=image/png sizes=32x32 href=/img/favicon.png><link rel=icon type=image/png sizes=16x16 href=/img/favicon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><title>Kubespary 部署 Kubernetes 1.5.3 版本 | Colynn.Liu</title><meta name=title content="Kubespary 部署 Kubernetes 1.5.3 版本 | Colynn.Liu"><link rel=stylesheet href=/font/iconfont.css><link rel=stylesheet href=/css/main.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/colynn.github.io\/"},"articleSection":"posts","name":"Kubespary 部署 Kubernetes 1.5.3 版本","headline":"Kubespary 部署 Kubernetes 1.5.3 版本","description":"前置条件 熟悉linux基本命令 了解k8s基本概念 K8s master推荐配置 节点数量 推荐配置（vCPU\/Memory\/磁盘） 1-5 nodes 1C\/4G\/4G 6-10 nodes 2C\/8G\/32G 11-100 nodes 4C\/16G\/80G 101-250 nodes","inLanguage":"zh-CN","author":"Colynn.Liu","creator":"Colynn.Liu","publisher":"Colynn.Liu","accountablePerson":"Colynn.Liu","copyrightHolder":"Colynn.Liu","copyrightYear":"2019","datePublished":"2019-09-15 00:00:00 \u002b0000 UTC","dateModified":"2019-09-15 00:00:00 \u002b0000 UTC","url":"https:\/\/colynn.github.io\/2019-09-15-kubespray-deploy-k8s\/","wordCount":"2193","keywords":["kubernetes","Colynn.Liu"]}</script></head><body><div class=wrapper><nav class=navbar><div class=container><div class="navbar-header header-logo"><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://colynn.github.io/>Colynn.Liu</a></div><div class="menu navbar-right"><a class=menu-item href=/posts/>文章</a>
 <a class=menu-item href=/categories/>分类</a>
 <a class=menu-item href=/tags/>标签</a>
 <a class=menu-item href=/aboutme/>关于我</a></div></div></nav><nav class=navbar-mobile id=nav-mobile style=display:none><div class=container><div class=navbar-header><div><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://colynn.github.io/>Colynn.Liu</a></div><div class=menu-toggle><span></span><span></span><span></span></div></div><div class=menu id=mobile-menu><a class=menu-item href=/posts/>文章</a>
@@ -6,106 +6,106 @@
 <a class=menu-item href=/tags/>标签</a>
 <a class=menu-item href=/aboutme/>关于我</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">Kubespary 部署 Kubernetes 1.5.3 版本</h1><div class=post-meta>Written by <a itemprop=name href=https://colynn.github.io/ rel=author>Colynn.Liu</a> with ♥
 <span class=post-time>on <time datetime=2019-09-15 itemprop=datePublished>September 15, 2019</time></span>
-<span class=post-time>- last modified <time datetime=2019-09-15 itemprop=datePublished>September 15, 2019</time></span></div><div class=post-tags><section><span class=tag><a href=https://colynn.github.io/tags/kubernetes/><i class="iconfont icon-tag"></i>kubernetes</a></span></section><section><i class="iconfont icon-folder"></i><span class=post-category><a href=https://colynn.github.io/categories/kubernetes/>kubernetes</a></span></section></div></header><div class=post-content><h2 id=前置条件>前置条件</h2><ol><li>熟悉linux基本命令</li><li>了解k8s基本概念</li><li>K8s master推荐配置</li></ol><table><thead><tr><th>节点数量</th><th>推荐配置（vCPU/Memory/磁盘）</th></tr></thead><tbody><tr><td>1-5 nodes</td><td>1C/4G/4G</td></tr><tr><td>6-10 nodes</td><td>2C/8G/32G</td></tr><tr><td>11-100 nodes</td><td>4C/16G/80G</td></tr><tr><td>101-250 nodes</td><td>8C/32G/160G</td></tr><tr><td>251-500 nodes</td><td>16C/32G/200G</td></tr><tr><td>大于500 nodes</td><td>32C/64G/200G</td></tr></tbody></table><h2 id=安装环境>安装环境</h2><table><thead><tr><th>名称</th><th>内网IP</th><th>配置</th></tr></thead><tbody><tr><td>node0</td><td>10.0.0.182</td><td>2c*4G</td></tr><tr><td>node1</td><td>10.0.0.183</td><td>2c*4G</td></tr></tbody></table><h2 id=集群安装步骤>集群安装步骤</h2><h3 id=1-设置master与node1间的免密登录>1. 设置master与node1间的免密登录</h3><p>由于kubespray是依赖于ansible，ansible通过ssh协议进行主机之间的访问，所以部署之前需要设置主机之间免密登录，步骤如下：</p><pre><code>[node0]$ ssh-keygen -t rsa
-[node0]$ scp ~/.ssh/id_rsa.pub root@node1:/root/.ssh
-[local terminal]$ ssh root@node1
-[node1]$ cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys
-</code></pre><h3 id=2-下载kubespray>2. 下载kubespray</h3><p><em>注</em>：此步骤工作环境为node0</p><pre><code>$ wget https://github.com/kubernetes-sigs/kubespray/archive/v2.11.0.tar.gz
+<span class=post-time>- last modified <time datetime=2019-09-15 itemprop=datePublished>September 15, 2019</time></span></div><div class=post-tags><section><span class=tag><a href=https://colynn.github.io/tags/kubernetes/><i class="iconfont icon-tag"></i>kubernetes</a></span></section><section><i class="iconfont icon-folder"></i><span class=post-category><a href=https://colynn.github.io/categories/kubernetes/>kubernetes</a></span></section></div></header><div class=post-content><h2 id=前置条件>前置条件</h2><ol><li>熟悉linux基本命令</li><li>了解k8s基本概念</li><li>K8s master推荐配置</li></ol><table><thead><tr><th>节点数量</th><th>推荐配置（vCPU/Memory/磁盘）</th></tr></thead><tbody><tr><td>1-5 nodes</td><td>1C/4G/4G</td></tr><tr><td>6-10 nodes</td><td>2C/8G/32G</td></tr><tr><td>11-100 nodes</td><td>4C/16G/80G</td></tr><tr><td>101-250 nodes</td><td>8C/32G/160G</td></tr><tr><td>251-500 nodes</td><td>16C/32G/200G</td></tr><tr><td>大于500 nodes</td><td>32C/64G/200G</td></tr></tbody></table><h2 id=安装环境>安装环境</h2><table><thead><tr><th>名称</th><th>内网IP</th><th>配置</th></tr></thead><tbody><tr><td>node0</td><td>10.0.0.182</td><td>2c*4G</td></tr><tr><td>node1</td><td>10.0.0.183</td><td>2c*4G</td></tr></tbody></table><h2 id=集群安装步骤>集群安装步骤</h2><h3 id=1-设置master与node1间的免密登录>1. 设置master与node1间的免密登录</h3><p>由于kubespray是依赖于ansible，ansible通过ssh协议进行主机之间的访问，所以部署之前需要设置主机之间免密登录，步骤如下：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#333>[</span>node0<span style=color:#333>]</span>$ ssh-keygen -t rsa
+<span style=color:#333>[</span>node0<span style=color:#333>]</span>$ scp ~/.ssh/id_rsa.pub root@node1:/root/.ssh
+<span style=color:#333>[</span><span style=color:#007020>local</span> terminal<span style=color:#333>]</span>$ ssh root@node1
+<span style=color:#333>[</span>node1<span style=color:#333>]</span>$ cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys
+</code></pre></div><h3 id=2-下载kubespray>2. 下载kubespray</h3><p><em>注</em>：此步骤工作环境为node0</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ wget https://github.com/kubernetes-sigs/kubespray/archive/v2.11.0.tar.gz
 $ tar -zxvf v2.11.0.tar.gz
-$ cd kubespray-v2.11.0
-</code></pre><h3 id=3-配置调整>3. 配置调整</h3><h4 id=31-更换镜像>3.1 更换镜像</h4><p>Kubernetes安装大部分都是使用的国外的镜像，由于防火墙原因没有办法获取到这些镜像，所以需要自己创建镜像仓库并将这些镜像获取到上传到镜像仓库中。</p><p><strong>注</strong>: 可以使用自建的镜像仓库也可以使用国内的镜像仓库, 具体仓库选择查看附录1.</p><p><em>注</em>: 如何使用国内的镜像仓库, 可以略过以下 子步骤。</p><ul><li><p>新建镜像仓库</p><p><em>注</em>: 如何使用国内的镜像仓库, 可以略过此步骤。</p><p>镜像仓库我们选用的组件是Harbor，
+$ <span style=color:#007020>cd</span> kubespray-v2.11.0
+</code></pre></div><h3 id=3-配置调整>3. 配置调整</h3><h4 id=31-更换镜像>3.1 更换镜像</h4><p>Kubernetes安装大部分都是使用的国外的镜像，由于防火墙原因没有办法获取到这些镜像，所以需要自己创建镜像仓库并将这些镜像获取到上传到镜像仓库中。</p><p><strong>注</strong>: 可以使用自建的镜像仓库也可以使用国内的镜像仓库, 具体仓库选择查看附录1.</p><p><em>注</em>: 如何使用国内的镜像仓库, 可以略过以下 子步骤。</p><ul><li><p>新建镜像仓库</p><p><em>注</em>: 如何使用国内的镜像仓库, 可以略过此步骤。</p><p>镜像仓库我们选用的组件是Harbor，
 安装步骤参考：<a href=https://github.com/goharbor/harbor/blob/master/docs/installation_guide.md>https://github.com/goharbor/harbor/blob/master/docs/installation_guide.md</a></p></li><li><p>整理k8s集群部署中需要使用的镜像
 在文件roles/download/defaults/main.yml文件中，可以看到使用的全量镜像列表，注意某些镜像暂时没有用到.
 <em>注</em>: 主要涉及镜像有 kubernetes-*; calico_*_image_repo; coredns; etcd</p></li><li><p>下载所需镜像并上传至私有镜像仓库</p></li></ul><p>使用的镜像列表如下，在这里我申请了一台国外的阿里云主机，在该台主机下载所需镜像然后上传至私有镜像仓库
-可以将使用的镜像列表，参照附录1替换为国内站点，然后本地下载后，上传至私有镜像仓库。</p><p>示例操作如下：</p><pre><code>docker pull gcr.azk8s.cn/google_containers/kubernetes-dashboard-amd64:v1.10.0
-docker tag gcr.azk8s.cn/google_containers/kubernetes-dashboard-amd64:v1.10.0 [harbor-ip]:5000/google_containers/kubernetes-dashboard-amd64:v1.10.0
-docker push [harbor-ip]:5000/google_containers/kubernetes-dashboard-amd64:v1.10.0
-</code></pre><p><em>注</em>: [harbor-ip] 是为私有的镜像仓库地址。</p><ul><li><p>更改部署脚本的镜像地址</p><ol><li>生成部署的参数文件</li></ol><pre><code>[node0 kubespray-v2.11.0]$  cp -rfp inventory/sample inventory/[your-cluster-name]
-</code></pre><ol start=2><li>替换为新的镜像地址</li></ol><pre><code>[node0 kubespray-v2.11.0]$ vim inventory/[your-cluster-name]/group_vars/k8s-cluster/k8s-cluster.yml
+可以将使用的镜像列表，参照附录1替换为国内站点，然后本地下载后，上传至私有镜像仓库。</p><p>示例操作如下：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>docker pull gcr.azk8s.cn/google_containers/kubernetes-dashboard-amd64:v1.10.0
+docker tag gcr.azk8s.cn/google_containers/kubernetes-dashboard-amd64:v1.10.0 <span style=color:#333>[</span>harbor-ip<span style=color:#333>]</span>:5000/google_containers/kubernetes-dashboard-amd64:v1.10.0
+docker push <span style=color:#333>[</span>harbor-ip<span style=color:#333>]</span>:5000/google_containers/kubernetes-dashboard-amd64:v1.10.0
+</code></pre></div><p><em>注</em>: [harbor-ip] 是为私有的镜像仓库地址。</p><ul><li><p>更改部署脚本的镜像地址</p><ol><li>生成部署的参数文件</li></ol><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#333>[</span>node0 kubespray-v2.11.0<span style=color:#333>]</span>$  cp -rfp inventory/sample inventory/<span style=color:#333>[</span>your-cluster-name<span style=color:#333>]</span>
+</code></pre></div><ol start=2><li>替换为新的镜像地址</li></ol><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#333>[</span>node0 kubespray-v2.11.0<span style=color:#333>]</span>$ vim inventory/<span style=color:#333>[</span>your-cluster-name<span style=color:#333>]</span>/group_vars/k8s-cluster/k8s-cluster.yml
 
-# kubernetes image repo define
-kube_image_repo: &quot;[harbor-info]/google_containers&quot;
+<span style=color:#888># kubernetes image repo define</span>
+kube_image_repo: <span style=background-color:#fff0f0>&#34;[harbor-info]/google_containers&#34;</span>
 
-# comment: 将使用的组件的镜像仓库修改为私有镜像仓库地址
-etcd_image_repo: &quot;[harbor-info]/coreos/etcd&quot;
-coredns_image_repo: &quot;[harbor-info]/coredns&quot;
+<span style=color:#888># comment: 将使用的组件的镜像仓库修改为私有镜像仓库地址</span>
+etcd_image_repo: <span style=background-color:#fff0f0>&#34;[harbor-info]/coreos/etcd&#34;</span>
+coredns_image_repo: <span style=background-color:#fff0f0>&#34;[harbor-info]/coredns&#34;</span>
 
-calicoctl_image_repo: &quot;[harbor-info]/calico/ctl&quot;
-calico_node_image_repo: &quot;[harbor-info]/calico/node&quot;
-calico_cni_image_repo: &quot;[harbor-info]/calico/cni&quot;
-calico_policy_image_repo: &quot;[harbor-info]/calico/kube-controllers&quot;
-</code></pre></li></ul><p><em>注</em>: 如果[harbor-info]为非https的站点，需要在 <code>inventory/[your-cluster-name]/group_vars/all/docker.yml</code>文件中添加如下配置：</p><pre><code>docker_insecure_registries:
-   - [harbro-ip]:[port]
-</code></pre><h4 id=32-docker安装源更改>3.2 Docker安装源更改</h4><p>由于默认从Docker官方源安装docker，速度非常慢，这里我们更换为国内阿里源，在<code>inventory/[your-cluster-name]/group_vars/k8s-cluster/k8s-cluster.yml</code>文件中添加如下配置：</p><pre><code># CentOS/RedHat docker-ce repo
-docker_rh_repo_base_url: 'https://mirrors.aliyun.com/docker-ce/linux/centos/7/$basearch/stable'
-docker_rh_repo_gpgkey: 'https://mirrors.aliyun.com/docker-ce/linux/centos/gpg'
-dockerproject_rh_repo_base_url: 'https://mirrors.aliyun.com/docker-engine/yum/repo/main/centos/7'
-dockerproject_rh_repo_gpgkey: 'https://mirrors.aliyun.com/docker-engine/yum/gpg'
-</code></pre><h4 id=33-可执行文件预处理>3.3 可执行文件预处理</h4><p><em>注</em>: 此步骤可根据的网络环境决定是否需要略过</p><p>另外由于需要从google以及github下载一些可执行文件，由于防火墙原因无法直接在服务器上下载，我们可以预先将这些执行文件下载好，然后上传到指定的服务器路径中</p><p>可执行文件下载地址可以在<code>roles/download/defaults/main.yml</code>文件中查找到，下载路径如下：</p><pre><code>kubeadm_download_url: &quot;https://storage.googleapis.com/kubernetes-release/release/v1.12.5/bin/linux/amd64/kubeadm&quot;
-hyperkube_download_url: &quot;https://storage.googleapis.com/kubernetes-release/release/v1.12.5/bin/linux/amd64/hyperkube&quot;
-cni_download_url: &quot;https://github.com/containernetworking/plugins/releases/download/v0.6.0/cni-plugins-amd64-v0.6.0.tgz&quot;
-</code></pre><p>接下来修改文件权限，并上传到每台服务器的<code>/tmp/releases</code>目录下</p><pre><code>chmod 755 cni-plugins-amd64-v0.6.0.tgz hyperkube kubeadm
+calicoctl_image_repo: <span style=background-color:#fff0f0>&#34;[harbor-info]/calico/ctl&#34;</span>
+calico_node_image_repo: <span style=background-color:#fff0f0>&#34;[harbor-info]/calico/node&#34;</span>
+calico_cni_image_repo: <span style=background-color:#fff0f0>&#34;[harbor-info]/calico/cni&#34;</span>
+calico_policy_image_repo: <span style=background-color:#fff0f0>&#34;[harbor-info]/calico/kube-controllers&#34;</span>
+</code></pre></div></li></ul><p><em>注</em>: 如果[harbor-info]为非https的站点，需要在 <code>inventory/[your-cluster-name]/group_vars/all/docker.yml</code>文件中添加如下配置：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>docker_insecure_registries:
+   - <span style=color:#333>[</span>harbro-ip<span style=color:#333>]</span>:<span style=color:#333>[</span>port<span style=color:#333>]</span>
+</code></pre></div><h4 id=32-docker安装源更改>3.2 Docker安装源更改</h4><p>由于默认从Docker官方源安装docker，速度非常慢，这里我们更换为国内阿里源，在<code>inventory/[your-cluster-name]/group_vars/k8s-cluster/k8s-cluster.yml</code>文件中添加如下配置：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#888># CentOS/RedHat docker-ce repo</span>
+docker_rh_repo_base_url: <span style=background-color:#fff0f0>&#39;https://mirrors.aliyun.com/docker-ce/linux/centos/7/$basearch/stable&#39;</span>
+docker_rh_repo_gpgkey: <span style=background-color:#fff0f0>&#39;https://mirrors.aliyun.com/docker-ce/linux/centos/gpg&#39;</span>
+dockerproject_rh_repo_base_url: <span style=background-color:#fff0f0>&#39;https://mirrors.aliyun.com/docker-engine/yum/repo/main/centos/7&#39;</span>
+dockerproject_rh_repo_gpgkey: <span style=background-color:#fff0f0>&#39;https://mirrors.aliyun.com/docker-engine/yum/gpg&#39;</span>
+</code></pre></div><h4 id=33-可执行文件预处理>3.3 可执行文件预处理</h4><p><em>注</em>: 此步骤可根据的网络环境决定是否需要略过</p><p>另外由于需要从google以及github下载一些可执行文件，由于防火墙原因无法直接在服务器上下载，我们可以预先将这些执行文件下载好，然后上传到指定的服务器路径中</p><p>可执行文件下载地址可以在<code>roles/download/defaults/main.yml</code>文件中查找到，下载路径如下：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>kubeadm_download_url: <span style=background-color:#fff0f0>&#34;https://storage.googleapis.com/kubernetes-release/release/v1.12.5/bin/linux/amd64/kubeadm&#34;</span>
+hyperkube_download_url: <span style=background-color:#fff0f0>&#34;https://storage.googleapis.com/kubernetes-release/release/v1.12.5/bin/linux/amd64/hyperkube&#34;</span>
+cni_download_url: <span style=background-color:#fff0f0>&#34;https://github.com/containernetworking/plugins/releases/download/v0.6.0/cni-plugins-amd64-v0.6.0.tgz&#34;</span>
+</code></pre></div><p>接下来修改文件权限，并上传到每台服务器的<code>/tmp/releases</code>目录下</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>chmod <span style=color:#60e;font-weight:700>755</span> cni-plugins-amd64-v0.6.0.tgz hyperkube kubeadm
 scp cni-plugins-amd64-v0.6.0.tgz hyperkube kubeadm root@node1:/tmp/releases
-</code></pre><h3 id=4-执行安装命令>4. 执行安装命令</h3><pre><code># Install dependencies from ``requirements.txt``
+</code></pre></div><h3 id=4-执行安装命令>4. 执行安装命令</h3><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#888># Install dependencies from ``requirements.txt``</span>
 sudo pip install -r requirements.txt
 
-# Update Ansible inventory file with inventory builder
-declare -a IPS=(10.0.0.182 10.0.0.183)
-CONFIG_FILE=inventory/[your-cluster-name]/hosts.ini python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+<span style=color:#888># Update Ansible inventory file with inventory builder</span>
+<span style=color:#007020>declare</span> -a <span style=color:#963>IPS</span><span style=color:#333>=(</span>10.0.0.182 10.0.0.183<span style=color:#333>)</span>
+<span style=color:#963>CONFIG_FILE</span><span style=color:#333>=</span>inventory/<span style=color:#333>[</span>your-cluster-name<span style=color:#333>]</span>/hosts.ini python3 contrib/inventory_builder/inventory.py <span style=background-color:#eee>${</span><span style=color:#963>IPS</span>[@]<span style=background-color:#eee>}</span>
 
-# Review and change parameters under ``inventory/[your-cluster-name]/group_vars``
+<span style=color:#888># Review and change parameters under ``inventory/[your-cluster-name]/group_vars``</span>
 cat inventory/mycluster/group_vars/all/all.yml
 cat inventory/mycluster/group_vars/k8s-cluster/k8s-cluster.yml
 
-# Deploy Kubespray with Ansible Playbook - run the playbook as root
-# The option `-b` is required, as for example writing SSL keys in /etc/,
-# installing packages and interacting with various systemd daemons.
-# Without -b the playbook will fail to run!
-ansible-playbook -i inventory/[your-cluster-name]/hosts.ini --become --become-user=root cluster.yml
-</code></pre><h3 id=5-确认集群安装状态>5. 确认集群安装状态</h3><pre><code>$ kubectl cluster-info
+<span style=color:#888># Deploy Kubespray with Ansible Playbook - run the playbook as root</span>
+<span style=color:#888># The option `-b` is required, as for example writing SSL keys in /etc/,</span>
+<span style=color:#888># installing packages and interacting with various systemd daemons.</span>
+<span style=color:#888># Without -b the playbook will fail to run!</span>
+ansible-playbook -i inventory/<span style=color:#333>[</span>your-cluster-name<span style=color:#333>]</span>/hosts.ini --become --become-user<span style=color:#333>=</span>root cluster.yml
+</code></pre></div><h3 id=5-确认集群安装状态>5. 确认集群安装状态</h3><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ kubectl cluster-info
 $ kubectl get pods --all-namespaces
-</code></pre><h2 id=常用问题>常用问题</h2><h3 id=问题1-coredns-有一个节点未能正常启动>问题1. coreDns 有一个节点未能正常启动</h3><p><strong>注</strong>: 如果是单节点部署K8s，Kubespray默认会创建2个coredns Pod，但Deployment中又用到了podAntiAffinity，因此会导致其中一个coredns pod pending，所以需要修改代码如下</p><pre><code>vim ./roles/kubernetes-apps/ansible/templates/coredns-deployment.yml.j2
-</code></pre><p>//注释掉以下几行代码</p><pre><code>  affinity:
-  #podAntiAffinity:
-  #  requiredDuringSchedulingIgnoredDuringExecution:
-  #  - topologyKey: &quot;kubernetes.io/hostname&quot;
-  #    labelSelector:
-  #      matchLabels:
-  #        k8s-app: coredns{{ coredns_ordinal_suffix | default('') }}
-</code></pre><p>或者在spec一行添加代码：</p><pre><code>spec:
-  replicas: 1   //指定pod为1个副本
-</code></pre><h3 id=问题2-异常kubelet-cgroup-drivercgroupfs跟docker-cgroup-driversystemd不一致>问题2. 异常【kubelet cgroup driver：cgroupfs跟docker cgroup driver：systemd不一致】</h3><h4 id=异常描述>异常描述</h4><pre><code>error: failed to run Kubelet: failed to create kubelet: misconfiguration: kubelet cgroup driver: “systemd” is different from docker cgroup driver: &quot;cgroupfs&quot;
-</code></pre><h4 id=解决方式>解决方式</h4><p>方式1. 修改docker
-方式2. 修改kubelet配置</p><pre><code>$ sed -i 's/cgroupDriver: systemd/cgroupDriver: cgroupfs/'   /etc/kubernetes/kubelet-config.yaml
-$ sed -n '/cgroupDriver:/p' /etc/kubernetes/kubelet-config.yaml  ## 确认修改的配置
+</code></pre></div><h2 id=常用问题>常用问题</h2><h3 id=问题1-coredns-有一个节点未能正常启动>问题1. coreDns 有一个节点未能正常启动</h3><p><strong>注</strong>: 如果是单节点部署K8s，Kubespray默认会创建2个coredns Pod，但Deployment中又用到了podAntiAffinity，因此会导致其中一个coredns pod pending，所以需要修改代码如下</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>vim ./roles/kubernetes-apps/ansible/templates/coredns-deployment.yml.j2
+</code></pre></div><p>//注释掉以下几行代码</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#bbb>  </span><span style=color:#080;font-weight:700>affinity</span>:<span style=color:#bbb>
+</span><span style=color:#bbb>  </span><span style=color:#888>#podAntiAffinity:</span><span style=color:#bbb>
+</span><span style=color:#bbb>  </span><span style=color:#888>#  requiredDuringSchedulingIgnoredDuringExecution:</span><span style=color:#bbb>
+</span><span style=color:#bbb>  </span><span style=color:#888>#  - topologyKey: &#34;kubernetes.io/hostname&#34;</span><span style=color:#bbb>
+</span><span style=color:#bbb>  </span><span style=color:#888>#    labelSelector:</span><span style=color:#bbb>
+</span><span style=color:#bbb>  </span><span style=color:#888>#      matchLabels:</span><span style=color:#bbb>
+</span><span style=color:#bbb>  </span><span style=color:#888>#        k8s-app: coredns{{ coredns_ordinal_suffix | default(&#39;&#39;) }}</span><span style=color:#bbb>
+</span></code></pre></div><p>或者在spec一行添加代码：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#080;font-weight:700>spec</span>:<span style=color:#bbb>
+</span><span style=color:#bbb>  </span><span style=color:#080;font-weight:700>replicas</span>:<span style=color:#bbb> </span><span style=color:#60e;font-weight:700>1</span><span style=color:#bbb>   </span>//指定pod为1个副本<span style=color:#bbb>
+</span></code></pre></div><h3 id=问题2-异常kubelet-cgroup-drivercgroupfs跟docker-cgroup-driversystemd不一致>问题2. 异常【kubelet cgroup driver：cgroupfs跟docker cgroup driver：systemd不一致】</h3><h4 id=异常描述>异常描述</h4><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>error: failed to run Kubelet: failed to create kubelet: misconfiguration: kubelet cgroup driver: “systemd” is different from docker cgroup driver: <span style=background-color:#fff0f0>&#34;cgroupfs&#34;</span>
+</code></pre></div><h4 id=解决方式>解决方式</h4><p>方式1. 修改docker
+方式2. 修改kubelet配置</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ sed -i <span style=background-color:#fff0f0>&#39;s/cgroupDriver: systemd/cgroupDriver: cgroupfs/&#39;</span>   /etc/kubernetes/kubelet-config.yaml
+$ sed -n <span style=background-color:#fff0f0>&#39;/cgroupDriver:/p&#39;</span> /etc/kubernetes/kubelet-config.yaml  <span style=color:#888>## 确认修改的配置</span>
 
 $ systemctl restart kubelet
-</code></pre><h2 id=附录1-国内镜像仓库>附录1 国内镜像仓库</h2><ol><li>常用镜像仓库；</li></ol><ul><li>DockerHub镜像仓库: <a href=https://hub.docker.com/>https://hub.docker.com/</a></li><li>阿里云镜像仓库： <a href=https://cr.console.aliyun.com>https://cr.console.aliyun.com</a></li><li>google镜像仓库：
+</code></pre></div><h2 id=附录1-国内镜像仓库>附录1 国内镜像仓库</h2><ol><li>常用镜像仓库；</li></ol><ul><li>DockerHub镜像仓库: <a href=https://hub.docker.com/>https://hub.docker.com/</a></li><li>阿里云镜像仓库： <a href=https://cr.console.aliyun.com>https://cr.console.aliyun.com</a></li><li>google镜像仓库：
 <a href=https://console.cloud.google.com/gcr/images/google-containers/GLOBAL>https://console.cloud.google.com/gcr/images/google-containers/GLOBAL</a></li><li>coreos镜像仓库：
 <a href=https://quay.io/repository/>https://quay.io/repository/</a></li><li>RedHat镜像仓库：
-<a href=https://access.redhat.com/containers>https://access.redhat.com/containers</a></li></ul><p>部分国外镜像仓库无法访问，但国内有对应镜像源，例如kubernetes相关镜像、coreos相关镜像国内无法直接拉取，可以从以下镜像源拉取：</p><ol start=2><li>示例：微软google gcr镜像源</li></ol><pre><code>#以gcr镜像为例，以下镜像无法直接拉取
+<a href=https://access.redhat.com/containers>https://access.redhat.com/containers</a></li></ul><p>部分国外镜像仓库无法访问，但国内有对应镜像源，例如kubernetes相关镜像、coreos相关镜像国内无法直接拉取，可以从以下镜像源拉取：</p><ol start=2><li>示例：微软google gcr镜像源</li></ol><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#888>#以gcr镜像为例，以下镜像无法直接拉取</span>
 docker pull gcr.io/google-containers/kube-apiserver:v1.15.2
-#改为以下方式即可成功拉取：
+<span style=color:#888>#改为以下方式即可成功拉取：</span>
 docker pull gcr.azk8s.cn/google-containers/kube-apiserver:v1.15.2
-</code></pre><p>微软coreos quay镜像源</p><pre><code>#以coreos镜像为例，以下镜像无法直接拉取
+</code></pre></div><p>微软coreos quay镜像源</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#888>#以coreos镜像为例，以下镜像无法直接拉取</span>
 docker pull quay.io/coreos/kube-state-metrics:v1.7.2
-#改为以下方式即可成功拉取：
+<span style=color:#888>#改为以下方式即可成功拉取：</span>
 docker pull quay.azk8s.cn/coreos/kube-state-metrics:v1.7.2
-</code></pre><p>微软dockerhub镜像源</p><pre><code>#以下方式拉取镜像较慢
+</code></pre></div><p>微软dockerhub镜像源</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#888>#以下方式拉取镜像较慢</span>
 docker pull centos
-#改为以下方式使用微软镜像源：
+<span style=color:#888>#改为以下方式使用微软镜像源：</span>
 docker pull dockerhub.azk8s.cn/library/centos
 docker pull dockerhub.azk8s.cn/willdockerhub/centos
-</code></pre><p>dockerhub google镜像源</p><pre><code>#以gcr镜像为例，以下镜像无法直接拉取
+</code></pre></div><p>dockerhub google镜像源</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#888>#以gcr镜像为例，以下镜像无法直接拉取</span>
 docker pull gcr.io/google-containers/kube-apiserver:v1.15.2
-#改为以下方式即可成功拉取：
+<span style=color:#888>#改为以下方式即可成功拉取：</span>
 docker pull mirrorgooglecontainers/google-containers/kube-apiserver:v1.15.2
-</code></pre><p>阿里云google镜像源</p><pre><code>#以gcr镜像为例，以下镜像无法直接拉取
+</code></pre></div><p>阿里云google镜像源</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#888>#以gcr镜像为例，以下镜像无法直接拉取</span>
 docker pull gcr.io/google-containers/kube-apiserver:v1.15.2
-#改为以下方式即可成功拉取：
+<span style=color:#888>#改为以下方式即可成功拉取：</span>
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.15.2
 ————————————————
-</code></pre><h3 id=参考文档>参考文档</h3><ol><li><a href=https://blog.csdn.net/networken/article/details/84571373>https://blog.csdn.net/networken/article/details/84571373</a></li><li><a href=https://jicki.me/kubernetes/docker/2018/12/21/k8s-1.13.1-kubespray/>https://jicki.me/kubernetes/docker/2018/12/21/k8s-1.13.1-kubespray/</a></li></ol></div><div class=post-copyright><p class=copyright-item><span>Author:</span>
+</code></pre></div><h3 id=参考文档>参考文档</h3><ol><li><a href=https://blog.csdn.net/networken/article/details/84571373>https://blog.csdn.net/networken/article/details/84571373</a></li><li><a href=https://jicki.me/kubernetes/docker/2018/12/21/k8s-1.13.1-kubespray/>https://jicki.me/kubernetes/docker/2018/12/21/k8s-1.13.1-kubespray/</a></li></ol></div><div class=post-copyright><p class=copyright-item><span>Author:</span>
 <span>Colynn.Liu</span></p><p class=copyright-item><span>Link:</span>
 <a href=https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/>https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/</span></p><p class="copyright-item lincese">本文采用<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/ target=_blank>知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p></div><div class=post-tags><section><i class="iconfont icon-tag"></i>Tag(s):
 <span class=tag><a href=https://colynn.github.io/tags/kubernetes/>#kubernetes</a></span></section><section><a href=javascript:window.history.back();>back</a></span> ·
