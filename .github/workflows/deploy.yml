@@ -1,22 +1,20 @@
-name: Deploy
+name: Publish Site
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
-  hugo:
-    name: Hugo
+  build-deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Compile content on the server
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        script_stop: true
-        script: |
-          cd apps/colynn.github.io
-          git pull
-          hugo --destination=./public
+      - name: Checkout Repo
+        uses: actions/checkout@master
+        with:
+          submodules: true
+      - name: Publish Site
+        uses: chabad360/hugo-gh-pages@master
+        with:
+          githubToken: ${{ secrets.COLYNN_GITHUB_IO }}
