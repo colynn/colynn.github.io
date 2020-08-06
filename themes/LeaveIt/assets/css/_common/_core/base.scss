@@ -1,0 +1,126 @@
+html {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 40px;
+    background-color: #eee;
+    border-radius: 16px;
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}
+
+::selection {
+  background: rgba(0, 149, 255, 0.1);
+}
+
+html {
+  font-family: "Lato", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", STHeiti,
+    "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
+}
+
+body {
+  font-size: 11pt;
+  font-weight: 400;
+  line-height: 2em;
+  background-color: $light-background-color;
+  color: $light-font-color;
+  &:before {
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.05;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+  }
+
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: $dark-background-color;
+    color: $dark-font-color;
+  }
+}
+
+a {
+  color: $light-global-link-color;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease,
+    opacity 0.2s ease;
+  &:hover {
+    color: $light-global-link-hover-color;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: $dark-global-link-color;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease,
+      opacity 0.2s ease;
+
+    &:hover {
+      color: $dark-global-link-hover-color;
+      text-decoration: none;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease,
+        opacity 0.2s ease;
+    }
+  }
+}
+
+blockquote {
+  font-size: 1rem;
+  display: block;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: $light-border-color;
+  padding: 1.5em 1.2em 0.5em 1.2em;
+  margin: 0 0 2em 0;
+  position: relative;
+
+  &:before {
+    content: "\201C";
+    position: absolute;
+    top: 0em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 3rem;
+    height: 2rem;
+    font: 6em/1.08em "Lato", sans-serif;
+    color: $light-post-link-color;
+    text-align: center;
+
+    @media screen and (prefers-color-scheme: dark) {
+      color: $dark-post-link-color;
+    }
+  }
+  &:after {
+    content: "#blockquote" attr(cite);
+    display: block;
+    text-align: right;
+    font-size: 0.875em;
+    color: $light-post-link-color;
+
+    @media screen and (prefers-color-scheme: dark) {
+      color: $dark-post-link-color;
+    }
+  }
+
+  @media screen and (prefers-color-scheme: dark) {
+    border-color: $dark-border-color;
+  }
+}
