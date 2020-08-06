@@ -1,0 +1,140 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=author content="Colynn.Liu"><link rel=prev href=https://colynn.github.io/2019-09-26-pycharm_env_setting/><link rel=next href=https://colynn.github.io/2019-01-01-ops-notes/><link rel=canonical href=https://colynn.github.io/2019-08-19-js_base_summaring/><link rel=apple-touch-icon sizes=180x180 href=/img/favicon.png><link rel=icon type=image/png sizes=32x32 href=/img/favicon.png><link rel=icon type=image/png sizes=16x16 href=/img/favicon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><title>JS语法知识汇总 | Colynn.Liu</title><meta name=title content="JS语法知识汇总 | Colynn.Liu"><link rel=stylesheet href=/font/iconfont.css><link rel=stylesheet href=/css/main.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/colynn.github.io\/"},"articleSection":"posts","name":"JS语法知识汇总","headline":"JS语法知识汇总","description":"数据类型 var length = 7; \/\/ 数字 var lastName = \u0026quot;Gates\u0026quot;; \/\/ 字符串 var cars = [\u0026quot;Porsche\u0026quot;, \u0026quot;Volvo\u0026quot;, \u0026quot;BMW\u0026quot;]; \/\/ 数组 var x = {firstName:\u0026quot;Bill\u0026quot;, lastName:\u0026quot;Gates\u0026quot;}; \/\/ 对象 var x = true; \/\/ 布尔值 var y = false; \/\/布尔值 数组 some The some() method checks if any of the elements in an array pass a","inLanguage":"zh-CN","author":"Colynn.Liu","creator":"Colynn.Liu","publisher":"Colynn.Liu","accountablePerson":"Colynn.Liu","copyrightHolder":"Colynn.Liu","copyrightYear":"2018","datePublished":"2018-07-19 00:00:00 \u002b0000 UTC","dateModified":"2018-07-19 00:00:00 \u002b0000 UTC","url":"https:\/\/colynn.github.io\/2019-08-19-js_base_summaring\/","wordCount":"1683","keywords":["js","Colynn.Liu"]}</script></head><body><div class=wrapper><nav class=navbar><div class=container><div class="navbar-header header-logo"><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://colynn.github.io/>Colynn.Liu</a></div><div class="menu navbar-right"><a class=menu-item href=/posts/>文章</a>
+<a class=menu-item href=/categories/>分类</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/aboutme/>关于我</a></div></div></nav><nav class=navbar-mobile id=nav-mobile style=display:none><div class=container><div class=navbar-header><div><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://colynn.github.io/>Colynn.Liu</a></div><div class=menu-toggle><span></span><span></span><span></span></div></div><div class=menu id=mobile-menu><a class=menu-item href=/posts/>文章</a>
+<a class=menu-item href=/categories/>分类</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/aboutme/>关于我</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">JS语法知识汇总</h1><div class=post-meta>Written by <a itemprop=name href=https://colynn.github.io/ rel=author>Colynn.Liu</a> with ♥
+<span class=post-time>on <time datetime=2018-07-19 itemprop=datePublished>July 19, 2018</time></span>
+<span class=post-time>- last modified <time datetime=2018-07-19 itemprop=datePublished>August 19, 2019</time></span></div><div class=post-tags><section><span class=tag><a href=https://colynn.github.io/tags/js/><i class="iconfont icon-tag"></i>js</a></span></section><section><i class="iconfont icon-folder"></i><span class=post-category><a href=https://colynn.github.io/categories/%E5%9F%BA%E7%A1%80%E6%89%8B%E5%86%8C/>基础手册</a></span></section></div></header><div class=post-content><h2 id=数据类型>数据类型</h2><pre><code>var length = 7;                             // 数字
+var lastName = &quot;Gates&quot;;                      // 字符串
+var cars = [&quot;Porsche&quot;, &quot;Volvo&quot;, &quot;BMW&quot;];         // 数组
+var x = {firstName:&quot;Bill&quot;, lastName:&quot;Gates&quot;};    // 对象 
+var x = true;     // 布尔值
+var y = false;    //布尔值
+</code></pre><h3 id=数组-some>数组 some</h3><p>The <code>some()</code> method checks if any of the elements in an array pass a test (provided as a function).</p><p>The <code>some()</code> method executes the function once for each element present in the array:</p><p>If it finds an array element where the function returns a true value, some() returns <code>true</code> (and does not check the remaining values)
+Otherwise it returns <code>false</code>
+<strong>Note:</strong> some() does not execute the function for array elements without values.</p><p><strong>Note:</strong> some() does not change the original array.</p><h3 id=数组添加元素>数组添加元素</h3><ol><li>push() 结尾添加</li></ol><table><thead><tr><th>参数</th><th>描述</th></tr></thead><tbody><tr><td>newelement1</td><td>必需。要添加到数组的第一个元素。</td></tr><tr><td>newelement2</td><td>可选。要添加到数组的第二个元素。</td></tr><tr><td>newelementX</td><td>可选。可添加多个元素。</td></tr></tbody></table><ol start=2><li>unshift() 头部添加</li></ol><table><thead><tr><th>参数</th><th>描述</th></tr></thead><tbody><tr><td>newelement1</td><td>必需。要添加到数组的第一个元素。</td></tr><tr><td>newelement2</td><td>可选。要添加到数组的第二个元素。</td></tr><tr><td>newelementX</td><td>可选。可添加多个元素。</td></tr></tbody></table><ol start=3><li>splice() 方法向/从数组指定位置添加/删除项目，然后返回被删除的项目。</li></ol><table><thead><tr><th>参数</th><th>描述</th></tr></thead><tbody><tr><td>index</td><td>必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。</td></tr><tr><td>howmany</td><td>必需。要删除的项目数量。如果设置为 0，则不会删除项目。</td></tr><tr><td>item1, &mldr;, itemX</td><td>可选。向数组添加的新项目。</td></tr></tbody></table><h3 id=数组删除元素>数组删除元素</h3><ol><li>splice 方法</li></ol><p>如：<code>array.splice(index, nums);</code></p><p><strong>注</strong>: 数组长度相应改变,但是原来的数组索引也相应改变，splice参数中第一个index,是删除的起始索引(从index算起); 第二个nums,是删除元素的个数.</p><p>此时遍历数组元素可以用普通遍历数组的方式,比如for,因为删除的元素在数组中并不保留。</p><ol start=2><li>delete 方法</li></ol><p>如： <code>delete array[index]</code></p><p><strong>注</strong>：这种方式数组长度不变,此时 array[index]对应的index会变为undefined,好处是原来数组的索引也保持不变,此时要遍历数组元素可以才用.这种遍历方式跳过其中undefined的元素，所以非常实用。</p><p>获取数组下表的函数</p><pre><code>/*
+* 获取某个元素下标
+*
+*       arrays  : 传入的数组
+*
+*       obj     : 需要获取下标的元素
+* */
+function contains(arrays, obj) {
+    var i = arrays.length;
+    while (i--) {
+        if (arrays[i] === obj) {
+            return i;
+        }
+    }
+    return false;
+</code></pre><h3 id=数组的内置函数>数组的内置函数</h3><ol><li><p><code>slice(start, end)</code> 方法可从已有的数组中返回选定的元素。
+| 参数 | 描述 |
+| &mdash;&mdash; | &mdash;&mdash; |
+| start | 必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置 |
+| end | 可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。|</p><p>示例：</p><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+
+var arr = new Array(3)
+arr[0] = &quot;George&quot;
+arr[1] = &quot;John&quot;
+arr[2] = &quot;Thomas&quot;
+
+document.write(arr + &quot;&lt;br /&gt;&quot;)
+document.write(arr.slice(1) + &quot;&lt;br /&gt;&quot;)
+document.write(arr)
+
+&lt;/script&gt;
+</code></pre><p>输出：</p><pre><code>George,John,Thomas
+John,Thomas
+George,John,Thomas
+</code></pre></li><li><p>连接数组</p><pre><code>var arr1=[1,2,3];
+var arr2=[4,5,6];
+var arr3=[7,8,9];
+var arr=arr1.concat(arr2,arr3,[10,11]);
+console.log(arr);//输出 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+</code></pre></li><li><p>数组转换为字符串</p><pre><code>var arr=new Array(1,2,3,4,5);
+var str=arr.join('-');//间隔的字符串，默认为“，”
+console.log(str);//1-2-3-4-5
+</code></pre></li><li><p>查找字符位置</p><pre><code>indexOf();   // 通过字符找位置，（找相同单词的第一个）
+lastIndexOf(); // 通过字符串找位置，（找相同单词最后一个）
+</code></pre></li></ol><h3 id=对象添加元素>对象添加元素</h3><pre><code>var jsonObj={
+      'param1':22,
+      'param2' :33
+};
+
+jsonObj.newParam ='pre';
+
+// 新的属性添加以后，json对象变成：
+
+var jsonObj={
+      'param1':22,
+      'param2' :33,
+      'newParam':'pre'
+};
+</code></pre><h3 id=对象删除元素>对象删除元素</h3><pre><code>delete jsonObj.age;
+//结果：Object { id: 1, name: &quot;danlis&quot; }
+</code></pre><p><strong>注</strong>：</p><ol><li>对象序列转化为json格式的字符串：<code>JSON.stringify(jsObj)</code></li><li>对象反序列化（由json格式的字符串转化为javascript对象）<code>JSON.parse('{"name": "小明", "age": 14}')</code></li></ol><h3 id=比较运算符>比较运算符</h3><p>假定 x = 5;</p><table><thead><tr><th>运算符</th><th>描述</th><th>比较</th><th>返回</th></tr></thead><tbody><tr><td>==</td><td>等于</td><td>x == 8</td><td>false</td></tr><tr><td>===</td><td>值相等并且类型相等</td><td>x === 8</td><td>true</td></tr><tr><td>!=</td><td>不相等</td><td>x != 8</td><td>true</td></tr><tr><td>!==</td><td>值不相等或类型不相等</td><td>x !== 5</td><td>false</td></tr></tbody></table><h3 id=条件三元运算符>条件（三元）运算符</h3><p>语法</p><pre><code>variablename = (condition) ? value1:value2
+</code></pre><p>实例</p><pre><code>var voteable = (age &lt; 18) ? &quot;太年轻&quot;:&quot;足够成熟&quot;;
+</code></pre><h2 id=常用指令>常用指令</h2><pre><code>JSON.parse(jsonstr); //可以将json字符串转换成json对象 
+JSON.stringify(jsonobj); //可以将json对象转换成json对符串 
+</code></pre><pre><code>// js 检查字典对象的长度
+const dict = {1: 'aa',  2: 'bb', 3: 'cc'}
+Object.keys(dict).length
+</code></pre><pre><code>// concat() 方法用于连接两个或多个数组。
+// 该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
+
+arrayObject.concat(arrayX,arrayX,......,arrayX)
+</code></pre><pre><code>// 字符串转化为 int
+const str1 = '1'
+parseInt(str1) 
+</code></pre><pre><code>// typeof operator returns a string indicating the type of the unevaluated operand.
+
+if ( typeof {} === 'object') {
+    console.log('correct, {} this is object')
+}
+</code></pre><pre><code>/**
+    * Performs the specified action for each element in an array.
+    * @param callbackfn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
+    * @param thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+    */
+forEach(callbackfn: (value: T, index: number, array: T[]) =&gt; void, thisArg?: any): void;
+
+this.tableData.forEach((_, index) =&gt; {
+    if (this.tableData[index].Status === 'Running') {
+        this.tableData[index].Status = '在线'
+    } else if (this.tableData[index].Status === 'Stopped') {
+        this.tableData[index].Status = '关闭'
+    }
+)
+</code></pre><pre><code>// 时间比较
+console.log(new Date('2017-09-28T22:59:02.448804522Z').valueOf())
+
+const currentTime = new Date('2017-09-28T22:59:02.448804522Z').valueOf()
+    
+const expiryTime = new Date('2017-09-29T22:59:02.448804522Z').valueOf()
+
+if (currentTime &lt; expiryTime) {
+    console.log('not expired')
+}
+
+// 方式二
+new Date('2017-09-28T22:59:02.448804522Z') &gt; new Date()
+// true
+new Date('2017-09-28T22:59:02.448804522Z') &lt; new Date()
+</code></pre><pre><code>// 遍历字典
+let dict1 = {'user': ['liuyuan','colynn'], 'email': ['colynn@example.com', 'abc.liu@test.com']}
+
+Object.keys(dict1).forEach((item)=&gt;{console.log(item)})
+</code></pre><pre><code>// Check if a string includes &quot;world&quot;:
+var str = &quot;Hello world, welcome to the universe.&quot;;
+var n = str.includes(&quot;world&quot;);
+</code></pre><h2 id=参考>参考</h2><ul><li><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript>Javascript教程 A re-introduction to JavaScript</a></li></ul></div><div class=post-copyright><p class=copyright-item><span>Author:</span>
+<span>Colynn.Liu</span></p><p class=copyright-item><span>Link:</span>
+<a href=https://colynn.github.io/2019-08-19-js_base_summaring/>https://colynn.github.io/2019-08-19-js_base_summaring/</span></p><p class="copyright-item lincese">本文采用<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/ target=_blank>知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p></div><div class=post-tags><section><i class="iconfont icon-tag"></i>Tag(s):
+<span class=tag><a href=https://colynn.github.io/tags/js/>#js</a></span></section><section><a href=javascript:window.history.back();>back</a></span> ·
+<span><a href=https://colynn.github.io/>home</a></span></section></div><div class=post-nav><a href=https://colynn.github.io/2019-09-26-pycharm_env_setting/ class=prev rel=prev title="PyCharm 开发环境设置"><i class="iconfont icon-left"></i>&nbsp;PyCharm 开发环境设置</a>
+<a href=https://colynn.github.io/2019-01-01-ops-notes/ class=next rel=next title=运维常用命令备注手册>运维常用命令备注手册&nbsp;<i class="iconfont icon-right"></i></a></div><div class=post-comment><script src=https://utteranc.es/client.js repo=colynn/blog-comments issue-term=pathname label=utterances theme=github-light crossorigin=anonymous async></script></div></article></div></main><footer class=footer><div class=copyright>&copy;
+<span itemprop=copyrightYear>2018 - 2020</span>
+<span class=with-love><i class="iconfont icon-love"></i></span><span class=author itemprop=copyrightHolder><a href=https://colynn.github.io/>Colynn.Liu</a> |</span>
+<span><a href=https://colynn.github.io/friends>友情链接</a></span></div></footer><script src=/js/vendor_no_gallery.min.js async></script></div></body></html>

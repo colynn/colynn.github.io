@@ -1,0 +1,61 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=author content="Colynn.Liu"><link rel=prev href=https://colynn.github.io/2019-07-26-basic_knowledge_summarizing/><link rel=next href=https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/><link rel=canonical href=https://colynn.github.io/2019-08-15-introducing_go_mod/><link rel=apple-touch-icon sizes=180x180 href=/img/favicon.png><link rel=icon type=image/png sizes=32x32 href=/img/favicon.png><link rel=icon type=image/png sizes=16x16 href=/img/favicon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><title>Go Mod 包管理 | Colynn.Liu</title><meta name=title content="Go Mod 包管理 | Colynn.Liu"><link rel=stylesheet href=/font/iconfont.css><link rel=stylesheet href=/css/main.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/colynn.github.io\/"},"articleSection":"posts","name":"Go Mod 包管理","headline":"Go Mod 包管理","description":"前言 In Go 1.11, a new tool has arrived. It\u0026rsquo;s called go mod. For those who don\u0026rsquo;t know what is that, I\u0026rsquo;ll tell you about it. One of the purposes of this tool is to get rid of $GOPATH, so you can git clone a Golang repository anywhere and work on it without worrying about $GOPATH at all. There are other purposes of course, such as simpler versioning and","inLanguage":"zh-CN","author":"Colynn.Liu","creator":"Colynn.Liu","publisher":"Colynn.Liu","accountablePerson":"Colynn.Liu","copyrightHolder":"Colynn.Liu","copyrightYear":"2019","datePublished":"2019-08-15 00:00:00 \u002b0000 UTC","dateModified":"2019-08-15 00:00:00 \u002b0000 UTC","url":"https:\/\/colynn.github.io\/2019-08-15-introducing_go_mod\/","wordCount":"1757","keywords":["go","Colynn.Liu"]}</script></head><body><div class=wrapper><nav class=navbar><div class=container><div class="navbar-header header-logo"><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://colynn.github.io/>Colynn.Liu</a></div><div class="menu navbar-right"><a class=menu-item href=/posts/>文章</a>
+<a class=menu-item href=/categories/>分类</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/aboutme/>关于我</a></div></div></nav><nav class=navbar-mobile id=nav-mobile style=display:none><div class=container><div class=navbar-header><div><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://colynn.github.io/>Colynn.Liu</a></div><div class=menu-toggle><span></span><span></span><span></span></div></div><div class=menu id=mobile-menu><a class=menu-item href=/posts/>文章</a>
+<a class=menu-item href=/categories/>分类</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/aboutme/>关于我</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">Go Mod 包管理</h1><div class=post-meta>Written by <a itemprop=name href=https://colynn.github.io/ rel=author>Colynn.Liu</a> with ♥
+<span class=post-time>on <time datetime=2019-08-15 itemprop=datePublished>August 15, 2019</time></span>
+<span class=post-time>- last modified <time datetime=2019-08-15 itemprop=datePublished>August 15, 2019</time></span></div><div class=post-tags><section><span class=tag><a href=https://colynn.github.io/tags/go/><i class="iconfont icon-tag"></i>go</a></span></section><section><i class="iconfont icon-folder"></i><span class=post-category><a href=https://colynn.github.io/categories/go/>Go</a></span></section></div></header><div class=post-content><h3 id=前言>前言</h3><p>In Go 1.11, a new tool has arrived. It&rsquo;s called go mod. For those who don&rsquo;t know what is that, I&rsquo;ll tell you about it.</p><p>One of the purposes of this tool is to get rid of <code>$GOPATH</code>, so you can git clone a Golang repository anywhere and work on it without worrying about $GOPATH at all. There are other purposes of course, such as simpler versioning and usage, but I think the RIP <code>$GOPATH</code> is the most notable.</p><p>If the repository is a mod, all the tools you use regularly (<code>go get</code>, <code>go build</code>, etc.) will handle it nicely without changing anything.</p><h3 id=如何使用-modules->如何使用 Modules ？</h3><p>把 golang 升级到 1.11（现在1.12 已经发布了，建议使用1.12）
+设置 GO111MODULE</p><p><code>go mod init [module-name]</code>. Yep, that&rsquo;s all you have to do. If you&rsquo;re trying to go mod-ify an existing project that uses $GOPATH, you should export the <code>GO111MODULE=on</code> variable (<code>go mod</code> will tell you that as well).</p><h3 id=go111module>GO111MODULE</h3><p>GO111MODULE 有三个值：off, on和auto（默认值）。</p><ul><li>GO111MODULE=off，go命令行将不会支持module功能，寻找依赖包的方式将会沿用旧版本那种通过vendor目录或者GOPATH模式来查找。</li><li>GO111MODULE=on，go命令行会使用modules，而一点也不会去GOPATH目录下查找。</li><li>GO111MODULE=auto，默认值，go命令行将会根据当前目录来决定是否启用module功能。这种情况下可以分为两种情形：<ul><li>当前目录在GOPATH/src之外且该目录包含go.mod文件</li><li>当前文件在包含go.mod文件的目录下面。</li></ul></li></ul><p><strong>注</strong>: 当modules 功能启用时，依赖包的存放位置变更为$GOPATH/pkg/mod，允许同一个package多个版本并存，且多个项目可以共享缓存的 module。</p><h3 id=how-it-work>How it work</h3><p>接下来，让你的项目依赖一下第三方包
+以大部分人都熟悉的beego为例吧！
+修改Hello.go文件：</p><pre><code>package main
+
+import &quot;github.com/astaxie/beego&quot;
+
+func main() {
+    beego.Run()
+}
+</code></pre><h4 id=1之前做法>1.之前做法</h4><p>要运行hello.go需要执行go get 命令 下载beego包到 <code>$GOPATH/src</code></p><h4 id=2当前推荐做法>2.当前推荐做法</h4><p>直接 <code>go run hello.go</code></p><p>稍等片刻… go 会自动查找代码中的包，下载依赖包，并且把具体的依赖关系和版本写入到go.mod和go.sum文件中。
+查看go.mod，它会变成这样：</p><pre><code>module hello
+
+go 1.12
+
+require github.com/astaxie/beego v1.11.1
+</code></pre><h4 id=3-gomod文件解释>3. go.mod文件解释</h4><p>require 关键子是引用，后面是包，最后v1.11.1 是引用的版本号； 这样，一个使用Go包管理方式创建项目的小例子就完成了。</p><h3 id=问题一-依赖包的版本是怎么控制的>问题一： 依赖包的版本是怎么控制的？</h3><p>下载的依赖包 （<code>$GOPATH/pkg/mod</code>）是存在版本定义的（如：github.com/astaxie/beego@v1.11.1 ）最后会有一个版本号 1.11.1，也就是说，<code>$GOPATH/pkg/mod</code>里可以保存相同包的不同版本。</p><p>版本是在go.mod中指定的:</p><ul><li><p>如果，在go.mod中没有指定，go命令会自动下载代码中的依赖的最新版本，本例就是自动下载最新的版本。</p></li><li><p>如果，在go.mod用require语句指定包和版本 ，go命令会根据指定的路径和版本下载包，
+指定版本时可以用latest，这样它会自动下载指定包的最新版本；</p></li></ul><h4 id=依赖包的版本号是什么>依赖包的版本号是什么？</h4><p>是包的发布者标记的版本号，格式为 vn.n.n (n代表数字)，本例中的beego的历史版本可以在其代码仓库release看到Releases · astaxie/beego · GitHub</p><p>如果包的作者还没有标记版本，默认为 v0.0.0</p><h3 id=问题二-依赖包中的地址失效了怎么办>问题二： 依赖包中的地址失效了怎么办？</h3><p>比如 golang.org/x/… 下的包都无法下载怎么办？
+在go快速发展的过程中，有一些依赖包地址变更了。
+以前的做法</p><p>修改源码，用新路径替换import的地址
+git clone 或 go get 新包后，copy到$GOPATH/src里旧的路径下
+无论什么方法，都不便于维护，特别是多人协同开发时。</p><p>使用go.mod就简单了，在go.mod文件里用 replace 替换包，例如</p><pre><code>replace golang.org/x/text =&gt; github.com/golang/text latest
+</code></pre><p>这样，go会用 <code>github.com/golang/text</code> 替代<code>golang.org/x/text</code>，原理就是下载<code>github.com/golang/text</code> 的最新版本到 <code>$GOPATH/pkg/mod/golang.org/x/text</code>下。</p><h3 id=问题三-init生成的gomod的模块名称有什么用>问题三： init生成的go.mod的模块名称有什么用？</h3><p>本例里，用 go mod init hello 生成的go.mod文件里的第一行会申明
+module hello</p><p>因为我们的项目已经不在$GOPATH/src里了，那么引用自己怎么办？就用模块名+路径。</p><p>例如，在项目下新建目录 utils，创建一个tools.go文件:</p><pre><code>package utils
+
+import “fmt”
+
+func PrintText(text string) {
+    fmt.Println(text)
+}
+</code></pre><p>在根目录下的hello.go文件就可以 import “hello/utils” 引用utils</p><pre><code>package main
+
+import (
+&quot;hello/utils&quot;
+
+&quot;github.com/astaxie/beego&quot;
+)
+
+func main() {
+
+    utils.PrintText(&quot;Hi&quot;)
+
+    beego.Run()
+}
+</code></pre><h3 id=问题四以前老项目如何用新的包管理>问题四：以前老项目如何用新的包管理</h3><ol><li>如果用<code>auto</code>模式，把项目移动到<code>$GOPATH/src</code>外</li><li>进入目录，运行 <code>go mod init [模块名称]</code></li><li><code>go build</code> 或者 <code>go run</code> 一次</li></ol><p><strong>注</strong>: 根据官方的说法，从Go 1.13开始，模块管理模式将是Go语言开发的默认模式。</p><p><a href=/index.html>返回首页</a></p></div><div class=post-copyright><p class=copyright-item><span>Author:</span>
+<span>Colynn.Liu</span></p><p class=copyright-item><span>Link:</span>
+<a href=https://colynn.github.io/2019-08-15-introducing_go_mod/>https://colynn.github.io/2019-08-15-introducing_go_mod/</span></p><p class="copyright-item lincese">本文采用<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/ target=_blank>知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p></div><div class=post-tags><section><i class="iconfont icon-tag"></i>Tag(s):
+<span class=tag><a href=https://colynn.github.io/tags/go/>#go</a></span></section><section><a href=javascript:window.history.back();>back</a></span> ·
+<span><a href=https://colynn.github.io/>home</a></span></section></div><div class=post-nav><a href=https://colynn.github.io/2019-07-26-basic_knowledge_summarizing/ class=prev rel=prev title="python 语法汇总"><i class="iconfont icon-left"></i>&nbsp;python 语法汇总</a>
+<a href=https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/ class=next rel=next title="Kubespary 部署 Kubernetes 1.5.3 版本">Kubespary 部署 Kubernetes 1.5.3 版本&nbsp;<i class="iconfont icon-right"></i></a></div><div class=post-comment><script src=https://utteranc.es/client.js repo=colynn/blog-comments issue-term=pathname label=utterances theme=github-light crossorigin=anonymous async></script></div></article></div></main><footer class=footer><div class=copyright>&copy;
+<span itemprop=copyrightYear>2018 - 2020</span>
+<span class=with-love><i class="iconfont icon-love"></i></span><span class=author itemprop=copyrightHolder><a href=https://colynn.github.io/>Colynn.Liu</a> |</span>
+<span><a href=https://colynn.github.io/friends>友情链接</a></span></div></footer><script src=/js/vendor_no_gallery.min.js async></script></div></body></html>
