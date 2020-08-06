@@ -32,7 +32,7 @@ node1  | 10.0.0.183 | 2c*4G |
 ### 1. 设置master与node1间的免密登录
 由于kubespray是依赖于ansible，ansible通过ssh协议进行主机之间的访问，所以部署之前需要设置主机之间免密登录，步骤如下：
 
-```
+```sh
 [node0]$ ssh-keygen -t rsa
 [node0]$ scp ~/.ssh/id_rsa.pub root@node1:/root/.ssh
 [local terminal]$ ssh root@node1
@@ -42,7 +42,7 @@ node1  | 10.0.0.183 | 2c*4G |
 ### 2. 下载kubespray
 
 _注_：此步骤工作环境为node0
-```
+```sh
 $ wget https://github.com/kubernetes-sigs/kubespray/archive/v2.11.0.tar.gz
 $ tar -zxvf v2.11.0.tar.gz
 $ cd kubespray-v2.11.0
@@ -74,7 +74,7 @@ _注_: 主要涉及镜像有 kubernetes-*; calico_*_image_repo; coredns; etcd
 
 示例操作如下：
 
-```
+```sh
 docker pull gcr.azk8s.cn/google_containers/kubernetes-dashboard-amd64:v1.10.0
 docker tag gcr.azk8s.cn/google_containers/kubernetes-dashboard-amd64:v1.10.0 [harbor-ip]:5000/google_containers/kubernetes-dashboard-amd64:v1.10.0
 docker push [harbor-ip]:5000/google_containers/kubernetes-dashboard-amd64:v1.10.0
@@ -84,13 +84,13 @@ _注_: [harbor-ip] 是为私有的镜像仓库地址。
 * 更改部署脚本的镜像地址
   1. 生成部署的参数文件
   
-  ```
+  ```sh
   [node0 kubespray-v2.11.0]$  cp -rfp inventory/sample inventory/[your-cluster-name]
   ```
   
   2. 替换为新的镜像地址
   
-  ```
+  ```sh
   [node0 kubespray-v2.11.0]$ vim inventory/[your-cluster-name]/group_vars/k8s-cluster/k8s-cluster.yml
 
   # kubernetes image repo define
@@ -109,7 +109,7 @@ _注_: [harbor-ip] 是为私有的镜像仓库地址。
 
 _注_: 如果[harbor-info]为非https的站点，需要在 `inventory/[your-cluster-name]/group_vars/all/docker.yml`文件中添加如下配置：
 
-```
+```sh
 docker_insecure_registries:
    - [harbro-ip]:[port]
 ```
@@ -119,7 +119,7 @@ docker_insecure_registries:
 
 由于默认从Docker官方源安装docker，速度非常慢，这里我们更换为国内阿里源，在`inventory/[your-cluster-name]/group_vars/k8s-cluster/k8s-cluster.yml`文件中添加如下配置：
 
-```
+```sh
 # CentOS/RedHat docker-ce repo
 docker_rh_repo_base_url: 'https://mirrors.aliyun.com/docker-ce/linux/centos/7/$basearch/stable'
 docker_rh_repo_gpgkey: 'https://mirrors.aliyun.com/docker-ce/linux/centos/gpg'
@@ -134,7 +134,7 @@ _注_: 此步骤可根据的网络环境决定是否需要略过
 
 可执行文件下载地址可以在`roles/download/defaults/main.yml`文件中查找到，下载路径如下：
 
-```
+```sh
 kubeadm_download_url: "https://storage.googleapis.com/kubernetes-release/release/v1.12.5/bin/linux/amd64/kubeadm"
 hyperkube_download_url: "https://storage.googleapis.com/kubernetes-release/release/v1.12.5/bin/linux/amd64/hyperkube"
 cni_download_url: "https://github.com/containernetworking/plugins/releases/download/v0.6.0/cni-plugins-amd64-v0.6.0.tgz"
@@ -142,14 +142,14 @@ cni_download_url: "https://github.com/containernetworking/plugins/releases/downl
 
 接下来修改文件权限，并上传到每台服务器的`/tmp/releases`目录下
 
-```
+```sh
 chmod 755 cni-plugins-amd64-v0.6.0.tgz hyperkube kubeadm
 scp cni-plugins-amd64-v0.6.0.tgz hyperkube kubeadm root@node1:/tmp/releases
 ```
 
 ### 4. 执行安装命令
 
-```
+```sh
 # Install dependencies from ``requirements.txt``
 sudo pip install -r requirements.txt
 
@@ -169,7 +169,7 @@ ansible-playbook -i inventory/[your-cluster-name]/hosts.ini --become --become-us
 ```
 ### 5. 确认集群安装状态
 
-```
+```sh
 $ kubectl cluster-info
 $ kubectl get pods --all-namespaces
 ```
@@ -179,13 +179,13 @@ $ kubectl get pods --all-namespaces
 
 __注__: 如果是单节点部署K8s，Kubespray默认会创建2个coredns Pod，但Deployment中又用到了podAntiAffinity，因此会导致其中一个coredns pod pending，所以需要修改代码如下
 
-```
+```sh
 vim ./roles/kubernetes-apps/ansible/templates/coredns-deployment.yml.j2
 ```
 
 //注释掉以下几行代码
 
-```
+```yaml
   affinity:
   #podAntiAffinity:
   #  requiredDuringSchedulingIgnoredDuringExecution:
@@ -196,7 +196,7 @@ vim ./roles/kubernetes-apps/ansible/templates/coredns-deployment.yml.j2
 ```
 或者在spec一行添加代码：
 
-```
+```yaml
 spec:
   replicas: 1   //指定pod为1个副本
 ```
@@ -205,7 +205,7 @@ spec:
 
 #### 异常描述 
 
-```
+```sh
 error: failed to run Kubelet: failed to create kubelet: misconfiguration: kubelet cgroup driver: “systemd” is different from docker cgroup driver: "cgroupfs"
 ```
 
@@ -213,7 +213,7 @@ error: failed to run Kubelet: failed to create kubelet: misconfiguration: kubele
   方式1. 修改docker
   方式2. 修改kubelet配置
 
-```
+```sh
 $ sed -i 's/cgroupDriver: systemd/cgroupDriver: cgroupfs/'   /etc/kubernetes/kubelet-config.yaml
 $ sed -n '/cgroupDriver:/p' /etc/kubernetes/kubelet-config.yaml  ## 确认修改的配置
 
@@ -238,7 +238,7 @@ https://access.redhat.com/containers
 
 2. 示例：微软google gcr镜像源
 
-```
+```sh
 #以gcr镜像为例，以下镜像无法直接拉取
 docker pull gcr.io/google-containers/kube-apiserver:v1.15.2
 #改为以下方式即可成功拉取：
@@ -247,7 +247,7 @@ docker pull gcr.azk8s.cn/google-containers/kube-apiserver:v1.15.2
 
 微软coreos quay镜像源
 
-```
+```sh
 #以coreos镜像为例，以下镜像无法直接拉取
 docker pull quay.io/coreos/kube-state-metrics:v1.7.2
 #改为以下方式即可成功拉取：
@@ -256,7 +256,7 @@ docker pull quay.azk8s.cn/coreos/kube-state-metrics:v1.7.2
 
 微软dockerhub镜像源
 
-```
+```sh
 #以下方式拉取镜像较慢
 docker pull centos
 #改为以下方式使用微软镜像源：
@@ -266,7 +266,7 @@ docker pull dockerhub.azk8s.cn/willdockerhub/centos
 
 dockerhub google镜像源
 
-```
+```sh
 #以gcr镜像为例，以下镜像无法直接拉取
 docker pull gcr.io/google-containers/kube-apiserver:v1.15.2
 #改为以下方式即可成功拉取：
@@ -275,7 +275,7 @@ docker pull mirrorgooglecontainers/google-containers/kube-apiserver:v1.15.2
 
 阿里云google镜像源
 
-```
+```sh
 #以gcr镜像为例，以下镜像无法直接拉取
 docker pull gcr.io/google-containers/kube-apiserver:v1.15.2
 #改为以下方式即可成功拉取：

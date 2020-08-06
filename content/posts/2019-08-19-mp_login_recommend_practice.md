@@ -23,7 +23,7 @@ lastmod: 2018-03-15
 
 ### 问题记录
 1. 子组件的方法调用时没有生效，注意将方法调整至methods内， 示例代码：
-    ```
+    ```js
         ......
         methods = {
             async addFavorites() {
@@ -36,7 +36,7 @@ lastmod: 2018-03-15
         ....
     ```
 2. 绑定事件获取要操作的属性时均要通过```data-*```的形式来传值，示例代码：
-    ```
+    ```js
     <template>
         <view data-parent="{{index}}" data-index="{{current}}" @tap.stop="setChoice">示例代码</view>
     </template>
@@ -54,7 +54,7 @@ lastmod: 2018-03-15
 
     * 获取高度
 
-    ```
+    ```js
     try {
       const res = wx.getSystemInfoSync()
       console.log(res.model)
@@ -80,6 +80,6 @@ lastmod: 2018-03-15
 
     * 使用高度
 
-    ```
+    ```js
     var winHeight = wepy.getStorageSync('SystemScreenHeight');
     ```

@@ -8,7 +8,7 @@ lastmod: 2019-08-19
 
 ## 数据类型
 
-```
+```js
 var length = 7;                             // 数字
 var lastName = "Gates";                      // 字符串
 var cars = ["Porsche", "Volvo", "BMW"];         // 数组
@@ -73,7 +73,7 @@ __注__：这种方式数组长度不变,此时 array[index]对应的index会变
 
 获取数组下表的函数
 
-```
+```js
 /*
 * 获取某个元素下标
 *
@@ -101,7 +101,7 @@ function contains(arrays, obj) {
 
     示例：
 
-    ```
+    ```js
     <script type="text/javascript">
 
     var arr = new Array(3)
@@ -118,7 +118,7 @@ function contains(arrays, obj) {
 
     输出：
 
-    ```
+    ```sh
     George,John,Thomas
     John,Thomas
     George,John,Thomas
@@ -126,7 +126,7 @@ function contains(arrays, obj) {
 
 2. 连接数组
 
-    ```
+    ```js
     var arr1=[1,2,3];
     var arr2=[4,5,6];
     var arr3=[7,8,9];
@@ -136,7 +136,7 @@ function contains(arrays, obj) {
 
 3. 数组转换为字符串
 
-    ```
+    ```js
     var arr=new Array(1,2,3,4,5);
     var str=arr.join('-');//间隔的字符串，默认为“，”
     console.log(str);//1-2-3-4-5
@@ -144,14 +144,14 @@ function contains(arrays, obj) {
 
 4. 查找字符位置
 
-    ```
+    ```js
     indexOf();   // 通过字符找位置，（找相同单词的第一个）
     lastIndexOf(); // 通过字符串找位置，（找相同单词最后一个）
     ```
 
 ### 对象添加元素
 
-```
+```js
 var jsonObj={
       'param1':22,
       'param2' :33
@@ -170,7 +170,7 @@ var jsonObj={
 
 ### 对象删除元素
 
-```
+```js
 delete jsonObj.age;
 //结果：Object { id: 1, name: "danlis" }
 ```
@@ -195,45 +195,45 @@ __注__：
 
 语法
 
-```
+```js
 variablename = (condition) ? value1:value2
 ```
 
 
 实例
 
-```
+```js
 var voteable = (age < 18) ? "太年轻":"足够成熟";
 ```
 
 
 ## 常用指令
 
-```
+```js
 JSON.parse(jsonstr); //可以将json字符串转换成json对象 
 JSON.stringify(jsonobj); //可以将json对象转换成json对符串 
 ```
 
-```
+```js
 // js 检查字典对象的长度
 const dict = {1: 'aa',  2: 'bb', 3: 'cc'}
 Object.keys(dict).length
 ```
 
-```
+```js
 // concat() 方法用于连接两个或多个数组。
 // 该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
 
 arrayObject.concat(arrayX,arrayX,......,arrayX)
 ```
 
-```
+```js
 // 字符串转化为 int
 const str1 = '1'
 parseInt(str1) 
 ```
 
-```
+```js
 // typeof operator returns a string indicating the type of the unevaluated operand.
 
 if ( typeof {} === 'object') {
@@ -242,7 +242,7 @@ if ( typeof {} === 'object') {
 ```
 
 
-```
+```js
 /**
     * Performs the specified action for each element in an array.
     * @param callbackfn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
@@ -259,7 +259,7 @@ this.tableData.forEach((_, index) => {
 )
 ```
 
-```
+```js
 // 时间比较
 console.log(new Date('2017-09-28T22:59:02.448804522Z').valueOf())
 
@@ -277,14 +277,14 @@ new Date('2017-09-28T22:59:02.448804522Z') > new Date()
 new Date('2017-09-28T22:59:02.448804522Z') < new Date()
 ```
 
-```
+```js
 // 遍历字典
 let dict1 = {'user': ['liuyuan','colynn'], 'email': ['colynn@example.com', 'abc.liu@test.com']}
 
 Object.keys(dict1).forEach((item)=>{console.log(item)})
 ```
 
-```
+```js
 // Check if a string includes "world":
 var str = "Hello world, welcome to the universe.";
 var n = str.includes("world");

@@ -17,7 +17,7 @@ lastmod: 2020-03-03
 ## Build and Run
 Go程序的这两个指令使用的相当频繁, 所以添加这些目录至我们的`Makefile`:
 
-```
+```makefile
 build: 
     go build -o stringifier main.go
 
@@ -30,7 +30,7 @@ run:
 ## Cleaning and DRYing
 构建二进制文件并运行应用程序后，一切正常, 确保我们在执行其他任何操作之前先清理二进制文件。我们更新`Makefile`应该看起来像这样：
 
-```
+```makefile
 build:
 	go build -o stringifier main.go
 
@@ -48,7 +48,7 @@ clean:
 
 改进后的`Makefile`
 
-```
+```makefile
 APP=stringifier
 
 build: clean
@@ -76,7 +76,7 @@ __默认情况下__，如果一个前置条件或是目录文件已更改，`mak
 所以，你可以通过将目标（target）指定为特殊目标`.PHONY`的先决条件，将目标指定为`.PHONY`。
 
 
-```
+```makefile
 APP=stringifier
 
 
@@ -95,7 +95,7 @@ clean:
 
 现在你已将上述所有的`targets`指定为`phony`, 每次你调用任何`phony`目标（target) 时，make将会执行相应的规则。你还可以一次将所有要指定为`phony`的目标指定为:
 
-```
+```makefile
 .PHONY: build clean run
 ```
 
@@ -105,7 +105,7 @@ clean:
 ## Recursive Make targets
 现在让我们假设我们在项目中使用的根目录中还有另一个模块`tokenizer`。现在我们的目录结构是这样的：
 
-```
+```sh
 ~/programming/stringifier
 .
 ├── main.go
@@ -116,7 +116,7 @@ clean:
 ```
 很自然，某些时候我们也想`build`和`test`我们的`tokenizer`模块。由于它是一个独立的模块也可能是一个独立的项目，在它的目录有如下内容的一个`Makefile`是很有必要的：
 
-```
+```makefile
 # ~/programming/stringifier/tokenizer/Makefile
 
 APP=tokenizer
@@ -127,7 +127,7 @@ build:
 
 现在只要您在`stringifier`项目的根目录中并且想要构建`tokenizer`应用程序，你不会想使用诸如`cd tokenizer && make build && cd - `这样的易受攻击的命令行技巧，而具体的`Makefiles`的规则写在子目录中的方式。幸运的是，`make`可以帮助你解决这个问题。你可以使用`-C`标志和特殊的`${NAME}`变量在其他目录中调用`make targets`。下面是`stringifies`项目最初的Makefile:
 
-```
+```makefile
 # ~/programming/stringifier/Makefile
 
 APP=stringifier
@@ -157,7 +157,7 @@ build-tokenizer:
 现在您希望对应用程序进行容器化，然后为方便起见编写make目标，这是完全可以理解的。
 
 你为docker命令定义了如下规则：
-```
+```makefile
 .PHONY: docker-build
 docker-build: build
 	docker build -t stringifier .
@@ -173,7 +173,7 @@ docker命令基本满足需要，但是还有改善的空间，
 * 然后，您希望能够根据用户在命令行上的某些输入将镜像（image）分别推送到与预生产和生产环境有关的两个单独的镜像仓库中。
 * 最后，像一个理智的开发人员一样，您想使用当前的git commit sha标记您的镜像（image）。 让我们基于这些问题重新修改下`Makefile`：
 
-```
+```makefile
 APP?=application
 REGISTRY?=gcr.io/images
 COMMIT_SHA=$(shell git rev-parse --short HEAD)
@@ -201,7 +201,7 @@ endif
 
 `check-environment`的规则如下：
 
-```
+```makefile
 check-environment:
 ifndef ENV
     $(error ENV not set, allowed values - `staging` or `production`)
@@ -210,7 +210,7 @@ endif
 
 使用`ifndef`指令检查变量ENV是否为空值，如果存在，则使用另一个make的提供内置函数，如果出错了，将会在关键字之后抛出具体的错误消息。
 
-```
+```sh
 $ make docker-push
 Makefile:33: *** ENV not set, allowed values - `staging` or `production`.  Stop.
 
@@ -224,7 +224,7 @@ Success
 
 一个新成员加入了该项目并想知道Makefile中所有规则的作用，为帮助它们您可以添加一个新目标(target)，该目标将打印所有目标名称以及它们作用的简短描述:
 
-```
+```makefile
 .PHONY: build
 ## build: build the application
 build: clean
@@ -261,7 +261,7 @@ help:
 
 您会将文件Makefile作为输入传递给sed命令，该命令将解析所有帮助注释并以表格格式将其打印到stdout，以便于阅读。 上一个代码段的`help`目标的输出如下所示：
 
-```
+```sh
 $ make help
 Usage:
 	build             Build the application
@@ -279,7 +279,7 @@ Usage:
 Make是一个简单但可高度配置的工具。 在本文中，您遍历了make提供的许多配置和功能，从而为Go应用程序编写了有效而高效的Makefile。
 
 下面是完整的Makefile，其中添加了一些琐碎的规则和变量：
-```
+```makefile
 GO111MODULES=on
 APP?=stringifier
 REGISTRY?=gcr.io/images

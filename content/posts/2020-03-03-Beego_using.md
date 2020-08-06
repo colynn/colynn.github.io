@@ -14,7 +14,7 @@ ORM 默认使用 time.Local 本地时区
 从数据库中取回的时间转换成 ORM 本地时间
 如果需要的话，你也可以进行更改
 
-```
+```conf
 // 设置为 UTC 时间
 orm.DefaultTimeLoc = time.UTC
 ```

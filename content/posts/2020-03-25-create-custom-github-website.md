@@ -18,7 +18,7 @@ lastmod: 2020-03-25
 
 ### 1. 定义配置参数至`_config.yml`
 
-```
+```conf
 
 # To use Gittalk comments  https://github.com/gitalk/gitalk#Usage
 gittalk:
