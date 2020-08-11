@@ -1,6 +1,5 @@
 ---
 title: About me
-categories: ["单页"]
 date: 2020-04-19
 ---
 
