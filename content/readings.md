@@ -8,6 +8,11 @@ date: 2020-08-12
 ### << 图解 TCP IP(第5版) >> 
 * 进度: 40%
 * 书评:
-* 电子档下载: [图解 TCP IP(第5版)](https://github.com/colynn/readings/raw/master/%E3%80%8A%E5%9B%BE%E8%A7%A3TCP%20IP(%E7%AC%AC5%E7%89%88)%E3%80%8B.((%E6%97%A5)%E7%AB%B9%E4%B8%8B%E9%9A%86%E5%8F%B2).pdf)
+* 下载: [图解 TCP IP(第5版)](https://github.com/colynn/readings/raw/master/%E3%80%8A%E5%9B%BE%E8%A7%A3TCP%20IP(%E7%AC%AC5%E7%89%88)%E3%80%8B.((%E6%97%A5)%E7%AB%B9%E4%B8%8B%E9%9A%86%E5%8F%B2).pdf)
 
+
+### Web 性能权威指南
+* 进度: 10%
+* 书评:
+* 下载: [Web性能权威指南](https://github.com/colynn/readings/raw/master/Web%E6%80%A7%E8%83%BD%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.pdf)
 ## 已完成
