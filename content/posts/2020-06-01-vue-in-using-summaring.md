@@ -3,7 +3,7 @@ title: vue 使用中的汇总
 tags: ["vue", "js"]
 categories: ["教程"]
 date: 2020-06-01
-lastmod: 2020-06-01
+lastmod: 2020-08-17
 ---
 
 # Vue 生命周期
@@ -288,6 +288,23 @@ Name of the exports to be imported.
 
 * __aliasN__
 Names that will refer to the named imports.
+
+## 3. [Vue warn]: Avoid using non-primitive value as key, use string/number value instead
+
+__注__: Don’t use non-primitive values like objects and arrays as `v-for` keys. Use string or numeric values instead.
+
+
+To give Vue a hint so that it can track each node’s identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item:
+
+```html
+<div v-for="item in items" v-bind:key="item.id">
+  <!-- content -->
+</div>
+```
+
+It is recommended to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple, or you are intentionally relying on the default behavior for performance gains.
+
+Since it’s a generic mechanism for Vue to identify nodes, the `key` also has other uses that are not specifically tied to `v-for`, as we will see later in the guide.
 
 
 ## 参考
