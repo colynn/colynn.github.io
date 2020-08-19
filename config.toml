@@ -23,9 +23,13 @@ preserveTaxonomyNames = true
     url = "/tags/"
     weight = 3
   [[menu.main]]
+    name = "书单"
+    url = "/readings/"
+    weight = 4
+  [[menu.main]]
     name = "关于我"
     url = "/aboutme/"
-    weight = 4
+    weight = 5
 
 [params]
     since = 2018
