@@ -191,7 +191,8 @@ Transfer-Encoding 是一个用来标示 HTTP 报文传输格式的头部值。�
 最后一块是单行，由块大小（0），一些可选的填充白空格，以及CRLF。最后一块不再包含任何数据，但是可以发送可选的尾部，包括消息头字段。消息最后以CRLF结尾。
 
 一个示例响应如下：
-```
+
+```text
 HTTP/1.1 200 OK
 Content-Type: text/plain
 Transfer-Encoding: chunked
