@@ -8,7 +8,7 @@
 <a class=menu-item href=/readings/>书单</a>
 <a class=menu-item href=/aboutme/>关于我</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">tcpdump 介绍</h1><div class=post-meta>Written by <a itemprop=name href=https://colynn.github.io/ rel=author>Colynn.Liu</a> with ♥
 <span class=post-time>on <time datetime=2020-02-10 itemprop=datePublished>February 10, 2020</time></span>
-<span class=post-time>- last modified <time datetime=2020-02-10 itemprop=datePublished>August 10, 2020</time></span></div><div class=post-tags><section><span class=tag><a href=https://colynn.github.io/tags/%E8%BF%90%E7%BB%B4/><i class="iconfont icon-tag"></i>运维</a></span>
+<span class=post-time>- last modified on <time datetime=2020-02-10 itemprop=datePublished>August 10, 2020</time></span></div><div class=post-tags><section><span class=tag><a href=https://colynn.github.io/tags/%E8%BF%90%E7%BB%B4/><i class="iconfont icon-tag"></i>运维</a></span>
 <span class=tag><a href=https://colynn.github.io/tags/tcpdump/><i class="iconfont icon-tag"></i>tcpdump</a></span></section><section></section></div></header><div class=post-content><h1 id=前言>前言</h1><p><code>tcpdump</code>是一个命令行包分析工具，很像 wireshark, 你可以使用<code>tcpdump</code>抓包、分析包、连接问题的 troubleshoot，和查找网络层上潜在的安全问题。</p><h1 id=开始>开始</h1><p>首先，你可以使用<code>-D</code> 列出可以抓包的网络接口</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ sudo tcpdump -D
 1.en0 <span style=color:#333>[</span>Up, Running<span style=color:#333>]</span>
 2.bridge0 <span style=color:#333>[</span>Up, Running<span style=color:#333>]</span>

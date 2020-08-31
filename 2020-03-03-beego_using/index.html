@@ -8,7 +8,7 @@
 <a class=menu-item href=/readings/>书单</a>
 <a class=menu-item href=/aboutme/>关于我</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">Beego In Use</h1><div class=post-meta>Written by <a itemprop=name href=https://colynn.github.io/ rel=author>Colynn.Liu</a> with ♥
 <span class=post-time>on <time datetime=2019-11-15 itemprop=datePublished>November 15, 2019</time></span>
-<span class=post-time>- last modified <time datetime=2019-11-15 itemprop=datePublished>November 15, 2019</time></span></div><div class=post-tags><section><span class=tag><a href=https://colynn.github.io/tags/go/><i class="iconfont icon-tag"></i>go</a></span></section><section><i class="iconfont icon-folder"></i><span class=post-category><a href=https://colynn.github.io/categories/%E6%95%99%E7%A8%8B/>教程</a></span></section></div></header><div class=post-content><h2 id=时区问题>时区问题</h2><p>ORM 默认使用 time.Local 本地时区</p><p>作用于 ORM 自动创建的时间
+<span class=post-time>- last modified on <time datetime=2019-11-15 itemprop=datePublished>November 15, 2019</time></span></div><div class=post-tags><section><span class=tag><a href=https://colynn.github.io/tags/go/><i class="iconfont icon-tag"></i>go</a></span></section><section><i class="iconfont icon-folder"></i><span class=post-category><a href=https://colynn.github.io/categories/%E6%95%99%E7%A8%8B/>教程</a></span></section></div></header><div class=post-content><h2 id=时区问题>时区问题</h2><p>ORM 默认使用 time.Local 本地时区</p><p>作用于 ORM 自动创建的时间
 从数据库中取回的时间转换成 ORM 本地时间
 如果需要的话，你也可以进行更改</p><pre><code class=language-conf data-lang=conf>// 设置为 UTC 时间
 orm.DefaultTimeLoc = time.UTC
