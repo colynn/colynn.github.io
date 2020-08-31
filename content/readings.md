@@ -13,7 +13,7 @@ lastmod: 2020-08-19
 
 
 ### HTTP 权威指南
-* 进度: 20% 
+* 进度: 30% 
 * 书评: 
 * 相关文章:
     * [HTTP协议理解](https://colynn.github.io/2020-08-11-http-protocol/)
