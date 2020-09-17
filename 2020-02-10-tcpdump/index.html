@@ -30,14 +30,14 @@ $ sudo tcpdump port 22-125
 $ sudo tcpdump src port <span style=color:#60e;font-weight:700>80</span> 
 
 <span style=color:#888># Destination port is 80</span>
-$ sudo tcpdump dest port <span style=color:#60e;font-weight:700>80</span>
+$ sudo tcpdump dst port <span style=color:#60e;font-weight:700>80</span>
 </code></pre></div><h2 id=host-filters>Host filters</h2><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ sudo tcpdump host 1.2.3.4
 
 <span style=color:#888># Source host is 1.2.3.4</span>
 $ sudo tcpdump src host 1.2.3.4
 
 <span style=color:#888># Destination host is 1.2.3.4</span>
-$ sudo tcpdump dest host 1.2.3.4
+$ sudo tcpdump dst host 1.2.3.4
 </code></pre></div><h2 id=net-filters>Net filters</h2><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>sudo tcpdump net 192.168.1.0/24
 </code></pre></div><h2 id=combining-filters>Combining filters</h2><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ sudo tcpdump <span style=background-color:#fff0f0>&#34;src port 80&#34;</span> and <span style=background-color:#fff0f0>&#34;dst host 1.2.3.4&#34;</span>
 $ sudo tcpdump <span style=background-color:#fff0f0>&#34;src port 80&#34;</span> or <span style=background-color:#fff0f0>&#34;src port 443&#34;</span>
