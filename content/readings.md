@@ -19,7 +19,7 @@ lastmod: 2020-08-19
     * [HTTP协议理解](https://colynn.github.io/2020-08-11-http-protocol/)
 
 ### Web 性能权威指南
-* 进度: 10% 暂定
+* 进度: 10% 暂停
 * 书评: 
 * 下载: [Web性能权威指南](https://github.com/colynn/readings/raw/master/Web%E6%80%A7%E8%83%BD%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.pdf)
 
@@ -28,5 +28,12 @@ lastmod: 2020-08-19
 * 进度: 10%
 * 书评:
 * 下载: [图解HTTP彩色版](https://github.com/colynn/readings/raw/master/%E5%9B%BE%E8%A7%A3HTTP%20%E5%BD%A9%E8%89%B2%E7%89%88.pdf)
+
+# 
+### 中国是部金融史
+* 进度: 45%
+* 书评:
+* 链接：[中国是部金融史](https://book.douban.com/subject/21331443/)
+
 
 ## 已完成
