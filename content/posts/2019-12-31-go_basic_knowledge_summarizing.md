@@ -1,5 +1,5 @@
 ---
-title: Go语法汇总
+title: Go 语法汇总
 categories: ["基础手册"]
 tags: ["go"]
 date: 2019-03-15

@@ -3,7 +3,7 @@ title: vue 使用中的汇总
 tags: ["vue", "js"]
 categories: ["教程"]
 date: 2020-06-01
-lastmod: 2020-08-17
+lastmod: 2020-09-25
 ---
 
 # Vue 生命周期
@@ -211,6 +211,7 @@ To help with that, Vuex allows us to divide our store into `modules`. Each modul
 
 ### 参考
 1. https://vuex.vuejs.org/guide/modules.html
+
 # 附录
 
 ## 1.Scoped CSS
@@ -306,6 +307,9 @@ It is recommended to provide a `key` attribute with `v-for` whenever possible, u
 
 Since it’s a generic mechanism for Vue to identify nodes, the `key` also has other uses that are not specifically tied to `v-for`, as we will see later in the guide.
 
+## 3. Vue editor
+
+[vue oneline editor 组件](https://github.com/colynn-demo/vuehello/tree/master/src/components/Editor)
 
 ## 参考
 

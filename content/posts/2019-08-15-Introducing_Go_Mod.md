@@ -1,9 +1,9 @@
 ---
-title: Go Mod 包管理
+title: Go Mod 包管理 & 常见问题
 categories: ["Go"]
 tags: ["go"]
 date: 2019-08-15
-lastmod: 2020-09-08
+lastmod: 2020-09-25
 ---
 
 ## 前言
@@ -155,3 +155,54 @@ $ go get github.com/isbrick/tools@c87b277
 $ go mod vendor
 ```
 __注__: 根据官方的说法，从Go 1.13开始，模块管理模式将是Go语言开发的默认模式。
+
+## 问题六：Go 如何import 引入private的代码仓库的包
+对于 public 的仓库，大家知道是可以直接import的，而对于 private 代码仓库我们则需要如下操作：
+### 对于本地开发环境
+1. The Because of go module proxy site just like Maven default repo go also has a proxy site(https://proxy.golang.org,direct), 所以我们需要通过声明`GOPRIVATE`环境变量来绕过, 如果 `GOPRIVATE`有多个值通过逗号来分隔。
+
+```sh
+go env -w GOPRIVATE=git.repoxxx.com/[groupName]
+```
+
+__注__: __The new `GOPRIVATE` environment variable indicates module paths that are not publicly available.__ It serves as the default value for the lower-level GONOPROXY and GONOSUMDB variables, which provide finer-grained control over which modules are fetched via proxy and verified using the checksum database.
+
+2. 添加 access_token或是 ssh key 解决私有仓库的验证问题。
+
+```sh
+# access_token 可以在对应用户下配置
+$ git config --global url."https://${username}:${access_token}@private.gitrepo.com".insteadOf /
+"https://private.gitrepo.com"
+
+# Or use ssh-key 将私钥放置下对应的用户下
+# 也许，这个 ssh-key 私钥的并不是默认路径，那么你可以通过这个方式指定
+# $ cat ~/.ssh/config
+# Host yourserver
+#     Hostname something.domain.tld
+#     IdentityFile /var/www/html/ma.ttias.be/.ssh/id_rsa
+#     IdentitiesOnly yes
+$ git config --global url."git@yourserver".insteadOf /
+"https://yourserver"
+```
+
+__特别说明__： 不论使用`access_token`或是`ssh key`, 强烈建议使用独立的用户，另外对于步骤2中insteadOf 的地址建议尽量再细, 避免其他的同站下的git项目产生影响, 如下：
+
+```sh
+$ cat ~/.gitconfig  |grep url -A3
+[url "http://goget:b9e6b3cafbf5789d74bdce16@gogs.domain.com/rudder/drone.git/dist"]
+	insteadOf = http://gogs.domain.com/rudder/drone.git/dist
+```
+
+### 对于CI/CD
+如果你的项目已经将`vendor`随代码一起提交，那么你 go build 时可以直接用 `-mod vendor`的方式来 build, 倘若你的项目里没有管理`vendor`项目，那么`Dockerfile`里也要有类似于 __对于本地开发环境__ 的设置。
+
+`Dockerfile`部分示例
+
+```Dockerfile
+...
+RUN go env -w GOPRIVATE=github.com/colynn
+# 确认 build 环境里包含 git command
+RUN apk add git
+RUN git config --global url."https://golang:<access-token>@github.com/colynn/tools".insteadOf "https://github.com/colynn/tools"
+...
+```
