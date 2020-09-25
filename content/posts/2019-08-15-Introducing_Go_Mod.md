@@ -1,7 +1,7 @@
 ---
 title: Go Mod 包管理 & 常见问题
-categories: ["Go"]
-tags: ["go"]
+categories: []
+tags: ["go", "go mod"]
 date: 2019-08-15
 lastmod: 2020-09-25
 ---
@@ -156,7 +156,7 @@ $ go mod vendor
 ```
 __注__: 根据官方的说法，从Go 1.13开始，模块管理模式将是Go语言开发的默认模式。
 
-## 问题六：Go 如何import 引入private的代码仓库的包
+## 问题六：Go 如何 import private的代码仓库的包
 对于 public 的仓库，大家知道是可以直接import的，而对于 private 代码仓库我们则需要如下操作：
 ### 对于本地开发环境
 1. The Because of go module proxy site just like Maven default repo go also has a proxy site(https://proxy.golang.org,direct), 所以我们需要通过声明`GOPRIVATE`环境变量来绕过, 如果 `GOPRIVATE`有多个值通过逗号来分隔。
