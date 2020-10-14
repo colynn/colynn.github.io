@@ -1,9 +1,9 @@
 ---
-title: VSCode 开发环境设置
+title: VSCode 开发环境设置(go python)
 categories: ["教程"]
 tags: ["python", "go", "tools"]
 date: 2019-09-26
-lastmod: 2019-09-26
+lastmod: 2020-09-15
 ---
 
 # 运行环境
@@ -203,8 +203,9 @@ golint 会检测的方面：
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "editor.formatOnSave": true
+    "python.testing.pytestEnabled": false,
+    "editor.formatOnSave": true,
+    "python.terminal.activateEnvironment": true, // Activate Python env in Terminal created using the Extension
 }
 
 ```
