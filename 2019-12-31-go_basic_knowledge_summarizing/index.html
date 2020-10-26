@@ -233,7 +233,7 @@ p = <span style=color:#333>&amp;</span>i
 	fmt.<span style=color:#06b;font-weight:700>Println</span>(primes)
 }
 </code></pre></div><h2 id=切片>切片</h2><p>每个数组的大小都是固定的。而切片则为数组元素提供动态大小的、灵活的视角。在实践中，切片比数组更常用。</p><p>类型 []T 表示一个元素类型为 T 的切片。</p><p>切片通过两个下标来界定，即一个上界和一个下界，二者以冒号分隔：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>a[low : high]
-</code></pre></div><p>它会选择一个半开区间，包括第一个元素，但排除最后一个元素。</p><p>以下表达式创建了一个切片，它包含 a 中下标从 1 到 3 的元素：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>a[<span style=color:#00d;font-weight:700>1</span>:<span style=color:#00d;font-weight:700>4</span>]
+</code></pre></div><p>它会选择一个 <strong>半开区间，包括第一个元素，但排除最后一个元素。</strong></p><p>以下表达式创建了一个切片，它包含 a 中下标从 1 到 3 的元素：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>a[<span style=color:#00d;font-weight:700>1</span>:<span style=color:#00d;font-weight:700>4</span>]
 </code></pre></div><ul><li>切片的默认行为</li></ul><p>对于数组</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#080;font-weight:700>var</span> a [<span style=color:#00d;font-weight:700>10</span>]<span style=color:#339;font-weight:700>int</span>
 </code></pre></div><p>来说，以下切片是等价的：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>a[<span style=color:#00d;font-weight:700>0</span>:<span style=color:#00d;font-weight:700>10</span>]
 a[:<span style=color:#00d;font-weight:700>10</span>]
