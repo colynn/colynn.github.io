@@ -3,7 +3,7 @@ title: Kubernetes CI/CD 基于开源组件的实践
 categories: ["教程"]
 tags: ["kubernetes", "devops"]
 date: 2019-10-22
-lastmod: 2019-10-22
+lastmod: 2020-10-29
 ---
 
 ## 前言
@@ -277,6 +277,7 @@ _图中标注：_
 2. 注意本实践中均为内网数据，你测试时一定要改为自己的环境的有效数据。
 3. 由于本实践涉及组件较多，若有操作不明确的话，你可以后台留言，我们一起完善。
 4. 具体操作时若有不清楚，或是错误可以留言，大家一起解决。
+5. [kubernetes jenkins plugins](https://plugins.jenkins.io/kubernetes/)
 
 
 ### 1. 准备基础数据
@@ -360,6 +361,15 @@ _操作指引_：【首页】->【Credentials】-> 【System】-> 【Global cred
 
 ![image](https://user-images.githubusercontent.com/5203608/89489334-cec4c380-d7dc-11ea-8ef7-90ff6eb42ed6.png)
 
+
+_注_: 
+1. In Jenkins settings click on add cloud, select Kubernetes and fill the information, like Name, Kubernetes URL, Kubernetes server certificate key, ...
+
+2. If Kubernetes URL is not set, the connection options will be autoconfigured from service account or kube config file.
+
+3. When running the Jenkins master outside of Kubernetes you will need to set the credential to secret text. The value of the credential will be the token of the service account you created for Jenkins in the cluster the agents will run on.
+
+4. If you check WebSocket then agents will connect over HTTP(S) rather than the Jenkins service TCP port. This is unnecessary when the Jenkins master runs in the same Kubernetes cluster, but can greatly simplify setup when agents are in an external cluster and the Jenkins master is not directly accessible (for example, it is behind a reverse proxy). See [JEP-222](https://jenkins.io/jep/222) for more.
 
 ### 2. 如何创建 jenkins pipeline
 
