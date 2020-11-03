@@ -35,7 +35,7 @@ harbor  | v1.7.4 | docker-compose部署|
 
 1. 配置 __Kubernetes Pod Template__ 时注意:
   a. 如果pipeline 没有指定agent 的标签，而是使用的 `agent any`， 那么 __Usage__ 选项注意选择 __Use this node as much as possible__ . 
-  b. 如果pipeline 指定的具体的agent 标签，那么 __Usage__ 选项注意选择 __ONly build jobs with label expressions matching this role__
+  b. 如果pipeline 指定的具体的agent 标签，那么 __Usage__ 选项注意选择 __ONly build jobs with label expressions matching this role__, 而且 __Lables__ 选项添加对应的标签。
 
 2. 添加 jnlp-agent 类型的 __Container Template__ 时注意：
   a. __Command to run__ 和 __Arguments to pass to command__ 保持为空；
