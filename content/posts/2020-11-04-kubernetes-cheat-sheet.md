@@ -13,5 +13,31 @@ lastmod: 2020-11-04
 ```sh
 # Name of the container: kaniko
 # Name of the pod: jnlp-gjrpc
-kubectl exec -ti jnlp-gjrpc -c kaniko /bin/sh
+$ kubectl exec -ti jnlp-gjrpc -c kaniko /bin/sh
+```
+
+2. 强制删除 pod
+
+```sh
+$ kubectl delete pods mypod-ba97bc8ef-8rgaa --grace-period=0 --force
+```
+
+## Label
+
+1. create a label for a node:
+
+```sh
+$ kubectl label node <nodename> <labelname>=<value>
+```
+
+2. delete above labels from its node
+
+```sh
+$ kubectl label node <nodename> <labelname>-
+```
+
+3. confirm node labels
+
+```sh
+$ kubectl get nodes --show-labels
 ```
