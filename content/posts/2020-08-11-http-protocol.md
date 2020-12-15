@@ -3,7 +3,7 @@ title: HTTP 协议 - 理解
 tags: ["http"]
 categories: ["协议"]
 date: 2020-08-24
-lastmod: 2020-08-31
+lastmod: 2020-12-15
 ---
 
 
@@ -211,6 +211,16 @@ and this is the second one
 * chunked 的优势在于，服务器端可以边生成内容边发送，无需事先生成全部的内容。HTTP/2 不支持 Transfer-Encoding: chunked，因为 HTTP/2 有自己的 streaming 传输方式（Source：[MDN - Transfer-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding)）。
 
 
+## 附录2 HTTP/1的问题
+
+HTTP/1 已经支撑我们走到今天，但是现代 web 应用的需求迫使我们关注其设计缺陷。
+### 1. 队头阻塞
+HTTP/1并未提供机制来同时请求许多资源，如果仅仅使用一个连接，它需要发起请求、等待响应，之后才能发起下一个请求。
+### 2. 低效的 TCP 利用
+
+### 3. 臃肿的消息首部
+
+### 4. 受限的优先级设置
 
 ## 参考
 1. [HTTP 权威指南](https://www.ituring.com.cn/book/844)
