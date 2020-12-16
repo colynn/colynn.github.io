@@ -34,7 +34,12 @@
 &lt;li>书评:&lt;/li>
 &lt;li>链接：&lt;a href="https://book.douban.com/subject/21331443/">中国是部金融史&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="已完成">已完成&lt;/h2></description></item><item><title>About me</title><link>https://colynn.github.io/aboutme/</link><pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/aboutme/</guid><description>&lt;h2 id="remind-me">remind me&lt;/h2>
+&lt;h2 id="已完成">已完成&lt;/h2>
+&lt;h3 id="http2基础教程">HTTP/2基础教程&lt;/h3>
+&lt;ul>
+&lt;li>进度: 90%&lt;/li>
+&lt;li>书评: HTTP/1.1 与 HTTP/2相隔了大概20年，不可能再等上几十年才升级下一个版本，h2在逐渐普及，但仍有一些工作在持续展开，它们极有可能在互联网协议世界产生新的重大变革。&lt;/li>
+&lt;/ul></description></item><item><title>About me</title><link>https://colynn.github.io/aboutme/</link><pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/aboutme/</guid><description>&lt;h2 id="remind-me">remind me&lt;/h2>
 &lt;p>We always overestimate the change that will occur in the next two years
 and underestimate the change that will occur in the next ten.
 Don&amp;rsquo;t let yourself be lulled into inaction.&lt;/p>
