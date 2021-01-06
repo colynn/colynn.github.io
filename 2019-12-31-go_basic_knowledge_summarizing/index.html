@@ -363,18 +363,18 @@ x:
 <span style=color:#080;font-weight:700>case</span> <span style=color:#00d;font-weight:700>2</span>:
     fmt.<span style=color:#06b;font-weight:700>Println</span>(<span style=color:#00d;font-weight:700>2</span>)
 }
-&gt; .<span style=color:#333>/</span>bin<span style=color:#333>/</span>sandbox
-<span style=color:#00d;font-weight:700>1</span>
-<span style=color:#080;font-weight:700>switch</span> <span style=color:#00d;font-weight:700>1</span> {
+</code></pre></div><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>&gt; ./bin/sandbox
+<span style=color:#60e;font-weight:700>1</span>
+</code></pre></div><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#080;font-weight:700>switch</span> <span style=color:#00d;font-weight:700>1</span> {
 <span style=color:#080;font-weight:700>case</span> <span style=color:#00d;font-weight:700>1</span>:
     fmt.<span style=color:#06b;font-weight:700>Println</span>(<span style=color:#00d;font-weight:700>1</span>)
     <span style=color:#080;font-weight:700>fallthrough</span>
 <span style=color:#080;font-weight:700>case</span> <span style=color:#00d;font-weight:700>2</span>:
     fmt.<span style=color:#06b;font-weight:700>Println</span>(<span style=color:#00d;font-weight:700>2</span>)
 }
-&gt; .<span style=color:#333>/</span>bin<span style=color:#333>/</span>sandbox
-<span style=color:#00d;font-weight:700>1</span>
-<span style=color:#00d;font-weight:700>2</span>
+</code></pre></div><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>&gt; ./bin/sandbox
+<span style=color:#60e;font-weight:700>1</span>
+<span style=color:#60e;font-weight:700>2</span>
 </code></pre></div><p>没带标签的<code>break</code>语句仅能终止最内层的<code>for</code>，<code>switch</code>或是 <code>select</code>， 添加了标签,<code>break</code>则提供了更多地可能性。</p><p>Label for <code>break</code> statement must be the one associated with enclosing <code>for</code>, <code>switch</code> or <code>select</code> statement.</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>SwitchStatement:
     <span style=color:#080;font-weight:700>switch</span> <span style=color:#00d;font-weight:700>1</span> {
     <span style=color:#080;font-weight:700>case</span> <span style=color:#00d;font-weight:700>1</span>:
@@ -384,10 +384,10 @@ x:
         }
         fmt.<span style=color:#06b;font-weight:700>Println</span>(<span style=color:#00d;font-weight:700>2</span>)
     }
-    fmt.<span style=color:#06b;font-weight:700>Println</span>(<span style=color:#00d;font-weight:700>3</span>)
-&gt; .<span style=color:#333>/</span>bin<span style=color:#333>/</span>sandbox
-<span style=color:#00d;font-weight:700>1</span>
-<span style=color:#00d;font-weight:700>3</span>
+	fmt.<span style=color:#06b;font-weight:700>Println</span>(<span style=color:#00d;font-weight:700>3</span>)
+</code></pre></div><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>&gt; ./bin/sandbox
+<span style=color:#60e;font-weight:700>1</span>
+<span style=color:#60e;font-weight:700>3</span>
 </code></pre></div><p><strong>注</strong>: <code>break</code> statement cannot span over function boundaries</p><p><strong>注</strong>: It’s possible to terminate <code>for</code>, <code>switch</code> or <code>select</code> no matter where break statement is located.</p><h3 id=continue-statement><code>continue</code> statement</h3><p>It works in a similar way to <code>break</code> statement but begins next iteration instead of stopping and can be used only for loops:</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>OuterLoop:
     <span style=color:#080;font-weight:700>for</span> i <span style=color:#333>:=</span> <span style=color:#00d;font-weight:700>0</span>; i &lt; <span style=color:#00d;font-weight:700>3</span>; i<span style=color:#333>++</span> {
         <span style=color:#080;font-weight:700>for</span> j <span style=color:#333>:=</span> <span style=color:#00d;font-weight:700>0</span>; j &lt; <span style=color:#00d;font-weight:700>3</span>; j<span style=color:#333>++</span> {
