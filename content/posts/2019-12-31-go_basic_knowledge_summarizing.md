@@ -1,9 +1,9 @@
 ---
-title: Go 语法汇总
+title: Go 语法汇总 - Block
 categories: ["基础手册"]
 tags: ["go"]
 date: 2019-03-15
-lastmod: 2019-03-15
+lastmod: 2020-03-15
 ---
 
 ## 变量声明
@@ -840,10 +840,10 @@ __注解__:
 * 场景不同，定义函数的方式也就不同，但是更推荐使用方式1，因为我们在声明、使用结构体变量多数也是作为指针变量使用的。
 
 ### 2. fmt Print/Println/Printf/Sprintf的区别
-	* `fmt.Print` 不会自动换行，也不能处理占位符。
-	* `fmt.Println` 会自动换行，但不能处理占位符。
-	* `fmt.Printf` 它通过 `os.Stdout` 输出格式化的字符串，可以处理占位符。
-	* `fmt.Sprintf` 则格式化并返回一个字符串而不带任何输出。
+* `fmt.Print` 不会自动换行，也不能处理占位符。
+* `fmt.Println` 会自动换行，但不能处理占位符。
+* `fmt.Printf` 它通过 `os.Stdout` 输出格式化的字符串，可以处理占位符。
+* `fmt.Sprintf` 则格式化并返回一个字符串而不带任何输出。
 
 示例代码：
 
