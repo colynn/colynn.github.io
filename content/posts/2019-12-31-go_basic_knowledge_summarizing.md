@@ -747,8 +747,14 @@ case 1:
 case 2:
     fmt.Println(2)
 }
+```
+
+```sh
 > ./bin/sandbox
 1
+```
+
+```go
 switch 1 {
 case 1:
     fmt.Println(1)
@@ -756,6 +762,9 @@ case 1:
 case 2:
     fmt.Println(2)
 }
+```
+
+```sh
 > ./bin/sandbox
 1
 2
@@ -775,7 +784,10 @@ SwitchStatement:
         }
         fmt.Println(2)
     }
-    fmt.Println(3)
+	fmt.Println(3)
+```
+
+```sh
 > ./bin/sandbox
 1
 3
