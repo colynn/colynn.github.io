@@ -186,6 +186,31 @@ const store = new Vuex.Store({
 
 __注__: the `mapGetters` helper simply maps store getters to local computed properties.
 
+```js
+import { mapGetters } from 'vuex'
+
+export default {
+  // ...
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      'doneTodosCount',
+      'anotherGetter',
+      // ...
+    ])
+  }
+}
+```
+
+If you want to map a getter to a different name, use an object:
+
+```js
+...mapGetters({
+  // map `this.doneCount` to `this.$store.getters.doneTodosCount`
+  doneCount: 'doneTodosCount'
+})
+```
+
 ### Mutations
 
 The only way to actually change state in a Vuex store is by committing a mutation. Vuex mutations are very similar to events: each mutation has a string `type` and a `handler`. 
