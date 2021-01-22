@@ -58,5 +58,27 @@ However, if the compiler __cannot prove__ that the variable is __not referenced 
 * go build -gcflags "-m"
 
 
+## When are values construcated on the heap? 
+1. When a value could __possibly__ be referenced __after__ the function that constructed the value returns.
+
+2. When the compiler determines a value is too large to fit on the stack.
+
+3. When the compiler doesn't know the size of a value at compile time.
+
+
+## Points to remember
+* Optimize for correctness, not performance.
+
+* Go only puts function variables on the stack if it can __prove__ a variable is __not used__ after the function returns.
+
+* Sharing down typically stays on the stack.
+
+* Sharing up typically escapes to the heap.
+
+* Ask the compiler to find out.
+
+* Don't guess. Use the tooling.
+
+
 ## 参考
 https://golang.org/doc/faq#stack_or_heap
