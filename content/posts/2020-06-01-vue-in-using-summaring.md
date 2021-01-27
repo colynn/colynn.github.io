@@ -3,7 +3,7 @@ title: vue 使用中的汇总
 tags: ["vue", "js"]
 categories: ["教程"]
 date: 2020-06-01
-lastmod: 2020-09-25
+lastmod: 2021-01-25
 ---
 
 # Vue 生命周期
@@ -336,6 +336,12 @@ Since it’s a generic mechanism for Vue to identify nodes, the `key` also has o
 
 [vue oneline editor 组件](https://github.com/colynn-demo/vuehello/tree/master/src/components/Editor)
 
+
+## 4. 常见问题
+
+1. ```vue.runtime.min.js:6 TypeError: Cannot read property '_withTask' of undefined```
+
+__问题及解决方案__:  因为使用了未定义的方法， 请确认将使用的方法添加至 `methods {}`内.
 ## 参考
 
 1. [Scoped CSS](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors)
