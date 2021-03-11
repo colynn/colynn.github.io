@@ -29,6 +29,11 @@ lastmod: 2020-09-15
 ![image](https://user-images.githubusercontent.com/5203608/89495608-384bce80-d7eb-11ea-9b99-f1128c223182.png)
 
 # 常用设置
+
+## 推荐插件
+1. Go  golang.go 
+2. GitLens — Git supercharged
+
 ## 1. 隐藏.pyc文件
 * 调整Workspace Settings添加如下图，
 
@@ -210,7 +215,7 @@ golint 会检测的方面：
 
 ```
 
-### 推荐插件
+### py推荐插件
 
 * [Python Docstring Generator](https://github.com/NilsJPWerner/autoDocstring)
 
