@@ -41,3 +41,10 @@ $ kubectl label node <nodename> <labelname>-
 ```sh
 $ kubectl get nodes --show-labels
 ```
+
+
+## Helm
+
+```sh
+helm get --revision 0 engine-realtime-clustering-service-nebula | head
+```

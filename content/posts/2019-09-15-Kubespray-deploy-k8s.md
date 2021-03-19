@@ -1,5 +1,5 @@
 ---
-title: Kubespary 部署 Kubernetes 1.5.3 版本
+title: Kubespary 部署 Kubernetes 1.15.3 版本
 categories: ["kubernetes"]
 tags: ["kubernetes"]
 date: 2019-09-15
