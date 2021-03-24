@@ -43,11 +43,19 @@
 &lt;p>乱不生于乱，而常生于治之时；危不起于危，而常起于安之日。&amp;ldquo;开元盛世&amp;quot;当然不是毁于安史之乱的兵灾，一个强盛的帝国根本就不可能被一个异族野心家突发奇想式的叛乱毁灭。&lt;/p>
 &lt;ul>
 &lt;li>链接：&lt;a href="https://book.douban.com/subject/21331443/">中国是部金融史&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>About me</title><link>https://colynn.github.io/aboutme/</link><pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/aboutme/</guid><description>&lt;h2 id="remind-me">remind me&lt;/h2>
+&lt;/ul></description></item><item><title>About me</title><link>https://colynn.github.io/aboutme/</link><pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/aboutme/</guid><description>&lt;h2 id="remind-me">Remind Me&lt;/h2>
 &lt;p>We always overestimate the change that will occur in the next two years
 and underestimate the change that will occur in the next ten.
 Don&amp;rsquo;t let yourself be lulled into inaction.&lt;/p>
-&lt;h2 id="my-history">my history&lt;/h2>
+&lt;h2 id="my-open-source">My Open Source&lt;/h2>
+&lt;ul>
+&lt;li>Simple ldap client(v3) to authenticate, retrieve basic information and groups for a user.
+&lt;ul>
+&lt;li>github-source-link: &lt;a href="https://github.com/colynn/go-ldap-client">go-ldap-client&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="my-history">My History&lt;/h2>
 &lt;p>待明天，我再记下来。&lt;/p>
 &lt;hr>
 &lt;br/></description></item><item><title>友情链接</title><link>https://colynn.github.io/friends/</link><pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/friends/</guid><description/></item></channel></rss>
