@@ -29,6 +29,13 @@ lastmod: 2020-08-19
 * 书评:
 * 下载: [图解HTTP彩色版](https://github.com/colynn/readings/raw/master/%E5%9B%BE%E8%A7%A3HTTP%20%E5%BD%A9%E8%89%B2%E7%89%88.pdf)
 
+
+### 中国是部金融史２－天下之财
+* 进度: 10%
+* 书评: 
+* 链接：[中国是部金融史](https://book.douban.com/subject/25840005/)
+
+
 # 
 ## 已完成
 ### HTTP/2基础教程
