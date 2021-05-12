@@ -31,8 +31,14 @@ lastmod: 2020-09-15
 # 常用设置
 
 ## 推荐插件
-1. Go  golang.go 
-2. GitLens — Git supercharged
+
+| 插件名      | 作用 |
+| ----------- | ----------- |
+| gitlens      | git工具       |
+| indent-rainbow   | 彩色缩进   |
+| Bracket Pair Colorizer |  彩色括号 |
+| Rainbow CSV       |   彩色csv |
+
 
 ## 1. 隐藏.pyc文件
 * 调整Workspace Settings添加如下图，
