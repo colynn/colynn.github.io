@@ -55,14 +55,10 @@ and underestimate the change that will occur in the next ten.
 Don&amp;rsquo;t let yourself be lulled into inaction.&lt;/p>
 &lt;h2 id="my-open-source">My Open Source&lt;/h2>
 &lt;ul>
-&lt;li>
-&lt;p>Simple ldap client(v3) to authenticate, retrieve basic information and groups for a user.&lt;/p>
+&lt;li>Simple ldap client(v3) to authenticate, retrieve basic information and groups for a user.
 &lt;ul>
 &lt;li>github-source-link: &lt;a href="https://github.com/colynn/go-ldap-client">go-ldap-client&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>写了一个&lt;a href="https://github.com/go-atomci/atomci">云原生的cicd平台&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="my-history">My History&lt;/h2>
