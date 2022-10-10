@@ -3,7 +3,7 @@ title: VSCode 开发环境设置(go python)
 categories: ["教程"]
 tags: ["python", "go", "tools"]
 date: 2019-09-26
-lastmod: 2020-09-15
+lastmod: 2022-09-15
 ---
 
 # 运行环境
@@ -130,6 +130,17 @@ __注__: 你可以直接配置使用 [`gopls`](https://github.com/golang/vscode-
 "go.coverOnSave": false //保存代码时执行测试
 
 ```
+
+如果你本地安装多个golang版本的话，你也可以在具体的项目内添加`.vcsode/settings.json`来设置指定的go版本信息：
+
+```json
+   "go.inferGopath": false,
+   "go.gopath": "/path/to/goversion/workspace",
+   "go.goroot": "/path/to/goversion/install/location"
+```
+
+* `GOROOT` is a variable that defines where your Go SDK is located. You do not need to change this variable, unless you plan to use different Go versions.
+* `GOPATH` is a variable that defines the root of your workspace. 
 
 __NOTE__: If you are using Go modules, then we strongly recommend using the Go language server as it performs much better than the tools below.
 
