@@ -142,6 +142,8 @@ __注__: 你可以直接配置使用 [`gopls`](https://github.com/golang/vscode-
 * `GOROOT` is a variable that defines where your Go SDK is located. You do not need to change this variable, unless you plan to use different Go versions.
 * `GOPATH` is a variable that defines the root of your workspace. 
 
+__Reference__: https://github.com/golang/vscode-go/blob/master/docs/settings.md#gogoroot
+
 __NOTE__: If you are using Go modules, then we strongly recommend using the Go language server as it performs much better than the tools below.
 
 [Refer to: Go tools that the Go extension depends on](https://github.com/Microsoft/vscode-go/wiki/Go-tools-that-the-Go-extension-depends-on)
