@@ -77,6 +77,15 @@ pgdb=# \c pgdb
 You are now connected to database "pgdb" as user "postgres".
 ```
 
+```sql
+# switch database in sql scripts
+\c first_db_name
+select * from t; --- your sql
+\c second_db_name
+select * from t; --- your sql
+...
+```
+
 ### tables
 
 * Use the `\dt` or `\dt+` command in psql to show tables in a specific database.
