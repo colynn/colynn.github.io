@@ -70,13 +70,14 @@ SELECT datname FROM pg_database;
 drop database databae-name;
 ```
 
-
+### switch database
 ```sh
 ## 切换数据库
 pgdb=# \c pgdb
 You are now connected to database "pgdb" as user "postgres".
 ```
 
+### tables
 
 * Use the `\dt` or `\dt+` command in psql to show tables in a specific database.
 * Use the `SELECT` statement to query table information from the `pg_catalog.pg_tables` catalog.
@@ -97,6 +98,7 @@ postgres=# \dt+
 (1 row)
 ```
 
+### privileges
 
 ```sql
 # 查看用户的表权限
