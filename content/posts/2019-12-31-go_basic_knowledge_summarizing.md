@@ -688,6 +688,8 @@ __注__:
 
 ## Goroutines和Channels
 1. 如果我们使用了无缓存的channel, 那么两个慢的goroutines将会因为没有人接收而永远卡住。这种情况，称为goroutines泄漏，这将是一个BUG.和垃圾变量不同，泄漏的goroutines并不会被自动回收，因此确保每个不再需要的goroutine能正常退出是重要的。
+2. 当 for range 遍历 channel 时，如果发送者没有关闭 channel 或在 range 之后关闭，都会导致 deadlock(死锁)。
+3. 同步的 channel 千万不要在同一个 goroutine 协程里发送和接收数据。可能导致deadlock死锁。
 
 ## Labels in Go
 
