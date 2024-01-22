@@ -690,10 +690,15 @@ __注__:
 1. 如果我们使用了无缓存的channel, 那么两个慢的goroutines将会因为没有人接收而永远卡住。这种情况，称为goroutines泄漏，这将是一个BUG.和垃圾变量不同，泄漏的goroutines并不会被自动回收，因此确保每个不再需要的goroutine能正常退出是重要的。
 2. 当 for range 遍历 channel 时，如果发送者没有关闭 channel 或在 range 之后关闭，都会导致 deadlock(死锁)。
 3. 同步的 channel 千万不要在同一个 goroutine 协程里发送和接收数据。可能导致deadlock死锁。
-4. channel 要用 make 进行初始化操作
-5. 读取和写入要配对出现，并且不能在同一个 goroutine 里
-6. 一定先用 go 起一个协程执行读取或写入操作
-7. 多次写入数据，for 读取数据时，写入者注意关闭 channel(代码片段5)
+4. 对于没有缓冲区的 channel (unbuffered channel) 容易产生死锁的几个代码片段分析，总结下：
+   	- channel 要用 make 进行初始化操作
+   	- 读取和写入要配对出现，并且不能在同一个 goroutine 里
+   	- 一定先用 go 起一个协程执行读取或写入操作
+   	- 多次写入数据，for 读取数据时，写入者注意关闭 channel(代码片段5)
+5. 有缓冲区的channel总结：
+ 	- 如果 channel 满了，发送者会阻塞
+ 	- 如果 channle 空了，接收者会阻塞
+ 	- 如果在同一个 goroutine 里，写数据操作一定在读数据操作前
 
 ## Labels in Go
 
