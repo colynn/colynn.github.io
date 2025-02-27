@@ -1,1 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tools on Colynn.Liu</title><link>https://colynn.github.io/tags/tools/</link><description>Recent content in tools on Colynn.Liu</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 29 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>搭建npm私有镜像仓库</title><link>https://colynn.github.io/2019-11-29-npm_private_registry-setup/</link><pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-11-29-npm_private_registry-setup/</guid><description>前言 当你的研发团队越来越大，或是你无法忍受node超慢的构建时你可以考虑继续读下去，给大家推荐一个基于Verdaccio相对较完整的解决方案</description></item><item><title>VSCode 开发环境设置(go python)</title><link>https://colynn.github.io/2019-09-26-vscode_env_setting/</link><pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-26-vscode_env_setting/</guid><description>运行环境 Mac OS 10.13.6 VS code 1.31.1 快捷键 解读 General Command + Shift + p, F1 显示命令面板 Command + p 快速打开 Command + Shite + N 新建vscode 窗口 Integrated Terminal Ctrl + ` 显示或隐藏集成终端； Ctrl + Shift + `</description></item><item><title>Charles 抓包（http/https）</title><link>https://colynn.github.io/2019-02-13-charles_capture_package/</link><pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-02-13-charles_capture_package/</guid><description>运行环境 Mac os 10.13.6 Ios 12.1.2(16C101) 下载安装 官网下载 注: 破解版麻请自行搜索下载 配置 Proxy -&amp;gt; Proxy Settings (根据需要调整配置，保存)； 注: 如果仅需要抓取http包，请略过后续</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on Colynn.Liu</title><link>https://colynn.github.io/tags/tools/</link><description>Recent content in Tools on Colynn.Liu</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Thu, 15 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>搭建npm私有镜像仓库</title><link>https://colynn.github.io/2019-11-29-npm_private_registry-setup/</link><pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-11-29-npm_private_registry-setup/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>当你的研发团队越来越大，或是你无法忍受node超慢的构建时你可以考虑继续读下去，给大家推荐一个基于&lt;a href="https://verdaccio.org/docs/en/what-is-verdaccio">Verdaccio&lt;/a>相对较完整的解决方案。&lt;/p>
+&lt;p>由于环境的原因，我们直接去 &lt;code>npmjs.org&lt;/code> 下载就不要考虑了，可以将&lt;code>npm config set registry=https://registry.npm.taobao.org&lt;/code> 可以缓解一部分, 但是如果你有些自己公司定制的npm包如何在公司内分享呢，这个时候你就需要一个npm私服了.&lt;/p></description></item><item><title>VSCode 开发环境设置(go python)</title><link>https://colynn.github.io/2019-09-26-vscode_env_setting/</link><pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-26-vscode_env_setting/</guid><description>&lt;h1 id="运行环境">运行环境&lt;/h1>
+&lt;ul>
+&lt;li>Mac OS 10.13.6&lt;/li>
+&lt;li>VS code 1.31.1&lt;/li>
+&lt;/ul>
+&lt;h1 id="快捷键">快捷键&lt;/h1>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89495603-34b84780-d7eb-11ea-94b5-d48d3480b679.png" alt="image">&lt;/p>
+&lt;h2 id="解读">解读&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>General&lt;/p>
+&lt;ul>
+&lt;li>Command + Shift + p, F1 显示命令面板&lt;/li>
+&lt;li>Command + p 快速打开&lt;/li>
+&lt;li>Command + Shite + N 新建vscode 窗口&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Integrated Terminal&lt;/p>
+&lt;ul>
+&lt;li>Ctrl + ` 显示或隐藏集成终端；&lt;/li>
+&lt;li>Ctrl + Shift + ` 新建终端；&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>navigation&lt;/p></description></item><item><title>Charles 抓包（http/https）</title><link>https://colynn.github.io/2019-02-13-charles_capture_package/</link><pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-02-13-charles_capture_package/</guid><description>&lt;h3 id="运行环境">运行环境&lt;/h3>
+&lt;ul>
+&lt;li>Mac os 10.13.6&lt;/li>
+&lt;li>Ios 12.1.2(16C101)&lt;/li>
+&lt;/ul>
+&lt;h3 id="下载安装">下载安装&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.charlesproxy.com/download/">官网下载&lt;/a>&lt;/li>
+&lt;li>&lt;em>注&lt;/em>: 破解版麻请自行搜索下载&lt;/li>
+&lt;/ul>
+&lt;h3 id="配置">配置&lt;/h3>
+&lt;ol>
+&lt;li>Proxy -&amp;gt; Proxy Settings (根据需要调整配置，保存)；&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>注&lt;/strong>: 如果仅需要抓取http包，请略过后续步骤。&lt;/p>
+&lt;ol start="2">
+&lt;li>Proxy -&amp;gt; SSL Proxying Settings&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89494735-67614080-d7e9-11ea-877e-a642bec7ed66.png" alt="image">&lt;/p>
+&lt;ol start="3">
+&lt;li>电脑端安装证书 Help -&amp;gt; SSL Proxying -&amp;gt; Install Charles Root Certificate，并将证书标记为始终信任&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89494759-75af5c80-d7e9-11ea-94c2-d711e086ecd5.png" alt="image">&lt;/p></description></item></channel></rss>

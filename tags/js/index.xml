@@ -1,1 +1,81 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>js on Colynn.Liu</title><link>https://colynn.github.io/tags/js/</link><description>Recent content in js on Colynn.Liu</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/js/index.xml" rel="self" type="application/rss+xml"/><item><title>vue 使用中的汇总</title><link>https://colynn.github.io/2020-06-01-vue-in-using-summaring/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-06-01-vue-in-using-summaring/</guid><description>Vue 生命周期 Vue 路由 1. Vue 路由跳转方式 1. router-link 1.不带参数 &amp;lt;router-link :to=&amp;#34;{name:&amp;#39;home&amp;#39;}&amp;#34;&amp;gt; &amp;lt;router-link :to=&amp;#34;{path:&amp;#39;/home&amp;#39;}&amp;#34;&amp;gt; //name,path都行, 建议用name // 注意：router-link中链接如果是</description></item><item><title>JS语法知识汇总</title><link>https://colynn.github.io/2019-08-19-js_base_summaring/</link><pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-08-19-js_base_summaring/</guid><description>数据类型 var length = 7; // 数字 var lastName = &amp;#34;Gates&amp;#34;; // 字符串 var cars = [&amp;#34;Porsche&amp;#34;, &amp;#34;Volvo&amp;#34;, &amp;#34;BMW&amp;#34;]; // 数组 var x = {firstName:&amp;#34;Bill&amp;#34;, lastName:&amp;#34;Gates&amp;#34;}; // 对象 var x = true; // 布尔值 var y = false; //布尔值 数组 some The some() method checks if any of the elements in an array pass a</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Js on Colynn.Liu</title><link>https://colynn.github.io/tags/js/</link><description>Recent content in Js on Colynn.Liu</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/js/index.xml" rel="self" type="application/rss+xml"/><item><title>vue 使用中的汇总</title><link>https://colynn.github.io/2020-06-01-vue-in-using-summaring/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-06-01-vue-in-using-summaring/</guid><description>&lt;h1 id="vue-生命周期">Vue 生命周期&lt;/h1>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89412164-2e798b00-d759-11ea-82b8-324f3d18e5e4.png" alt="image">&lt;/p>
+&lt;h1 id="vue-路由">Vue 路由&lt;/h1>
+&lt;h2 id="1-vue-路由跳转方式">1. Vue 路由跳转方式&lt;/h2>
+&lt;h3 id="1-router-link">1. router-link&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">1.&lt;/span>不带参数
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#333">&amp;lt;&lt;/span>router&lt;span style="color:#333">-&lt;/span>link &lt;span style="color:#333">:&lt;/span>to&lt;span style="color:#333">=&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;{name:&amp;#39;home&amp;#39;}&amp;#34;&lt;/span>&lt;span style="color:#333">&amp;gt;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#333">&amp;lt;&lt;/span>router&lt;span style="color:#333">-&lt;/span>link &lt;span style="color:#333">:&lt;/span>to&lt;span style="color:#333">=&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;{path:&amp;#39;/home&amp;#39;}&amp;#34;&lt;/span>&lt;span style="color:#333">&amp;gt;&lt;/span> &lt;span style="color:#888">//name,path都行, 建议用name 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 注意：router-link中链接如果是&amp;#39;/&amp;#39;开始就是从根路由开始，如果开始不带&amp;#39;/&amp;#39;，则从当前路由开始。
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">2.&lt;/span>带参数
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#333">&amp;lt;&lt;/span>router&lt;span style="color:#333">-&lt;/span>link &lt;span style="color:#333">:&lt;/span>to&lt;span style="color:#333">=&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;{name:&amp;#39;home&amp;#39;, params: {id:1}}&amp;#34;&lt;/span>&lt;span style="color:#333">&amp;gt;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// params传参数 (类似post)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 路由配置 path: &amp;#34;/home/:id&amp;#34; 或者 path: &amp;#34;/home:id&amp;#34; 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 不配置path ,第一次可请求,刷新页面id会消失
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 配置path,刷新页面id会保留
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// html 取参 $route.params.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// script 取参 this.$route.params.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#333">&amp;lt;&lt;/span>router&lt;span style="color:#333">-&lt;/span>link &lt;span style="color:#333">:&lt;/span>to&lt;span style="color:#333">=&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;{name:&amp;#39;home&amp;#39;, query: {id:1}}&amp;#34;&lt;/span>&lt;span style="color:#333">&amp;gt;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// query传参数 (类似get,url后面会显示参数)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 路由可不配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// html 取参 $route.query.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// script 取参 this.$route.query.id
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-thisrouterpush-函数里面调用">2. this.$router.push() (函数里面调用)&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">1.&lt;/span>不带参数
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push(&lt;span style="background-color:#fff0f0">&amp;#39;/home&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({name&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;home&amp;#39;&lt;/span>})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({path&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;/home&amp;#39;&lt;/span>})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">2.&lt;/span> query传参 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({name&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;home&amp;#39;&lt;/span>,query&lt;span style="color:#333">:&lt;/span> {id&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;1&amp;#39;&lt;/span>}})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({path&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;/home&amp;#39;&lt;/span>,query&lt;span style="color:#333">:&lt;/span> {id&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;1&amp;#39;&lt;/span>}})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// html 取参 $route.query.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// script 取参 this.$route.query.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span>&lt;span style="color:#60e;font-weight:bold">3.&lt;/span> params传参
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({name&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;home&amp;#39;&lt;/span>,params&lt;span style="color:#333">:&lt;/span> {id&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;1&amp;#39;&lt;/span>}}) &lt;span style="color:#888">// 只能用 name
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 路由配置 path: &amp;#34;/home/:id&amp;#34; 或者 path: &amp;#34;/home:id&amp;#34; ,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 不配置path ,第一次可请求,刷新页面id会消失
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 配置path,刷新页面id会保留
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// html 取参 $route.params.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// script 取参 this.$route.params.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">4.&lt;/span> query和params区别
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>query类似 get, 跳转之后页面 url后面会拼接参数,类似&lt;span style="color:#333">?&lt;/span>id&lt;span style="color:#333">=&lt;/span>&lt;span style="color:#00d;font-weight:bold">1&lt;/span>, 非重要性的可以这样传, 密码之类还是用params刷新页面id还在
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>params类似 post, 跳转之后页面 url后面不会拼接参数 , 但是刷新页面id 会消失
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3--thisrouterreplace-用法同上push">3. this.$router.replace() (用法同上,push)&lt;/h3>
+&lt;h3 id="4--thisroutergon">4. this.$router.go(n)&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.go(n)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>向前或者向后跳转n个页面&lt;span style="color:#f00;background-color:#faa">，&lt;/span>n可为正整数或负整数
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>&lt;code>this.$router.push&lt;/code> 跳转到指定url路径，并想history栈中添加一个记录，点击后退会返回到上一个页面&lt;/p></description></item><item><title>JS语法知识汇总</title><link>https://colynn.github.io/2019-08-19-js_base_summaring/</link><pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-08-19-js_base_summaring/</guid><description>&lt;h2 id="数据类型">数据类型&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">var&lt;/span> length &lt;span style="color:#333">=&lt;/span> &lt;span style="color:#00d;font-weight:bold">7&lt;/span>; &lt;span style="color:#888">// 数字
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span>&lt;span style="color:#080;font-weight:bold">var&lt;/span> lastName &lt;span style="color:#333">=&lt;/span> &lt;span style="background-color:#fff0f0">&amp;#34;Gates&amp;#34;&lt;/span>; &lt;span style="color:#888">// 字符串
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span>&lt;span style="color:#080;font-weight:bold">var&lt;/span> cars &lt;span style="color:#333">=&lt;/span> [&lt;span style="background-color:#fff0f0">&amp;#34;Porsche&amp;#34;&lt;/span>, &lt;span style="background-color:#fff0f0">&amp;#34;Volvo&amp;#34;&lt;/span>, &lt;span style="background-color:#fff0f0">&amp;#34;BMW&amp;#34;&lt;/span>]; &lt;span style="color:#888">// 数组
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span>&lt;span style="color:#080;font-weight:bold">var&lt;/span> x &lt;span style="color:#333">=&lt;/span> {firstName&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;Bill&amp;#34;&lt;/span>, lastName&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;Gates&amp;#34;&lt;/span>}; &lt;span style="color:#888">// 对象 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span>&lt;span style="color:#080;font-weight:bold">var&lt;/span> x &lt;span style="color:#333">=&lt;/span> &lt;span style="color:#080;font-weight:bold">true&lt;/span>; &lt;span style="color:#888">// 布尔值
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span>&lt;span style="color:#080;font-weight:bold">var&lt;/span> y &lt;span style="color:#333">=&lt;/span> &lt;span style="color:#080;font-weight:bold">false&lt;/span>; &lt;span style="color:#888">//布尔值
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="数组-some">数组 some&lt;/h3>
+&lt;p>The &lt;code>some()&lt;/code> method checks if any of the elements in an array pass a test (provided as a function).&lt;/p>
+&lt;p>The &lt;code>some()&lt;/code> method executes the function once for each element present in the array:&lt;/p>
+&lt;p>If it finds an array element where the function returns a true value, some() returns &lt;code>true&lt;/code> (and does not check the remaining values)
+Otherwise it returns &lt;code>false&lt;/code>
+&lt;strong>Note:&lt;/strong> some() does not execute the function for array elements without values.&lt;/p></description></item></channel></rss>

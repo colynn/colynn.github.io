@@ -1,1 +1,140 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kubernetes on Colynn.Liu</title><link>https://colynn.github.io/tags/kubernetes/</link><description>Recent content in kubernetes on Colynn.Liu</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubernetes Operator</title><link>https://colynn.github.io/2021-08-12-k8s-operator/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2021-08-12-k8s-operator/</guid><description>概述 Introduced in 2016 by CoreOS, an Operator is a method of packaging, deploying and managine a Kubernetes application. A kubernetes application is an application that is both deployed on Kubernetes and managed using the Kubernetes APIs and Kubernetes tooling such as Kubectl. How to create opeartor</description></item><item><title>K8s常用命令备注手册</title><link>https://colynn.github.io/2020-11-04-kubernetes-cheat-sheet/</link><pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-11-04-kubernetes-cheat-sheet/</guid><description>Pod pod 进入指定的 container # Name of the container: kaniko # Name of the pod: jnlp-gjrpc $ kubectl exec -ti jnlp-gjrpc -c kaniko /bin/sh 强制删除 pod $ kubectl delete pods mypod-ba97bc8ef-8rgaa --grace-period=0 --force Label create a label for a node: $ kubectl label node &amp;lt;nodename&amp;gt; &amp;lt;labelname&amp;gt;=&amp;lt;value&amp;gt; delete above labels from its node $ kubectl label node &amp;lt;nodename&amp;gt; &amp;lt;labelname&amp;gt;- confirm node labels $ kubectl</description></item><item><title>kubernetes-网络组件-flannel-calico</title><link>https://colynn.github.io/2020-04-10-kubernetes-networking-flannel-calico/</link><pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-04-10-kubernetes-networking-flannel-calico/</guid><description>前言 网络是kubernetes核心组件， 但是理解它具体是怎样工作却有一定挑战性，主要有4个不同的网络问题要解决： 高度耦合的容器到容器通信：这</description></item><item><title>云原生距离我们有多远</title><link>https://colynn.github.io/2020-03-10-cloud-native-howfarawayfromus/</link><pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-03-10-cloud-native-howfarawayfromus/</guid><description>目录 何为云原生 云原生-容器编排kubernetes 云原生-DevOps方案 结论 引言 现在越来越多的企业上云，用云，但云原生离我们真的又有多远呢</description></item><item><title>Kubernetes CI/CD 基于开源组件的实践</title><link>https://colynn.github.io/2019-10-22-kubernetes-ci-cd/</link><pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-10-22-kubernetes-ci-cd/</guid><description>前言 应对敏捷开发的需求，对CI(持续集成))/CD（持续交付）的提出了更高的标准，今天来讨论下，如何基于开源组件（gitlab/jenkin</description></item><item><title>Kubespary 部署 Kubernetes 1.15.3 版本</title><link>https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/</link><pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/</guid><description>前置条件 熟悉linux基本命令 了解k8s基本概念 K8s master推荐配置 节点数量 推荐配置（vCPU/Memory/磁盘） 1-5 nodes 1C/4G/4G 6-10 nodes 2C/8G/32G 11-100 nodes 4C/16G/80G 101-250 nodes</description></item><item><title>安装 MiniKube</title><link>https://colynn.github.io/2019-02-13-install_minikube/</link><pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-02-13-install_minikube/</guid><description>前置条件 mac os 10.13.6 Virtual Box 确认环境需求 Minikube 要求在 BIOS 中启用 VT-x / AMD-v 虚拟化， 要检查这是否在OSX / macOS上运行，请执行以下操作： sysctl -a | grep machdep.cpu.features | grep VMX 如果有输</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on Colynn.Liu</title><link>https://colynn.github.io/tags/kubernetes/</link><description>Recent content in Kubernetes on Colynn.Liu</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubernetes Operator</title><link>https://colynn.github.io/2021-08-12-k8s-operator/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2021-08-12-k8s-operator/</guid><description>&lt;h2 id="概述">概述&lt;/h2>
+&lt;p>Introduced in 2016 by &lt;strong>CoreOS&lt;/strong>, an Operator is a method of packaging, deploying and managine a Kubernetes application. A kubernetes application is an application that is both deployed on Kubernetes and managed using the Kubernetes APIs and Kubernetes tooling such as Kubectl.&lt;/p>
+&lt;h2 id="how-to-create-opeartor">How to create opeartor&lt;/h2></description></item><item><title>K8s常用命令备注手册</title><link>https://colynn.github.io/2020-11-04-kubernetes-cheat-sheet/</link><pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-11-04-kubernetes-cheat-sheet/</guid><description>&lt;h2 id="pod">Pod&lt;/h2>
+&lt;ol>
+&lt;li>pod 进入指定的 container&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888"># Name of the container: kaniko&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888"># Name of the pod: jnlp-gjrpc&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ kubectl &lt;span style="color:#007020">exec&lt;/span> -ti jnlp-gjrpc -c kaniko /bin/sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>强制删除 pod&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ kubectl delete pods mypod-ba97bc8ef-8rgaa --grace-period&lt;span style="color:#333">=&lt;/span>&lt;span style="color:#60e;font-weight:bold">0&lt;/span> --force
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="label">Label&lt;/h2>
+&lt;ol>
+&lt;li>create a label for a node:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ kubectl label node &amp;lt;nodename&amp;gt; &amp;lt;labelname&amp;gt;&lt;span style="color:#333">=&lt;/span>&amp;lt;value&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>delete above labels from its node&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ kubectl label node &amp;lt;nodename&amp;gt; &amp;lt;labelname&amp;gt;-
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>confirm node labels&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ kubectl get nodes --show-labels
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="helm">Helm&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>helm get --revision &lt;span style="color:#60e;font-weight:bold">0&lt;/span> engine-realtime-clustering-service-nebula | head
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>kubernetes-网络组件-flannel-calico</title><link>https://colynn.github.io/2020-04-10-kubernetes-networking-flannel-calico/</link><pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-04-10-kubernetes-networking-flannel-calico/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>网络是kubernetes核心组件， 但是理解它具体是怎样工作却有一定挑战性，主要有4个不同的网络问题要解决：&lt;/p>
+&lt;ol>
+&lt;li>高度耦合的容器到容器通信：这可以通过&lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/">pods&lt;/a>和localhost通信解决。&lt;/li>
+&lt;li>Pod与Pod之间的通信；&lt;/li>
+&lt;li>Pod与Service间的通信, &lt;a href="https://kubernetes.io/docs/concepts/services-networking/service/">services&lt;/a>；&lt;/li>
+&lt;li>外部和 Service间的通信，&lt;a href="https://kubernetes.io/docs/concepts/services-networking/service/">services&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>无论是哪种网络插件，kubernets都要求其满足如下的基础要求。&lt;/p></description></item><item><title>云原生距离我们有多远</title><link>https://colynn.github.io/2020-03-10-cloud-native-howfarawayfromus/</link><pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-03-10-cloud-native-howfarawayfromus/</guid><description>&lt;h2 id="目录">目录&lt;/h2>
+&lt;ol>
+&lt;li>何为云原生&lt;/li>
+&lt;li>云原生-容器编排kubernetes&lt;/li>
+&lt;li>云原生-DevOps方案&lt;/li>
+&lt;li>结论&lt;/li>
+&lt;/ol>
+&lt;h2 id="引言">引言&lt;/h2>
+&lt;p>现在越来越多的企业上云，用云，但云原生离我们真的又有多远呢，期望本篇可以让你有些收获, 如果有不妥的地方，期望大家后台留言，共同交流。&lt;/p></description></item><item><title>Kubernetes CI/CD 基于开源组件的实践</title><link>https://colynn.github.io/2019-10-22-kubernetes-ci-cd/</link><pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-10-22-kubernetes-ci-cd/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>应对敏捷开发的需求，对CI(持续集成))/CD（持续交付）的提出了更高的标准，今天来讨论下，如何基于开源组件（gitlab/jenkins/harbor/kubernetes）使用CI/CD，赋能团队的开发、运维。&lt;/p></description></item><item><title>Kubespary 部署 Kubernetes 1.15.3 版本</title><link>https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/</link><pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-15-kubespray-deploy-k8s/</guid><description>&lt;h2 id="前置条件">前置条件&lt;/h2>
+&lt;ol>
+&lt;li>熟悉linux基本命令&lt;/li>
+&lt;li>了解k8s基本概念&lt;/li>
+&lt;li>K8s master推荐配置&lt;/li>
+&lt;/ol>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>节点数量&lt;/th>
+ &lt;th>推荐配置（vCPU/Memory/磁盘）&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>1-5 nodes&lt;/td>
+ &lt;td>1C/4G/4G&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>6-10 nodes&lt;/td>
+ &lt;td>2C/8G/32G&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>11-100 nodes&lt;/td>
+ &lt;td>4C/16G/80G&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>101-250 nodes&lt;/td>
+ &lt;td>8C/32G/160G&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>251-500 nodes&lt;/td>
+ &lt;td>16C/32G/200G&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>大于500 nodes&lt;/td>
+ &lt;td>32C/64G/200G&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="安装环境">安装环境&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>名称&lt;/th>
+ &lt;th>内网IP&lt;/th>
+ &lt;th>配置&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>node0&lt;/td>
+ &lt;td>10.0.0.182&lt;/td>
+ &lt;td>2c*4G&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>node1&lt;/td>
+ &lt;td>10.0.0.183&lt;/td>
+ &lt;td>2c*4G&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="集群安装步骤">集群安装步骤&lt;/h2>
+&lt;h3 id="1-设置master与node1间的免密登录">1. 设置master与node1间的免密登录&lt;/h3>
+&lt;p>由于kubespray是依赖于ansible，ansible通过ssh协议进行主机之间的访问，所以部署之前需要设置主机之间免密登录，步骤如下：&lt;/p></description></item><item><title>安装 MiniKube</title><link>https://colynn.github.io/2019-02-13-install_minikube/</link><pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-02-13-install_minikube/</guid><description>&lt;h3 id="前置条件">前置条件&lt;/h3>
+&lt;ul>
+&lt;li>mac os 10.13.6&lt;/li>
+&lt;li>Virtual Box&lt;/li>
+&lt;/ul>
+&lt;h4 id="确认环境需求">确认环境需求&lt;/h4>
+&lt;p>Minikube 要求在 BIOS 中启用 VT-x / AMD-v 虚拟化， 要检查这是否在OSX / macOS上运行，请执行以下操作：&lt;/p>
+&lt;pre tabindex="0">&lt;code>sysctl -a | grep machdep.cpu.features | grep VMX
+&lt;/code>&lt;/pre>&lt;p>如果有输出，那你很棒棒！&lt;/p>
+&lt;h4 id="配置brew-镜像源">配置Brew 镜像源&lt;/h4>
+&lt;pre tabindex="0">&lt;code>cd &amp;#34;$(brew --repo)&amp;#34;
+git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+
+cd &amp;#34;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;#34;
+git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+&lt;/code>&lt;/pre>&lt;h3 id="相关软件安装">相关软件安装&lt;/h3>
+&lt;ul>
+&lt;li>kubectl&lt;/li>
+&lt;li>docker (for Mac)&lt;/li>
+&lt;li>minikube&lt;/li>
+&lt;li>virtualbox&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>安装kubectl&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>$ brew update &amp;amp;&amp;amp; brew install kubectl
+&lt;/code>&lt;/pre>&lt;ol start="2">
+&lt;li>minikube(可以直接通过brew来安装)&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>curl -Lo minikube http://kubernetes.oss-cn-hangzhou.aliyuncs.com/minikube/releases/v0.30.0/minikube-darwin-amd64 &amp;amp;&amp;amp; chmod +x minikube &amp;amp;&amp;amp; sudo mv minikube /usr/local/bin/
+&lt;/code>&lt;/pre>&lt;p>&lt;em>注：&lt;/em> 可以从这里获得更多的版本选择 &lt;a href="https://github.com/kubernetes/minikube/releases">kuernetes minikube releases&lt;/a>&lt;/p></description></item></channel></rss>

@@ -1,1 +1,71 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vue on Colynn.Liu</title><link>https://colynn.github.io/tags/vue/</link><description>Recent content in vue on Colynn.Liu</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 19 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml"/><item><title>npm使用过程中的报错记录</title><link>https://colynn.github.io/2020-06-19-npm-catch-error/</link><pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-06-19-npm-catch-error/</guid><description>1. 制做docker镜像时无法安装依赖 问题描述 比如你在package.json里指定了 对于本地包或是 git 包的依赖，然后你在本地直接打包(npm run</description></item><item><title>vue 使用中的汇总</title><link>https://colynn.github.io/2020-06-01-vue-in-using-summaring/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-06-01-vue-in-using-summaring/</guid><description>Vue 生命周期 Vue 路由 1. Vue 路由跳转方式 1. router-link 1.不带参数 &amp;lt;router-link :to=&amp;#34;{name:&amp;#39;home&amp;#39;}&amp;#34;&amp;gt; &amp;lt;router-link :to=&amp;#34;{path:&amp;#39;/home&amp;#39;}&amp;#34;&amp;gt; //name,path都行, 建议用name // 注意：router-link中链接如果是</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vue on Colynn.Liu</title><link>https://colynn.github.io/tags/vue/</link><description>Recent content in Vue on Colynn.Liu</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml"/><item><title>npm使用过程中的报错记录</title><link>https://colynn.github.io/2020-06-19-npm-catch-error/</link><pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-06-19-npm-catch-error/</guid><description>&lt;h2 id="1-制做docker镜像时无法安装依赖">1. 制做docker镜像时无法安装依赖&lt;/h2>
+&lt;h3 id="问题描述">问题描述&lt;/h3>
+&lt;p>比如你在package.json里指定了 对于本地包或是 git 包的依赖，然后你在本地直接打包(&lt;code>npm run build&lt;/code>)是没有问题的，但如果现在你想构建镜像，那么这么非常规的依赖可能会成为你的障碍。&lt;/p></description></item><item><title>vue 使用中的汇总</title><link>https://colynn.github.io/2020-06-01-vue-in-using-summaring/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-06-01-vue-in-using-summaring/</guid><description>&lt;h1 id="vue-生命周期">Vue 生命周期&lt;/h1>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89412164-2e798b00-d759-11ea-82b8-324f3d18e5e4.png" alt="image">&lt;/p>
+&lt;h1 id="vue-路由">Vue 路由&lt;/h1>
+&lt;h2 id="1-vue-路由跳转方式">1. Vue 路由跳转方式&lt;/h2>
+&lt;h3 id="1-router-link">1. router-link&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">1.&lt;/span>不带参数
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#333">&amp;lt;&lt;/span>router&lt;span style="color:#333">-&lt;/span>link &lt;span style="color:#333">:&lt;/span>to&lt;span style="color:#333">=&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;{name:&amp;#39;home&amp;#39;}&amp;#34;&lt;/span>&lt;span style="color:#333">&amp;gt;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#333">&amp;lt;&lt;/span>router&lt;span style="color:#333">-&lt;/span>link &lt;span style="color:#333">:&lt;/span>to&lt;span style="color:#333">=&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;{path:&amp;#39;/home&amp;#39;}&amp;#34;&lt;/span>&lt;span style="color:#333">&amp;gt;&lt;/span> &lt;span style="color:#888">//name,path都行, 建议用name 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 注意：router-link中链接如果是&amp;#39;/&amp;#39;开始就是从根路由开始，如果开始不带&amp;#39;/&amp;#39;，则从当前路由开始。
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">2.&lt;/span>带参数
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#333">&amp;lt;&lt;/span>router&lt;span style="color:#333">-&lt;/span>link &lt;span style="color:#333">:&lt;/span>to&lt;span style="color:#333">=&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;{name:&amp;#39;home&amp;#39;, params: {id:1}}&amp;#34;&lt;/span>&lt;span style="color:#333">&amp;gt;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// params传参数 (类似post)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 路由配置 path: &amp;#34;/home/:id&amp;#34; 或者 path: &amp;#34;/home:id&amp;#34; 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 不配置path ,第一次可请求,刷新页面id会消失
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 配置path,刷新页面id会保留
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// html 取参 $route.params.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// script 取参 this.$route.params.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#333">&amp;lt;&lt;/span>router&lt;span style="color:#333">-&lt;/span>link &lt;span style="color:#333">:&lt;/span>to&lt;span style="color:#333">=&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#34;{name:&amp;#39;home&amp;#39;, query: {id:1}}&amp;#34;&lt;/span>&lt;span style="color:#333">&amp;gt;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// query传参数 (类似get,url后面会显示参数)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 路由可不配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// html 取参 $route.query.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// script 取参 this.$route.query.id
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-thisrouterpush-函数里面调用">2. this.$router.push() (函数里面调用)&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">1.&lt;/span>不带参数
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push(&lt;span style="background-color:#fff0f0">&amp;#39;/home&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({name&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;home&amp;#39;&lt;/span>})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({path&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;/home&amp;#39;&lt;/span>})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">2.&lt;/span> query传参 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({name&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;home&amp;#39;&lt;/span>,query&lt;span style="color:#333">:&lt;/span> {id&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;1&amp;#39;&lt;/span>}})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({path&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;/home&amp;#39;&lt;/span>,query&lt;span style="color:#333">:&lt;/span> {id&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;1&amp;#39;&lt;/span>}})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// html 取参 $route.query.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// script 取参 this.$route.query.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span>&lt;span style="color:#60e;font-weight:bold">3.&lt;/span> params传参
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.push({name&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;home&amp;#39;&lt;/span>,params&lt;span style="color:#333">:&lt;/span> {id&lt;span style="color:#333">:&lt;/span>&lt;span style="background-color:#fff0f0">&amp;#39;1&amp;#39;&lt;/span>}}) &lt;span style="color:#888">// 只能用 name
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 路由配置 path: &amp;#34;/home/:id&amp;#34; 或者 path: &amp;#34;/home:id&amp;#34; ,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 不配置path ,第一次可请求,刷新页面id会消失
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// 配置path,刷新页面id会保留
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// html 取参 $route.params.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">// script 取参 this.$route.params.id
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#60e;font-weight:bold">4.&lt;/span> query和params区别
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>query类似 get, 跳转之后页面 url后面会拼接参数,类似&lt;span style="color:#333">?&lt;/span>id&lt;span style="color:#333">=&lt;/span>&lt;span style="color:#00d;font-weight:bold">1&lt;/span>, 非重要性的可以这样传, 密码之类还是用params刷新页面id还在
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>params类似 post, 跳转之后页面 url后面不会拼接参数 , 但是刷新页面id 会消失
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3--thisrouterreplace-用法同上push">3. this.$router.replace() (用法同上,push)&lt;/h3>
+&lt;h3 id="4--thisroutergon">4. this.$router.go(n)&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">this&lt;/span>.$router.go(n)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>向前或者向后跳转n个页面&lt;span style="color:#f00;background-color:#faa">，&lt;/span>n可为正整数或负整数
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>&lt;code>this.$router.push&lt;/code> 跳转到指定url路径，并想history栈中添加一个记录，点击后退会返回到上一个页面&lt;/p></description></item></channel></rss>

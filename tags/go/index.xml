@@ -1,1 +1,71 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>go on Colynn.Liu</title><link>https://colynn.github.io/tags/go/</link><description>Recent content in go on Colynn.Liu</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 06 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/go/index.xml" rel="self" type="application/rss+xml"/><item><title>Go Slice 内部发生了什么</title><link>https://colynn.github.io/2020-05-06-slice-internal/</link><pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-05-06-slice-internal/</guid><description>前言 Go&amp;rsquo;s Slice类型为处理类型化数据序列提供了一种方便且高效的方法。 Slice internals slice是一个array片段的描述符，它包含一个指向数组的指针，版</description></item><item><title>Golang 内存分配 - stack and heap</title><link>https://colynn.github.io/2020-07-16-go-memory-allocation/</link><pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-07-16-go-memory-allocation/</guid><description>https://golang.org/doc/faq#stack_or_heap stack and pointers 我不能解释地像 William Kennedy一样优秀，那就让我来做一个汇总. 一个变量可以被分配在 heap或是stack: The stack contains the ongoing variables for a given goroutine. Once a function</description></item><item><title>如何让你的 Go 代码更规范 - 辅助工具/项目结构/代码规范</title><link>https://colynn.github.io/2020-03-29-golang-101/</link><pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-03-29-golang-101/</guid><description>前言 应云而生的go语言，给我们带来了很多的不错的特性，但是如何让go代码更规范，更优雅，期望可以给你些许帮助。 作者对于golang也是在不断</description></item><item><title>Using Makefile for Go - Go语言项目如何正确使用Makefile</title><link>https://colynn.github.io/2020-03-03-using_makefile/</link><pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-03-03-using_makefile/</guid><description>我们一直在用Go语言编写的HackerRank项目中的一个项目使用make作为构建工具，并且效果良好。在这篇文章中，我将指出我们使用的GNU</description></item><item><title>Beego In Use</title><link>https://colynn.github.io/2020-03-03-beego_using/</link><pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-03-03-beego_using/</guid><description>时区问题 ORM 默认使用 time.Local 本地时区 作用于 ORM 自动创建的时间 从数据库中取回的时间转换成 ORM 本地时间 如果需要的话，你也可以进行更改 // 设置为 UTC 时间 orm.DefaultTimeLoc = time.UTC ORM 在</description></item><item><title>VSCode 开发环境设置(go python)</title><link>https://colynn.github.io/2019-09-26-vscode_env_setting/</link><pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-26-vscode_env_setting/</guid><description>运行环境 Mac OS 10.13.6 VS code 1.31.1 快捷键 解读 General Command + Shift + p, F1 显示命令面板 Command + p 快速打开 Command + Shite + N 新建vscode 窗口 Integrated Terminal Ctrl + ` 显示或隐藏集成终端； Ctrl + Shift + `</description></item><item><title>Go Mod 包管理 &amp; 常见问题</title><link>https://colynn.github.io/2019-08-15-introducing_go_mod/</link><pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-08-15-introducing_go_mod/</guid><description>前言 In Go 1.11, a new tool has arrived. It&amp;rsquo;s called go mod. For those who don&amp;rsquo;t know what is that, I&amp;rsquo;ll tell you about it. One of the purposes of this tool is to get rid of $GOPATH, so you can git clone a Golang repository anywhere and work on it without worrying about $GOPATH at all. There are other purposes of course, such as simpler versioning and</description></item><item><title>Go 语法汇总 - Block</title><link>https://colynn.github.io/2019-12-31-go_basic_knowledge_summarizing/</link><pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-12-31-go_basic_knowledge_summarizing/</guid><description>变量声明 指定变量类型，如果没有初始化，则变量默认为零值; package main import &amp;#34;fmt&amp;#34; func main() { // 声明一个变量并初始化 var a = &amp;#34;RUNOOB&amp;#34; fmt.Println(a) // 没有初始化就为零值 var b int fmt.Println(b) // bool 零值为</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go on Colynn.Liu</title><link>https://colynn.github.io/tags/go/</link><description>Recent content in Go on Colynn.Liu</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 25 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/go/index.xml" rel="self" type="application/rss+xml"/><item><title>Go Slice 内部发生了什么</title><link>https://colynn.github.io/2020-05-06-slice-internal/</link><pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-05-06-slice-internal/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>Go&amp;rsquo;s Slice类型为处理类型化数据序列提供了一种方便且高效的方法。&lt;/p>
+&lt;h2 id="slice-internals">Slice internals&lt;/h2>
+&lt;p>slice是一个array片段的描述符，它包含一个指向数组的指针，版本的长度，还有它的容量。&lt;/p></description></item><item><title>Golang 内存分配 - stack and heap</title><link>https://colynn.github.io/2020-07-16-go-memory-allocation/</link><pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-07-16-go-memory-allocation/</guid><description>&lt;h2>&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/doc/faq#stack_or_heap">https://golang.org/doc/faq#stack_or_heap&lt;/a>&lt;/p>
+&lt;h2 id="stack-and-pointers">stack and pointers&lt;/h2>
+&lt;p>我不能解释地像 &lt;a href="https://www.ardanlabs.com/blog/2017/05/language-mechanics-on-stacks-and-pointers.html">William Kennedy&lt;/a>一样优秀，那就让我来做一个汇总.&lt;/p>
+&lt;p>一个变量可以被分配在 &lt;code>heap&lt;/code>或是&lt;code>stack&lt;/code>:&lt;/p>
+&lt;ol>
+&lt;li>The stack contains the &lt;strong>ongoing&lt;/strong> variables for a given goroutine. Once a function returned, the variables are popped from the stack.&lt;/li>
+&lt;li>The heap contains the shared variables (global variables, etc.), and anything on the heap is maaged by the Garbage Collector.&lt;/li>
+&lt;/ol>
+&lt;p>简而言之，当你需要&lt;code>Sharing&lt;/code>变量，可以使用指针；&lt;/p></description></item><item><title>如何让你的 Go 代码更规范 - 辅助工具/项目结构/代码规范</title><link>https://colynn.github.io/2020-03-29-golang-101/</link><pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-03-29-golang-101/</guid><description>&lt;h1 id="前言">前言&lt;/h1>
+&lt;p>应云而生的go语言，给我们带来了很多的不错的特性，但是如何让go代码更规范，更优雅，期望可以给你些许帮助。&lt;/p>
+&lt;p>作者对于golang也是在不断学习中，文章章节主要基于&lt;a href="blog.golang.org">golang官方博客&lt;/a>、社区的收集及思考，如有不妥可以文末留言，期望您的斧正, 此文也会不断完善。&lt;/p></description></item><item><title>Using Makefile for Go - Go语言项目如何正确使用Makefile</title><link>https://colynn.github.io/2020-03-03-using_makefile/</link><pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-03-03-using_makefile/</guid><description>&lt;p>我们一直在用Go语言编写的HackerRank项目中的一个项目使用&lt;code>make&lt;/code>作为构建工具，并且效果良好。在这篇文章中，我将指出我们使用的&lt;code>GNU Make&lt;/code>的一些功能和复杂性，这些功能和复杂性最终提高了我们团队成员的整体生产力。&lt;/p></description></item><item><title>Beego In Use</title><link>https://colynn.github.io/2020-03-03-beego_using/</link><pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2020-03-03-beego_using/</guid><description>&lt;h2 id="时区问题">时区问题&lt;/h2>
+&lt;p>ORM 默认使用 time.Local 本地时区&lt;/p>
+&lt;p>作用于 ORM 自动创建的时间
+从数据库中取回的时间转换成 ORM 本地时间
+如果需要的话，你也可以进行更改&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-conf" data-lang="conf">// 设置为 UTC 时间
+orm.DefaultTimeLoc = time.UTC
+&lt;/code>&lt;/pre>&lt;p>ORM 在进行 RegisterDataBase 的同时，会获取数据库使用的时区，然后在 time.Time 类型存取时做相应转换，以匹配时间系统，从而保证时间不会出错。&lt;/p></description></item><item><title>VSCode 开发环境设置(go python)</title><link>https://colynn.github.io/2019-09-26-vscode_env_setting/</link><pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-26-vscode_env_setting/</guid><description>&lt;h1 id="运行环境">运行环境&lt;/h1>
+&lt;ul>
+&lt;li>Mac OS 10.13.6&lt;/li>
+&lt;li>VS code 1.31.1&lt;/li>
+&lt;/ul>
+&lt;h1 id="快捷键">快捷键&lt;/h1>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89495603-34b84780-d7eb-11ea-94b5-d48d3480b679.png" alt="image">&lt;/p>
+&lt;h2 id="解读">解读&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>General&lt;/p>
+&lt;ul>
+&lt;li>Command + Shift + p, F1 显示命令面板&lt;/li>
+&lt;li>Command + p 快速打开&lt;/li>
+&lt;li>Command + Shite + N 新建vscode 窗口&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Integrated Terminal&lt;/p>
+&lt;ul>
+&lt;li>Ctrl + ` 显示或隐藏集成终端；&lt;/li>
+&lt;li>Ctrl + Shift + ` 新建终端；&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>navigation&lt;/p></description></item><item><title>Go Mod 包管理 &amp; gRPC、Protobuf扫盲</title><link>https://colynn.github.io/2019-08-15-introducing_go_mod/</link><pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-08-15-introducing_go_mod/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>In Go 1.11, a new tool has arrived. It&amp;rsquo;s called go mod. For those who don&amp;rsquo;t know what is that, I&amp;rsquo;ll tell you about it.&lt;/p>
+&lt;p>One of the purposes of this tool is to get rid of &lt;code>$GOPATH&lt;/code>, so you can git clone a Golang repository anywhere and work on it without worrying about $GOPATH at all. There are other purposes of course, such as simpler versioning and usage, but I think the RIP &lt;code>$GOPATH&lt;/code> is the most notable.&lt;/p></description></item><item><title>Go 语法汇总 - Block</title><link>https://colynn.github.io/2019-12-31-go_basic_knowledge_summarizing/</link><pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-12-31-go_basic_knowledge_summarizing/</guid><description>&lt;h2 id="变量声明">变量声明&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>指定变量类型，如果没有初始化，则变量默认为零值;&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">package&lt;/span> main
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">import&lt;/span> &lt;span style="background-color:#fff0f0">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080;font-weight:bold">func&lt;/span> &lt;span style="color:#06b;font-weight:bold">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#888">// 声明一个变量并初始化&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#080;font-weight:bold">var&lt;/span> a = &lt;span style="background-color:#fff0f0">&amp;#34;RUNOOB&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fmt.&lt;span style="color:#06b;font-weight:bold">Println&lt;/span>(a)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#888">// 没有初始化就为零值&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#080;font-weight:bold">var&lt;/span> b &lt;span style="color:#339;font-weight:bold">int&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fmt.&lt;span style="color:#06b;font-weight:bold">Println&lt;/span>(b)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#888">// bool 零值为 false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#080;font-weight:bold">var&lt;/span> c &lt;span style="color:#339;font-weight:bold">bool&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fmt.&lt;span style="color:#06b;font-weight:bold">Println&lt;/span>(c)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>根据值自行判定变量类型&lt;/p></description></item></channel></rss>

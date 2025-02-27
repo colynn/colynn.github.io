@@ -1,1 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Colynn.Liu</title><link>https://colynn.github.io/tags/docker/</link><description>Recent content in Docker on Colynn.Liu</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 04 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>理解并正确使用docker volume/bind mount</title><link>https://colynn.github.io/2022-05-02-docker-volume/</link><pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2022-05-02-docker-volume/</guid><description>写在前面 默认情况下，在容器内创建的所有文件都存储在一个可写的容器层上(如下图)， 问题 但是这也带来如下的几个问题： 当该容器不再存在时，数据并不</description></item><item><title>运维常用命令备注手册</title><link>https://colynn.github.io/2019-01-01-ops-notes/</link><pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-01-01-ops-notes/</guid><description>Git fork出来的仓库同步upstream 在 fork 的代码库中添加上游代码库的 remote 源 git remote add upstream git@github.com:789/456.git 获取原始仓库分支和对应的提交 git fetch upstream 在本地实现与upstr</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Colynn.Liu</title><link>https://colynn.github.io/tags/docker/</link><description>Recent content in Docker on Colynn.Liu</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Thu, 05 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>理解并正确使用docker volume/bind mount</title><link>https://colynn.github.io/2022-05-02-docker-volume/</link><pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2022-05-02-docker-volume/</guid><description>&lt;h2 id="写在前面">写在前面&lt;/h2>
+&lt;p>默认情况下，在容器内创建的所有文件都存储在一个可写的容器层上(如下图)，&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/166707397-5e8d89b4-78b9-4813-a67e-c180a083af98.png" alt="Image">&lt;/p>
+&lt;h3 id="问题">问题&lt;/h3>
+&lt;p>但是这也带来如下的几个问题：&lt;/p>
+&lt;ul>
+&lt;li>当该容器不再存在时，数据并不持久，而且如果另一个进程需要这些数据，就很难将其从容器中取出。&lt;/li>
+&lt;li>容器的可写层与容器所运行的主机紧密相连。你不能轻易地把数据移到别的地方。&lt;/li>
+&lt;li>写入容器的可写层需要一个存储驱动来管理文件系统。存储驱动提供了一个联合文件系统，使用Linux内核。与使用数据卷直接写在主机文件系统中，这种额外的抽象降低了性能。&lt;/li>
+&lt;/ul>
+&lt;h3 id="解决方案">解决方案&lt;/h3>
+&lt;p>&lt;code>Docker&lt;/code>对于容器文件的持久化提供了两种方式：&lt;code>volumes&lt;/code>、&lt;code>bind mounts&lt;/code>&lt;/p></description></item><item><title>运维常用命令备注手册</title><link>https://colynn.github.io/2019-01-01-ops-notes/</link><pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-01-01-ops-notes/</guid><description>&lt;h2 id="git">Git&lt;/h2>
+&lt;h3 id="fork出来的仓库同步upstream">fork出来的仓库同步upstream&lt;/h3>
+&lt;ol>
+&lt;li>在 fork 的代码库中添加上游代码库的 remote 源&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git remote add upstream git@github.com:789/456.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>获取原始仓库分支和对应的提交&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git fetch upstream
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>在本地实现与upstream的同步&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git rebase upstream/master
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>推送自己的本地仓库到自己的远程仓库&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git push
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="push-tags-to-remote">Push tags to remote&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>git push --tags &amp;lt;repo-name&amp;gt;&lt;/code> All refs under refs/tags are pushed, in addition to refspecs explicitly listed on the command line.&lt;/li>
+&lt;/ul>
+&lt;h3 id="delete-remote-tagsbranch">Delete remote tags/branch&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#888"># more expressively, use the --delete option (or -d if your git version is older than 1.8.0)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push --delete origin tagname
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>or&lt;/p></description></item></channel></rss>

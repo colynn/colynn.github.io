@@ -1,1 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>php on Colynn.Liu</title><link>https://colynn.github.io/tags/php/</link><description>Recent content in php on Colynn.Liu</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 15 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/php/index.xml" rel="self" type="application/rss+xml"/><item><title>Mac-PHP环境准备</title><link>https://colynn.github.io/2019-03-05-mac_prepare_php_env/</link><pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-03-05-mac_prepare_php_env/</guid><description>前置条件 Mac OS 10.13.6 安装Homebrew 包管理工具； 安装 autoconf (解决xdebug编译依赖问题) 说明: brew 全称Homebrew, 是Mac OSX上的软件包管</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Php on Colynn.Liu</title><link>https://colynn.github.io/tags/php/</link><description>Recent content in Php on Colynn.Liu</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 15 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/php/index.xml" rel="self" type="application/rss+xml"/><item><title>Mac-PHP环境准备</title><link>https://colynn.github.io/2019-03-05-mac_prepare_php_env/</link><pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-03-05-mac_prepare_php_env/</guid><description>&lt;h3 id="前置条件">前置条件&lt;/h3>
+&lt;ol>
+&lt;li>Mac OS 10.13.6&lt;/li>
+&lt;li>安装Homebrew 包管理工具；&lt;/li>
+&lt;li>安装 autoconf (解决xdebug编译依赖问题)&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>说明&lt;/strong>: brew 全称Homebrew, 是Mac OSX上的软件包管理工具&lt;/p>
+&lt;p>&lt;em>注&lt;/em>: PECL（The PHP Extension Community Library）是 PHP 扩展的存储库，为 PHP所有的扩展提供提供托管和下载服务。
+通过 PEAR的 Package Manager 的安装管理方式，可以对PECL扩展进行下载和安装&lt;/p></description></item></channel></rss>

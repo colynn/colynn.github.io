@@ -1,1 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>工具 on Colynn.Liu</title><link>https://colynn.github.io/categories/%E5%B7%A5%E5%85%B7/</link><description>Recent content in 工具 on Colynn.Liu</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 13 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>Charles 抓包（http/https）</title><link>https://colynn.github.io/2019-02-13-charles_capture_package/</link><pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-02-13-charles_capture_package/</guid><description>运行环境 Mac os 10.13.6 Ios 12.1.2(16C101) 下载安装 官网下载 注: 破解版麻请自行搜索下载 配置 Proxy -&amp;gt; Proxy Settings (根据需要调整配置，保存)； 注: 如果仅需要抓取http包，请略过后续</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>工具 on Colynn.Liu</title><link>https://colynn.github.io/categories/%E5%B7%A5%E5%85%B7/</link><description>Recent content in 工具 on Colynn.Liu</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Wed, 13 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>Charles 抓包（http/https）</title><link>https://colynn.github.io/2019-02-13-charles_capture_package/</link><pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-02-13-charles_capture_package/</guid><description>&lt;h3 id="运行环境">运行环境&lt;/h3>
+&lt;ul>
+&lt;li>Mac os 10.13.6&lt;/li>
+&lt;li>Ios 12.1.2(16C101)&lt;/li>
+&lt;/ul>
+&lt;h3 id="下载安装">下载安装&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.charlesproxy.com/download/">官网下载&lt;/a>&lt;/li>
+&lt;li>&lt;em>注&lt;/em>: 破解版麻请自行搜索下载&lt;/li>
+&lt;/ul>
+&lt;h3 id="配置">配置&lt;/h3>
+&lt;ol>
+&lt;li>Proxy -&amp;gt; Proxy Settings (根据需要调整配置，保存)；&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>注&lt;/strong>: 如果仅需要抓取http包，请略过后续步骤。&lt;/p>
+&lt;ol start="2">
+&lt;li>Proxy -&amp;gt; SSL Proxying Settings&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89494735-67614080-d7e9-11ea-877e-a642bec7ed66.png" alt="image">&lt;/p>
+&lt;ol start="3">
+&lt;li>电脑端安装证书 Help -&amp;gt; SSL Proxying -&amp;gt; Install Charles Root Certificate，并将证书标记为始终信任&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89494759-75af5c80-d7e9-11ea-94c2-d711e086ecd5.png" alt="image">&lt;/p></description></item></channel></rss>

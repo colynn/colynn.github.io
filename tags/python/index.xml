@@ -1,1 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>python on Colynn.Liu</title><link>https://colynn.github.io/tags/python/</link><description>Recent content in python on Colynn.Liu</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 26 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>VSCode 开发环境设置(go python)</title><link>https://colynn.github.io/2019-09-26-vscode_env_setting/</link><pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-26-vscode_env_setting/</guid><description>运行环境 Mac OS 10.13.6 VS code 1.31.1 快捷键 解读 General Command + Shift + p, F1 显示命令面板 Command + p 快速打开 Command + Shite + N 新建vscode 窗口 Integrated Terminal Ctrl + ` 显示或隐藏集成终端； Ctrl + Shift + `</description></item><item><title>python 语法汇总</title><link>https://colynn.github.io/2019-07-26-basic_knowledge_summarizing/</link><pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-07-26-basic_knowledge_summarizing/</guid><description>列表与元组的区别； 语法差异：声名方式不同 第一个不同点是元组的声明使用小括号，而列表使用方括号，当声明只有一个元素的元组时，需要在这个元素的后</description></item><item><title>PyCharm 开发环境设置</title><link>https://colynn.github.io/2019-09-26-pycharm_env_setting/</link><pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-26-pycharm_env_setting/</guid><description>运行环境 Mac OS 10.13.6 PyCharm 2018.1 确认代码检查规范 当前文件-快速格式化代码 (option + command + l) 代码注释方式 - 支持 google/ reStructuredText 等 定义-文件/代码模板</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Colynn.Liu</title><link>https://colynn.github.io/tags/python/</link><description>Recent content in Python on Colynn.Liu</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Thu, 15 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://colynn.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>VSCode 开发环境设置(go python)</title><link>https://colynn.github.io/2019-09-26-vscode_env_setting/</link><pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-26-vscode_env_setting/</guid><description>&lt;h1 id="运行环境">运行环境&lt;/h1>
+&lt;ul>
+&lt;li>Mac OS 10.13.6&lt;/li>
+&lt;li>VS code 1.31.1&lt;/li>
+&lt;/ul>
+&lt;h1 id="快捷键">快捷键&lt;/h1>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89495603-34b84780-d7eb-11ea-94b5-d48d3480b679.png" alt="image">&lt;/p>
+&lt;h2 id="解读">解读&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>General&lt;/p>
+&lt;ul>
+&lt;li>Command + Shift + p, F1 显示命令面板&lt;/li>
+&lt;li>Command + p 快速打开&lt;/li>
+&lt;li>Command + Shite + N 新建vscode 窗口&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Integrated Terminal&lt;/p>
+&lt;ul>
+&lt;li>Ctrl + ` 显示或隐藏集成终端；&lt;/li>
+&lt;li>Ctrl + Shift + ` 新建终端；&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>navigation&lt;/p></description></item><item><title>python 语法汇总</title><link>https://colynn.github.io/2019-07-26-basic_knowledge_summarizing/</link><pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-07-26-basic_knowledge_summarizing/</guid><description>&lt;h3 id="列表与元组的区别">列表与元组的区别；&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>语法差异：声名方式不同&lt;/strong> 第一个不同点是元组的声明使用小括号，而列表使用方括号，当声明只有一个元素的元组时，需要在这个元素的后面添加英文逗号；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>不可修改类型&lt;/strong> 第二个不同点是元组声明和赋值后，不能像列表一样添加、删除和修改元素，也就是说元组在程序运行过程中不能被修改,无法复制。&lt;/p></description></item><item><title>PyCharm 开发环境设置</title><link>https://colynn.github.io/2019-09-26-pycharm_env_setting/</link><pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate><guid>https://colynn.github.io/2019-09-26-pycharm_env_setting/</guid><description>&lt;h2 id="运行环境">运行环境&lt;/h2>
+&lt;ul>
+&lt;li>Mac OS 10.13.6&lt;/li>
+&lt;li>PyCharm 2018.1&lt;/li>
+&lt;/ul>
+&lt;h3 id="确认代码检查规范">确认代码检查规范&lt;/h3>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89404105-059ec900-d74c-11ea-8998-3d71a7cb8cdc.png" alt="image">&lt;/p>
+&lt;h3 id="当前文件-快速格式化代码--option--command--l">当前文件-快速格式化代码 (option + command + l)&lt;/h3>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89410539-7a770080-d756-11ea-9b42-b955c02185a9.png" alt="image">&lt;/p>
+&lt;h3 id="代码注释方式---支持-google-restructuredtext-等">代码注释方式 - 支持 google/ reStructuredText 等&lt;/h3>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89410596-97abcf00-d756-11ea-9348-e4a82cb59521.png" alt="image">&lt;/p>
+&lt;h3 id="定义-文件代码模板">定义-文件/代码模板&lt;/h3>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/5203608/89410646-b4480700-d756-11ea-8fec-a49d70766852.png" alt="image">&lt;/p></description></item></channel></rss>
