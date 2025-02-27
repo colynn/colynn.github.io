@@ -3,7 +3,7 @@ title = "Colynn.Liu"
 theme = "LeaveIt"
 languageCode = "zh-CN"
 
-paginate = 10000
+pagination.pagerSize = 10000
 
 enableEmoji = true
 hasCJKLanguage = true

@@ -7,16 +7,27 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.119.0'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+        
       - name: Publish Site
-        uses: chabad360/hugo-gh-pages@master
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          githubToken: ${{ secrets.COLYNN_GITHUB_IO }}
-          branch: gh-pages
-          hugoVersion: extended_0.74.3
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
