@@ -1,7 +1,7 @@
 ---
 title: Go Mod 包管理 & gRPC、Protobuf扫盲
 categories: []
-tags: ["go", "go mod"]
+tags: ["go", "go mod", "grpc", "protoc"]
 date: 2019-08-15
 lastmod: 2025-02-25
 ---
@@ -324,6 +324,7 @@ protoc -I $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.16.0/third_p
        -I $GOPATH/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.6.7/validate \
        -I $proto_package \
        --proto_path=$proto_package "$protofile" \
+       --go_out=paths=source_relative:"$pb_go_package" \
        --go-grpc_out=paths=source_relative:$pb_go_package \
        --grpc-gateway_out=logtostderr=true:allow_delete_body=true,paths=source_relative:$pb_go_package \
        --swagger_out=logtostderr=true:$swagger_package
@@ -336,8 +337,10 @@ protoc -I $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.16.0/third_p
 protoc  -I$GOPATH/src/github.com/googleapis/googleapis \
     -I$(go env GOPATH)/pkg/mod/github.com/envoyproxy/protoc-gen-validate@0.6.7/validate \
     -I $proto_package \
+    --go_out=paths=source_relative:"$pb_go_package" \
     --go-grpc_out=paths=source_relative:$pb_go_package \
     --grpc-gateway_out=logtostderr=true,allow_delete_body=true,paths=source_relative:$pb_go_package \
+    --grpc-gateway_opt=logtostderr=true,allow_delete_body=true \
     --openapiv2_out=logtostderr=true:$swagger_package
 ```
 
